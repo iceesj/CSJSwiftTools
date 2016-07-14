@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B9EFB2D1D37280200707C7C /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EFB2C1D37280200707C7C /* ViewController2.swift */; };
+		7B9EFB311D3737EF00707C7C /* CSJSTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EFB301D3737EF00707C7C /* CSJSTViewController.swift */; };
+		7B9EFB331D37754E00707C7C /* CSJSTNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EFB321D37754E00707C7C /* CSJSTNavViewController.swift */; };
 		7BAB8F531D2F840D00A767C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAB8F521D2F840D00A767C8 /* AppDelegate.swift */; };
 		7BAB8F551D2F840D00A767C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAB8F541D2F840D00A767C8 /* ViewController.swift */; };
 		7BAB8F581D2F840D00A767C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BAB8F561D2F840D00A767C8 /* Main.storyboard */; };
@@ -52,6 +55,9 @@
 
 /* Begin PBXFileReference section */
 		375F2ACE2794B81F5FFA8511 /* Pods-CSJSwiftToolsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSJSwiftToolsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CSJSwiftToolsDemo/Pods-CSJSwiftToolsDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		7B9EFB2C1D37280200707C7C /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		7B9EFB301D3737EF00707C7C /* CSJSTViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSJSTViewController.swift; sourceTree = "<group>"; };
+		7B9EFB321D37754E00707C7C /* CSJSTNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSJSTNavViewController.swift; sourceTree = "<group>"; };
 		7BAB8F4F1D2F840D00A767C8 /* CSJSwiftToolsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSJSwiftToolsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BAB8F521D2F840D00A767C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BAB8F541D2F840D00A767C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +153,7 @@
 			children = (
 				7BAB8F521D2F840D00A767C8 /* AppDelegate.swift */,
 				7BAB8F541D2F840D00A767C8 /* ViewController.swift */,
+				7B9EFB2C1D37280200707C7C /* ViewController2.swift */,
 				7BAB8F561D2F840D00A767C8 /* Main.storyboard */,
 				7BAB8F591D2F840D00A767C8 /* Assets.xcassets */,
 				7BAB8F5B1D2F840D00A767C8 /* LaunchScreen.storyboard */,
@@ -192,6 +199,8 @@
 				7BAB8FA01D333CEC00A767C8 /* CSJST+UIView.swift */,
 				7BAB8FA21D33472500A767C8 /* CSJST+UIWebView.swift */,
 				7BAB8FA41D334ADC00A767C8 /* CSJSTLocationManager.swift */,
+				7B9EFB301D3737EF00707C7C /* CSJSTViewController.swift */,
+				7B9EFB321D37754E00707C7C /* CSJSTNavViewController.swift */,
 			);
 			path = CSJSwiftTools;
 			sourceTree = "<group>";
@@ -393,10 +402,13 @@
 				7BAB8F8F1D2FA82A00A767C8 /* CSJSTCoreDataManager.swift in Sources */,
 				7BAB8F9B1D33328D00A767C8 /* CSJST+UIColor.swift in Sources */,
 				7BAB8F931D2FADA800A767C8 /* CSJST+Date.swift in Sources */,
+				7B9EFB331D37754E00707C7C /* CSJSTNavViewController.swift in Sources */,
+				7B9EFB311D3737EF00707C7C /* CSJSTViewController.swift in Sources */,
 				7BAB8F8B1D2FA5FD00A767C8 /* CSJST+UIStoryboard.swift in Sources */,
 				7BAB8F951D2FB34000A767C8 /* CSJSTContentManager.swift in Sources */,
 				7BAB8F9F1D33391900A767C8 /* CSJST+UILabel.swift in Sources */,
 				7BAB8FA11D333CEC00A767C8 /* CSJST+UIView.swift in Sources */,
+				7B9EFB2D1D37280200707C7C /* ViewController2.swift in Sources */,
 				7BAB8F971D332C7000A767C8 /* CSJST+UserDefaults.swift in Sources */,
 				7BAB8F8D1D2FA76100A767C8 /* CSJST+NSURL.swift in Sources */,
 				7BAB8FA51D334ADC00A767C8 /* CSJSTLocationManager.swift in Sources */,

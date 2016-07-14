@@ -13,11 +13,20 @@ public extension UIStoryboard{
     //用法：
     //        self.webNav = UIStoryboard.CSJST_initViewControllerWithIdentifier("AJMWebNavViewController") as! AJMWebNavViewController
     /*
-     storyboard简便标示
+     storyboard简便标示跳转
      */
     class func CSJST_initViewControllerWithIdentifier(identifier: String!) -> UIViewController? {
         guard let identifier = identifier else {return nil}
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        return storyboard.instantiateViewControllerWithIdentifier(identifier)
+    }
+    
+    /**
+     可填写storyboard名字的segue跳转
+     */
+    class func CSJST_initViewControllerWithIdentifier2(storyboardString : String ,identifier: String!) -> UIViewController? {
+        guard let identifier = identifier else {return nil}
+        let storyboard = UIStoryboard(name: storyboardString, bundle: nil)
         return storyboard.instantiateViewControllerWithIdentifier(identifier)
     }
 }

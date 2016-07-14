@@ -24,11 +24,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>KeychainAccess.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -97,6 +92,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0D701B63DD25FCCD50845854C14C38FA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>16FB872D0D2D4BA0F378AB34D47CF95F</key>
 		<dict>
 			<key>primary</key>
@@ -107,7 +107,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>33970614531988A8B95D5F64F76376DA</key>
+		<key>38259153FFED334AD30FB8DF322D0924</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,17 +122,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7878339125B7FD460A25B536C163E7B0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7AB45EBD53C4B8209086F372B67D8B9F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,17 +132,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>838A2C6DA366DE138E5FDF1AF19D94C0</key>
+		<key>850AE8A0E891A00C288E12F2C8C5074B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8E13DFF8A2091DF9665A145DFE159E74</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9AA93C713CBAD2915917A2A254EF9740</key>
+		<key>87A8FAB4ABB3D0C332D264FDFDDA2CC0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -162,12 +147,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A1AC5414FB114C0D26BA4E1E9AF05DA2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AB475661BA97E113709ED205D374F72E</key>
+		<key>CD7019BEFD4A45177E87D2287C206A68</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -182,7 +162,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EF0D7C4D667388BD02C365CA128AE1B1</key>
+		<key>ED1E87E93223396F76ADA8AABA7FCD3C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EF550CDE5E8EED83F7F76F38BBFA8979</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F2E833043B01A2B3D4440F5F4A827832</key>
 		<dict>
 			<key>primary</key>
 			<true/>

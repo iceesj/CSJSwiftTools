@@ -10,14 +10,27 @@ import UIKit
 import SwiftyJSON
 import MJExtension
 
-
+//主页
 class ViewController: UIViewController {
-
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.initCSJSTSetVC(.whiteColor(), bool: true, title: "item")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         //直接添加返回
 //        self.setupLeftBarButton()
+//        self.view.backgroundColor = .whiteColor()
+//        edgesForExtendedLayout = .None
+//        self.navigationItem.title = "item"
         
         
         //MARK:时间截取转换
@@ -43,15 +56,42 @@ class ViewController: UIViewController {
         let stringFENGGETest : String = CSJSwiftToolsDirector.sharedInstance.fengeStringCOMMON("你好~~再见", "~~").string2
         print("自定义截取字 = \(stringFENGGETest)")
         
+        self.csjst_nav右键文字("右键跳转")
+        self.csjst_nav左键文字("左键跳转")
         
-        self.view.backgroundColor = UIColor.init(hexString: "")
+        //csj点击
+        headerIMG.userInteractionEnabled = true
+        let thisViewTap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.headerIMGTap) )
+        headerIMG.addGestureRecognizer(thisViewTap)
+
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func headerIMGTap(){
+        print("点击")
     }
+    
 
+    override func csjst_右键文字(sender: UIBarButtonItem){
+//        if self.respondsToSelector(Selector("interactivePopGestureRecognizer")) {
+        print("self.navigationController = \(self.navigationController)")
+        print("123 = \(self.navigationController?.interactivePopGestureRecognizer?.enabled)")
+//        self.navigationController?.interactivePopGestureRecognizer?.enabled = false
+//        print("321 = \(self.navigationController?.interactivePopGestureRecognizer?.enabled)")
 
+//        }
+        
+        let vc2 = UIStoryboard.CSJST_initViewControllerWithIdentifier("ViewController2") as! ViewController2
+        self.navigationController?.pushViewController(vc2, animated: true)
+    }
+    
+    
+    override func csjst_左键文字(sender: UIBarButtonItem){
+        
+    }
 }
+
+
+
+
+
 
