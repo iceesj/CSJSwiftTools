@@ -10,6 +10,7 @@ pod 'MGSwipeTableCell'
 pod 'SVProgressHUD'
 pod 'MBProgressHUD', '~> 0.9'
 pod 'SDCycleScrollView', '~> 1.3'
+pod 'FDStackView'
 
 # Modal related
 pod 'MagicalRecord'

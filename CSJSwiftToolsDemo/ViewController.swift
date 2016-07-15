@@ -63,7 +63,8 @@ class ViewController: UIViewController {
         headerIMG.userInteractionEnabled = true
         let thisViewTap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.headerIMGTap) )
         headerIMG.addGestureRecognizer(thisViewTap)
-
+        
+        
     }
     
     func headerIMGTap(){
@@ -73,20 +74,19 @@ class ViewController: UIViewController {
 
     override func csjst_右键文字(sender: UIBarButtonItem){
 //        if self.respondsToSelector(Selector("interactivePopGestureRecognizer")) {
-        print("self.navigationController = \(self.navigationController)")
-        print("123 = \(self.navigationController?.interactivePopGestureRecognizer?.enabled)")
+//        print("self.navigationController = \(self.navigationController)")
+//        print("123 = \(self.navigationController?.interactivePopGestureRecognizer?.enabled)")
 //        self.navigationController?.interactivePopGestureRecognizer?.enabled = false
 //        print("321 = \(self.navigationController?.interactivePopGestureRecognizer?.enabled)")
-
 //        }
-        
         let vc2 = UIStoryboard.CSJST_initViewControllerWithIdentifier("ViewController2") as! ViewController2
         self.navigationController?.pushViewController(vc2, animated: true)
     }
     
     
     override func csjst_左键文字(sender: UIBarButtonItem){
-        
+        let vcLeft = UIStoryboard.CSJST_initViewControllerWithIdentifier("ViewControllerLeft") as! ViewControllerLeft
+        self.navigationController?.pushViewController(vcLeft, animated: true)
     }
 }
 

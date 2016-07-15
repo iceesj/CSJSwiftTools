@@ -4,6 +4,7 @@ PODS:
     - ChameleonFramework/Default (= 2.1.0)
   - ChameleonFramework/Default (2.1.0)
   - DZNEmptyDataSet (1.8.1)
+  - FDStackView (1.0)
   - JLRoutes (1.6)
   - MagicalRecord (2.3.2):
     - MagicalRecord/Core (= 2.3.2)
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - Alamofire
   - ChameleonFramework
   - DZNEmptyDataSet
+  - FDStackView
   - JLRoutes
   - MagicalRecord
   - MBProgressHUD (~> 0.9)
@@ -54,6 +56,7 @@ SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  FDStackView: 3a4bbe0ce9c35e974246a585168b9da8c32213f1
   JLRoutes: 435d791422e96c9b9b5e1c4db1aedb3ae1b1a08f
   MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
@@ -68,6 +71,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: b20f266988b0946292f64843468d9052a2e7102f
+PODFILE CHECKSUM: 041175ceeb6d5ef84b538798fa68b3842cb820aa
 
 COCOAPODS: 1.0.1
