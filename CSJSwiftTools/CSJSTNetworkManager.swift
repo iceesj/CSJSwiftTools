@@ -201,6 +201,40 @@ extension CSJSTNetworkManager{
     }
     
     
+    func sendRequest() {
+        /**
+         微信支付宝信息获取接口
+         POST http://139.196.240.36:8080/api-front/payment/update-channel
+         */
+        
+        // Add Headers
+        let headers = [
+            "Content-Type":"application/x-www-form-urlencoded; charset=utf-8",
+            ]
+        
+        // Form URL-Encoded Body
+        let body = [
+            "tradeId":"20160623142414796650971207862444",
+            "device":"pc",
+            "sessionId":"b3c8e4bd-dd36-4fbb-985d-c61b48e6be2d",
+            "channel":"WECHAT_APP",
+            "version":"1.0.0",
+            ]
+        
+        // Fetch Request
+        Alamofire.request(.POST, "http://139.196.240.36:8080/api-front/payment/update-channel", headers: headers, parameters: body, encoding: .URL)
+            .validate(statusCode: 200..<300)
+            .responseJSON { response in
+                if (response.result.error == nil) {
+                    debugPrint("HTTP Response Body: \(response.data)")
+                }
+                else {
+                    debugPrint("HTTP Request failed: \(response.result.error)")
+                }
+        }
+    }
+
+    
     
 }
 

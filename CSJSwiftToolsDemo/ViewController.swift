@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.initCSJSTSetVC(.whiteColor(), bool: true, title: "item")
+        self.initCSJSTSetVC(.whiteColor(), bool: true, title: "界面一")
     }
     
     override func viewDidLoad() {
@@ -58,7 +58,7 @@ class ViewController: UIViewController {
         print("自定义截取字 = \(stringFENGGETest)")
         
         self.csjst_nav右键文字("右键跳转")
-        self.csjst_nav左键文字("左键跳转")
+        self.csjst_nav左键文字("警告窗口")
         
         //csj点击
         headerIMG.userInteractionEnabled = true
@@ -67,6 +67,8 @@ class ViewController: UIViewController {
         
         
         self.requestOne()
+        
+        
     }
     
     func headerIMGTap(){
@@ -88,7 +90,10 @@ class ViewController: UIViewController {
     
     override func csjst_左键文字(sender: UIBarButtonItem){
         let vcLeft = UIStoryboard.CSJST_initViewControllerWithIdentifier("ViewControllerLeft") as! ViewControllerLeft
+        vcLeft.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vcLeft, animated: true)
+        
+        
     }
     
     func requestOne() {

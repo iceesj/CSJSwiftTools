@@ -20,12 +20,36 @@ class ViewControllerLeft: UIViewController {
 
         // Do any additional setup after loading the view.
         self.setupLeftBarButton()
-        self.initCSJSTSetVC(.whiteColor(), bool: true, title: "Left界面")
+        self.initCSJSTSetVC(.whiteColor(), bool: true, title: "左边界面")
         
         
     }
 
+    @IBAction func alertViewQueding(sender: AnyObject) {
+        CSJSwiftToolsDirector.sharedInstance.ui_showAlert确定View("单个确定", message: "")
+    }
+    
+    
+    @IBAction func alertViewTwo(sender: AnyObject) {
+        CSJSwiftToolsDirector.sharedInstance.ui_showAlertVC(self, title: "nicai", message: "",block: { (quedingString) in
+            print("确定按钮 返回作用")
+            self.navigationController?.popViewControllerAnimated(true)
+        }) { (quxiaoString) in
+            print("取消按钮 无作用")
+        }
+    }
+    
+    @IBAction func actionSheet(sender: AnyObject) {
+        CSJSwiftToolsDirector.sharedInstance.ui_showActionSheet(self, title: "nicai2", message: "", block: { (quedingString) in
+            print("确定按钮")
+            CSJSwiftToolsDirector.sharedInstance.ui_showAlert确定View("点击了确定", message: "")
+        }) { (quxiaoString) in
+            print("取消按钮")
+        }
+    }
     
 
-
 }
+
+
+

@@ -136,6 +136,46 @@ class CSJSwiftToolsDirector: NSObject {
     }
     
     
+    /**
+     展示一个只有确定的警告框
+     */
+    func ui_showAlert确定View(title:String,message:String){
+        let alert = UIAlertView()
+        alert.title = title
+        alert.message = message
+        alert.addButtonWithTitle("确定")
+        alert.show()
+    }
+    
+    /**自定义Alert*/
+    func ui_showAlertVC(vc: UIViewController, title : String, message : String,block:((quedingString: String?) -> Void)? , block2:((quxiaoString: String?) -> Void)? ) {
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(title: "确定",style: .Default, handler: { action in
+            print("你猜 确定")
+            block?(quedingString: "确定")
+        }))
+        alertController.addAction(UIAlertAction(title: "取消",style: .Cancel, handler: { action in
+            print("你猜 取消")
+            block2?(quxiaoString: "取消")
+        }))
+        vc.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func ui_showActionSheet(vc: UIViewController, title: String, message: String, block:((quedingString: String?) -> Void)? , block2:((quxiaoString: String?) -> Void)? ) {
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .ActionSheet)
+        alertController.addAction(UIAlertAction(title: "确定",style: .Default, handler: { action in
+            print("你猜 确定")
+            block?(quedingString: "确定")
+        }))
+        alertController.addAction(UIAlertAction(title: "取消",style: .Cancel, handler: { action in
+            print("你猜 取消")
+            block2?(quxiaoString: "取消")
+        }))
+        vc.presentViewController(alertController, animated: true, completion: nil)
+        
+    }
     
 }
 
