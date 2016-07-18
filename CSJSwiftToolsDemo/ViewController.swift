@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyJSON
 import MJExtension
+import Alamofire
 
 //主页
 class ViewController: UIViewController {
@@ -65,6 +66,7 @@ class ViewController: UIViewController {
         headerIMG.addGestureRecognizer(thisViewTap)
         
         
+        self.requestOne()
     }
     
     func headerIMGTap(){
@@ -88,6 +90,27 @@ class ViewController: UIViewController {
         let vcLeft = UIStoryboard.CSJST_initViewControllerWithIdentifier("ViewControllerLeft") as! ViewControllerLeft
         self.navigationController?.pushViewController(vcLeft, animated: true)
     }
+    
+    func requestOne() {
+        let parameters = ["phone":"13611111111","messageNumber":"123456"]
+        CSJSTNetworkManager.sharedInstance.loginMima(parameters) { (json, error) in
+            dispatch_async(dispatch_get_main_queue()) {
+                if error == nil, let json = json {
+                    print("json = \(json)")
+                    
+                }
+                else{
+                    print("Login failed: \(json) \(error)")
+                }
+            }
+            
+        }
+        
+    }
+    
+    
+    
+    
 }
 
 

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7B418F3E1D378E5000BD3FDD /* ViewControllerLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B418F3D1D378E5000BD3FDD /* ViewControllerLeft.swift */; };
 		7B418F401D378FB200BD3FDD /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B418F3F1D378FB200BD3FDD /* SecondViewController.swift */; };
+		7B418F421D38C28100BD3FDD /* CSJSTNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B418F411D38C28100BD3FDD /* CSJSTNetworkManager.swift */; };
 		7B9EFB2D1D37280200707C7C /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EFB2C1D37280200707C7C /* ViewController2.swift */; };
 		7B9EFB311D3737EF00707C7C /* CSJSTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EFB301D3737EF00707C7C /* CSJSTViewController.swift */; };
 		7B9EFB331D37754E00707C7C /* CSJSTNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EFB321D37754E00707C7C /* CSJSTNavViewController.swift */; };
@@ -59,6 +60,7 @@
 		375F2ACE2794B81F5FFA8511 /* Pods-CSJSwiftToolsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSJSwiftToolsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CSJSwiftToolsDemo/Pods-CSJSwiftToolsDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		7B418F3D1D378E5000BD3FDD /* ViewControllerLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerLeft.swift; sourceTree = "<group>"; };
 		7B418F3F1D378FB200BD3FDD /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		7B418F411D38C28100BD3FDD /* CSJSTNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSJSTNetworkManager.swift; sourceTree = "<group>"; };
 		7B9EFB2C1D37280200707C7C /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		7B9EFB301D3737EF00707C7C /* CSJSTViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSJSTViewController.swift; sourceTree = "<group>"; };
 		7B9EFB321D37754E00707C7C /* CSJSTNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSJSTNavViewController.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				7BAB8FA41D334ADC00A767C8 /* CSJSTLocationManager.swift */,
 				7B9EFB301D3737EF00707C7C /* CSJSTViewController.swift */,
 				7B9EFB321D37754E00707C7C /* CSJSTNavViewController.swift */,
+				7B418F411D38C28100BD3FDD /* CSJSTNetworkManager.swift */,
 			);
 			path = CSJSwiftTools;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B418F421D38C28100BD3FDD /* CSJSTNetworkManager.swift in Sources */,
 				7BAB8FA31D33472500A767C8 /* CSJST+UIWebView.swift in Sources */,
 				7BAB8F871D2FA3CE00A767C8 /* CSJST+NSDictionary.swift in Sources */,
 				7BAB8F891D2FA52100A767C8 /* CSJST+UIViewController.swift in Sources */,

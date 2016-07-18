@@ -1,0 +1,221 @@
+//
+//  CSJSTNetworkManager.swift
+//  CSJSwiftToolsDemo
+//
+//  Created by tom on 16/7/15.
+//  Copyright © 2016年 caoshengjie. All rights reserved.
+//
+
+import UIKit
+import Alamofire
+import SwiftyJSON
+
+typealias NetworkCallbackBlock = (JSON?, NetworkErrorType?) -> Void
+
+enum NetworkErrorType: ErrorType, CustomStringConvertible {
+    
+    case NetworkUnreachable(String) // Timeout or Unreachable
+    case NetworkUnauthenticated(String) // 401 or 403
+    case NetworkServerError(String) // 5XX
+    case NetworkForbiddenAccess(String) // 400 or 404
+    case NetworkWrongParameter(String) // 422
+    
+    init(stringLiteral value: StringLiteralType) {
+        switch value {
+        case "NetworkUnreachable":
+            self = .NetworkUnreachable(value)
+        case "NetworkUnauthenticated":
+            self = .NetworkUnauthenticated(value)
+        case "NetworkServerError":
+            self = .NetworkServerError(value)
+        case "NetworkWrongParameter":
+            self = .NetworkWrongParameter(value)
+        default:
+            self = .NetworkForbiddenAccess(value)
+        }
+    }
+    
+    var description: String {
+        get {
+            switch self {
+            case .NetworkUnreachable(_):
+                return "Timeout or Unreachable"
+//                return message
+            case .NetworkUnauthenticated(let message):
+                return message
+            case .NetworkServerError(let message):
+                return message
+            case .NetworkForbiddenAccess(let message):
+                return message
+            case .NetworkWrongParameter(let message):
+                return message
+            }
+        }
+    }
+}
+
+class CSJSTNetworkManager: NSObject {
+    
+    static let sharedInstance = CSJSTNetworkManager()
+    
+    private struct Constants {
+        static let LoginMima              = "LoginMima"
+        
+    }
+    
+    private static var PendingOpDict = [String : (Request, NSDate)]()
+    
+    /**
+     Execute the network request
+     
+     - parameter key:      unique string in caching dictionary
+     - parameter request:  request (or value) in caching dictionary
+     - parameter callback: a block executed when network request finished
+     */
+    private class func executeRequestWithKey(key: String, request: Request, callback: NetworkCallbackBlock) {
+        print("网络请求 = \(key)")
+        // Add a new item in the caching dictionary
+        PendingOpDict[key] = (request, NSDate())
+        // Executing request
+        request.responseJSON { (response) in
+            let (response, result) = (response.response, response.result)
+            let statusCode = response?.statusCode ?? 404
+            
+            var json: JSON?
+            var error: NetworkErrorType?
+            //            print("error = \(error)")
+            // Remove the item the caching dictionary
+            PendingOpDict.removeValueForKey(key)
+            //jsonmessage
+            //            let message = JSON(result.value!)["statusMessage"].string
+            //            print("message = \(message)")
+            // Deal with statusCode and JSON from server
+            if case (200..<300) = statusCode {
+                print("error all = \(statusCode)")
+                let value = result.value ?? NSData()
+                if JSON(value)["statusCode"].string == "0" {
+                    json = {
+                        var json = JSON(value)
+                        json["token"].string = response?.allHeaderFields["token"] as? String
+                        return json
+                    }()
+                } else {
+                    error = NetworkErrorType(stringLiteral: JSON(value)["statusMessage"].stringValue)
+                }
+            } else {
+                if result.isFailure {
+                    error = NetworkErrorType.NetworkUnreachable("\(result.error)")
+                } else if let value = result.value {
+                    let message = JSON(value)["statusMessage"].string
+                    
+                    if statusCode == 403 || statusCode == 401 {
+                        error = NetworkErrorType.NetworkUnauthenticated(message ?? "Unauthenticated access \(statusCode)")
+                    } else if statusCode == 400 || statusCode == 404 {
+                        error = NetworkErrorType.NetworkForbiddenAccess(message ?? "Bad request \(statusCode)")
+                    } else if case(400..<500) = statusCode {
+                        error = NetworkErrorType.NetworkWrongParameter(message ?? "Wrong parameters \(statusCode)")
+                    } else if case(500...505) = statusCode {
+                        //                        error = NetworkErrorType.NetworkServerError(message ?? "Server error \(statusCode)")
+                        
+                        error = NetworkErrorType.NetworkServerError("网络连接失败")
+                    }
+                }
+            }
+            // execute the block
+            callback(json, error)
+        }
+    }
+    
+    // Default network manager, timeout set to 10s
+    private static let Manager: Alamofire.Manager = {
+        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        configuration.timeoutIntervalForRequest = 10.0
+        return Alamofire.Manager(configuration: configuration, serverTrustPolicyManager: nil)
+    }()
+    
+    
+    class func existPendingOperation(key: String) -> Bool {
+        return PendingOpDict[key] != nil
+    }
+}
+
+
+extension CSJSTNetworkManager{
+    enum Router: URLRequestConvertible {
+//        static let baseURLString = ""
+        static let baseURLString = ""
+        static var OAuthToken: String?
+        
+        //    case LoginMima(String, String, String)
+        case LoginMima([String: AnyObject])
+        
+        var method: Alamofire.Method {
+            switch self {
+            case .LoginMima:
+                return .POST
+            }
+        }
+        
+        var path: String {
+            switch self {
+            case .LoginMima:
+                return "/user/login"
+            }
+        }
+        
+        // MARK: URLRequestConvertible
+        
+        var URLRequest: NSMutableURLRequest {
+//            (inout parameters: [String: AnyObject]) in
+            let URL = NSURL(string: Router.baseURLString)!
+            let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path))
+            mutableURLRequest.HTTPMethod = method.rawValue
+            
+            if let token = Router.OAuthToken {
+                mutableURLRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            }
+            
+            switch self {
+            case .LoginMima(let parameters):
+                return ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
+                
+                /*
+                 case .CreateUser(let parameters):
+                 return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
+                 case .UpdateUser(_, let parameters):
+                 return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
+                 */
+                //        default:
+                //            return mutableURLRequest
+            }
+        }
+        
+    }
+    
+    func loginMima(let parameters: [String : AnyObject],callback : NetworkCallbackBlock){
+        guard !CSJSTNetworkManager.existPendingOperation(Constants.LoginMima) else {
+            return
+        }
+        let request = CSJSTNetworkManager.Manager.request(Router.LoginMima(parameters))
+        CSJSTNetworkManager.executeRequestWithKey(Constants.LoginMima, request: request, callback: callback)
+    }
+    
+    
+    
+}
+
+
+
+
+
+/**
+ let parameters = [
+ "foo": "bar",
+ "baz": ["a", 1],
+ "qux": [
+ "x": 1,
+ "y": 2,
+ "z": 3
+ ]
+ ]
+ */
