@@ -105,19 +105,19 @@ class CSJSTNetworkManager: NSObject {
             } else {
                 if result.isFailure {
                     error = NetworkErrorType.NetworkUnreachable("\(result.error)")
-                } else if let value = result.value {
+                }
+                else if let value = result.value {
                     let message = JSON(value)["statusMessage"].string
                     
                     if statusCode == 403 || statusCode == 401 {
-                        error = NetworkErrorType.NetworkUnauthenticated(message ?? "Unauthenticated access \(statusCode)")
+                        error = NetworkErrorType.NetworkUnauthenticated(message ?? "Unauthenticated access statusCode = \(statusCode)")
                     } else if statusCode == 400 || statusCode == 404 {
-                        error = NetworkErrorType.NetworkForbiddenAccess(message ?? "Bad request \(statusCode)")
+                        error = NetworkErrorType.NetworkForbiddenAccess(message ?? "Bad request statusCode = \(statusCode)")
                     } else if case(400..<500) = statusCode {
-                        error = NetworkErrorType.NetworkWrongParameter(message ?? "Wrong parameters \(statusCode)")
+                        error = NetworkErrorType.NetworkWrongParameter(message ?? "Wrong parameters statusCode = \(statusCode)")
                     } else if case(500...505) = statusCode {
-                        //                        error = NetworkErrorType.NetworkServerError(message ?? "Server error \(statusCode)")
-                        
-                        error = NetworkErrorType.NetworkServerError("网络连接失败")
+//                        error = NetworkErrorType.NetworkServerError(message ?? "Server error \(statusCode)")
+                        error = NetworkErrorType.NetworkServerError("statusCode = \(statusCode),网络连接失败")
                     }
                 }
             }
@@ -192,6 +192,10 @@ extension CSJSTNetworkManager{
         
     }
     
+    
+    /**
+     发起一个POST请求，Body是JSON形式的
+     */
     func loginMima(let parameters: [String : AnyObject],callback : NetworkCallbackBlock){
         guard !CSJSTNetworkManager.existPendingOperation(Constants.LoginMima) else {
             return
@@ -201,36 +205,119 @@ extension CSJSTNetworkManager{
     }
     
     
-    func sendRequest() {
+    
+    func sendRequest_JSON(let body:[String : AnyObject], callback : NetworkCallbackBlock) {
+        // Add Headers
+        let headers = [
+            "Content-Type":"application/json",
+            ]
+        
+        // JSON Body
+        
+        // Fetch Request
+        Alamofire.request(.POST, "\(Router.baseURLString)/user/login", headers: headers, parameters: body, encoding: .JSON)
+            .validate(statusCode: 200..<300)
+            .responseJSON { response in
+                let (response, result, data) = (response.response, response.result, response.data)
+                var json: JSON?
+                var error: NetworkErrorType?
+                let statusCode = response?.statusCode ?? 404
+                
+                if (result.error == nil) {
+                    let value = result.value ?? NSData()
+                    print("response.response = \(response)")
+                    json = JSON(value)
+                    
+                    debugPrint("HTTP Response Body: \(data)")
+                }
+                else {
+                    if result.isFailure {
+                        error = NetworkErrorType.NetworkUnreachable("\(result.error)")
+                    }
+                    else if let value = result.value {
+                        let message = JSON(value)["statusMessage"].string
+                        
+                        if statusCode == 403 || statusCode == 401 {
+                            error = NetworkErrorType.NetworkUnauthenticated(message ?? "Unauthenticated access statusCode = \(statusCode)")
+                        } else if statusCode == 400 || statusCode == 404 {
+                            error = NetworkErrorType.NetworkForbiddenAccess(message ?? "Bad request statusCode = \(statusCode)")
+                        } else if case(400..<500) = statusCode {
+                            error = NetworkErrorType.NetworkWrongParameter(message ?? "Wrong parameters statusCode = \(statusCode)")
+                        } else if case(500...505) = statusCode {
+                            //                        error = NetworkErrorType.NetworkServerError(message ?? "Server error \(statusCode)")
+                            error = NetworkErrorType.NetworkServerError("statusCode = \(statusCode),网络连接失败")
+                        }
+                    }
+                    
+                    debugPrint("HTTP Request failed: \(result.error)")
+                }
+                
+                callback(json, error)
+        }
+    }
+    
+    
+    /**
+     发起一个POST请求，Body是Form URL-Encoded形式的
+     */
+    func sendRequest(let body:[String : AnyObject], callback : NetworkCallbackBlock) {
         /**
          微信支付宝信息获取接口
          POST http://139.196.240.36:8080/api-front/payment/update-channel
          */
-        
         // Add Headers
         let headers = [
             "Content-Type":"application/x-www-form-urlencoded; charset=utf-8",
             ]
-        
         // Form URL-Encoded Body
-        let body = [
-            "tradeId":"20160623142414796650971207862444",
-            "device":"pc",
-            "sessionId":"b3c8e4bd-dd36-4fbb-985d-c61b48e6be2d",
-            "channel":"WECHAT_APP",
-            "version":"1.0.0",
-            ]
         
         // Fetch Request
-        Alamofire.request(.POST, "http://139.196.240.36:8080/api-front/payment/update-channel", headers: headers, parameters: body, encoding: .URL)
+        Alamofire.request(.POST, "\(Router.baseURLString)/api-front/payment/update-channel", headers: headers, parameters: body, encoding: .URL)
             .validate(statusCode: 200..<300)
             .responseJSON { response in
-                if (response.result.error == nil) {
-                    debugPrint("HTTP Response Body: \(response.data)")
+                let (response, result, data) = (response.response, response.result, response.data)
+                var json: JSON?
+                var error: NetworkErrorType?
+                let statusCode = response?.statusCode ?? 404
+                
+                if (result.error == nil) {
+                    let value = result.value ?? NSData()
+                    print("response.response = \(response)")
+//                    if JSON(value)["statusCode"].string == "0" {
+                        json = JSON(value)
+//                        json = {
+//                            var json = JSON(value)
+//                            json["token"].string = response?.allHeaderFields["token"] as? String
+//                            return json
+//                        }()
+//                    } else {
+//                        error = NetworkErrorType(stringLiteral: JSON(value)["statusMessage"].stringValue)
+//                    }
+                    debugPrint("HTTP Response Body: \(data)")
                 }
                 else {
-                    debugPrint("HTTP Request failed: \(response.result.error)")
+                    if result.isFailure {
+                        error = NetworkErrorType.NetworkUnreachable("\(result.error)")
+                    }
+                    else if let value = result.value {
+                        let message = JSON(value)["statusMessage"].string
+                        
+                        if statusCode == 403 || statusCode == 401 {
+                            error = NetworkErrorType.NetworkUnauthenticated(message ?? "Unauthenticated access statusCode = \(statusCode)")
+                        } else if statusCode == 400 || statusCode == 404 {
+                            error = NetworkErrorType.NetworkForbiddenAccess(message ?? "Bad request statusCode = \(statusCode)")
+                        } else if case(400..<500) = statusCode {
+                            error = NetworkErrorType.NetworkWrongParameter(message ?? "Wrong parameters statusCode = \(statusCode)")
+                        } else if case(500...505) = statusCode {
+                            //                        error = NetworkErrorType.NetworkServerError(message ?? "Server error \(statusCode)")
+                            error = NetworkErrorType.NetworkServerError("statusCode = \(statusCode),网络连接失败")
+                        }
+                    }
+                    
+                    debugPrint("HTTP Request failed: \(result.error)")
                 }
+                
+                callback(json, error)
         }
     }
 

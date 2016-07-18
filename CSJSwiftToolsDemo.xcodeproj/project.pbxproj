@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B292BAE1D3CD0C700FABC6A /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B292BAD1D3CD0C700FABC6A /* ThirdViewController.swift */; };
 		7B418F3E1D378E5000BD3FDD /* ViewControllerLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B418F3D1D378E5000BD3FDD /* ViewControllerLeft.swift */; };
 		7B418F401D378FB200BD3FDD /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B418F3F1D378FB200BD3FDD /* SecondViewController.swift */; };
 		7B418F421D38C28100BD3FDD /* CSJSTNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B418F411D38C28100BD3FDD /* CSJSTNetworkManager.swift */; };
@@ -58,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		375F2ACE2794B81F5FFA8511 /* Pods-CSJSwiftToolsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSJSwiftToolsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CSJSwiftToolsDemo/Pods-CSJSwiftToolsDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		7B292BAD1D3CD0C700FABC6A /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		7B418F3D1D378E5000BD3FDD /* ViewControllerLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerLeft.swift; sourceTree = "<group>"; };
 		7B418F3F1D378FB200BD3FDD /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		7B418F411D38C28100BD3FDD /* CSJSTNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSJSTNetworkManager.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				7B9EFB2C1D37280200707C7C /* ViewController2.swift */,
 				7B418F3D1D378E5000BD3FDD /* ViewControllerLeft.swift */,
 				7B418F3F1D378FB200BD3FDD /* SecondViewController.swift */,
+				7B292BAD1D3CD0C700FABC6A /* ThirdViewController.swift */,
 				7BAB8F561D2F840D00A767C8 /* Main.storyboard */,
 				7BAB8F591D2F840D00A767C8 /* Assets.xcassets */,
 				7BAB8F5B1D2F840D00A767C8 /* LaunchScreen.storyboard */,
@@ -427,6 +430,7 @@
 				7BAB8F551D2F840D00A767C8 /* ViewController.swift in Sources */,
 				7BAB8F991D332F7600A767C8 /* CSJST+String.swift in Sources */,
 				7BAB8F9D1D33367B00A767C8 /* CSJST+UIImageView.swift in Sources */,
+				7B292BAE1D3CD0C700FABC6A /* ThirdViewController.swift in Sources */,
 				7BAB8F531D2F840D00A767C8 /* AppDelegate.swift in Sources */,
 				7B418F3E1D378E5000BD3FDD /* ViewControllerLeft.swift in Sources */,
 			);

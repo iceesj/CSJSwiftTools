@@ -66,8 +66,11 @@ class ViewController: UIViewController {
         headerIMG.addGestureRecognizer(thisViewTap)
         
         
-        self.requestOne()
+//        self.requestOne()
         
+//        self.requestFromData()
+        
+        self.requestJSON()
         
     }
     
@@ -97,7 +100,9 @@ class ViewController: UIViewController {
     }
     
     func requestOne() {
+        
         let parameters = ["phone":"13611111111","messageNumber":"123456"]
+        
         CSJSTNetworkManager.sharedInstance.loginMima(parameters) { (json, error) in
             dispatch_async(dispatch_get_main_queue()) {
                 if error == nil, let json = json {
@@ -113,6 +118,49 @@ class ViewController: UIViewController {
         
     }
     
+    
+    
+    func requestFromData() {
+        let body = [
+            "tradeId":"20160623142414796650971207862444",
+            "device":"pc",
+            "sessionId":"b3c8e4bd-dd36-4fbb-985d-c61b48e6be2d",
+            "channel":"WECHAT_APP",
+            "version":"1.0.0",
+            ]
+        
+        CSJSTNetworkManager.sharedInstance.sendRequest(body) { (json, error) in
+            dispatch_async(dispatch_get_main_queue()) {
+                if error == nil, let json = json {
+                    print("json = \(json)")
+                    
+                }
+                else{
+                    print("Login failed: \(json) \(error)")
+                }
+            }
+        }
+    }
+    
+    
+    func requestJSON() {
+        let body = [
+            "phone": "13611111111",
+            "messageNumber": "123456"
+        ]
+        
+        CSJSTNetworkManager.sharedInstance.sendRequest_JSON(body) { (json, error) in
+            dispatch_async(dispatch_get_main_queue()) {
+                if error == nil, let json = json {
+                    print("json = \(json)")
+                }
+                else{
+                    print("Login failed: \(json) \(error)")
+                }
+            }
+        }
+        
+    }
     
     
     

@@ -617,10 +617,10 @@
             </objects>
             <point key="canvasLocation" x="317" y="-421"/>
         </scene>
-        <!--View Controller-->
+        <!--Third View Controller-->
         <scene sceneID="ezg-M8-X5l">
             <objects>
-                <viewController id="IY5-wK-Bjc" sceneMemberID="viewController">
+                <viewController id="IY5-wK-Bjc" customClass="ThirdViewController" customModule="CSJSwiftToolsDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="I7F-Bb-c8L"/>
                         <viewControllerLayoutGuide type="bottom" id="TuF-fX-x5K"/>
