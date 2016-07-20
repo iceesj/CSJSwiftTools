@@ -33,7 +33,6 @@ class ViewController: UIViewController {
 //        edgesForExtendedLayout = .None
 //        self.navigationItem.title = "item"
         
-        
         //MARK:时间截取转换
         let lastTimeValueName_Two : String = CSJSwiftToolsDirector.sharedInstance.fengeTime("17:30-18:00").string2
         let lastTimeValueNameTwoInt : Int = CSJSwiftToolsDirector.sharedInstance.zhuanhuanShiduanInt(lastTimeValueName_Two)
@@ -66,11 +65,11 @@ class ViewController: UIViewController {
         headerIMG.addGestureRecognizer(thisViewTap)
         
         
-//        self.requestOne()
+        self.requestOne()
         
 //        self.requestFromData()
         
-        self.requestJSON()
+//        self.requestJSON()
         
     }
     
@@ -99,27 +98,28 @@ class ViewController: UIViewController {
         
     }
     
+    
+    /**
+     POST JSON，Back JSON
+     */
     func requestOne() {
-        
         let parameters = ["phone":"13611111111","messageNumber":"123456"]
         
         CSJSTNetworkManager.sharedInstance.loginMima(parameters) { (json, error) in
             dispatch_async(dispatch_get_main_queue()) {
                 if error == nil, let json = json {
                     print("json = \(json)")
-                    
                 }
                 else{
                     print("Login failed: \(json) \(error)")
                 }
             }
-            
         }
-        
     }
     
-    
-    
+    /**
+     POST Form-data， Back JSON
+     */
     func requestFromData() {
         let body = [
             "tradeId":"20160623142414796650971207862444",
@@ -129,6 +129,17 @@ class ViewController: UIViewController {
             "version":"1.0.0",
             ]
         
+        CSJSTNetworkManager.sharedInstance.sendRequest2(body) { (json, error) in
+            dispatch_async(dispatch_get_main_queue()) {
+                if error == nil, let json = json {
+                    print("json = \(json)")
+                }
+                else{
+                    print("Login failed: \(json) \(error)")
+                }
+            }
+        }
+        /*
         CSJSTNetworkManager.sharedInstance.sendRequest(body) { (json, error) in
             dispatch_async(dispatch_get_main_queue()) {
                 if error == nil, let json = json {
@@ -140,9 +151,31 @@ class ViewController: UIViewController {
                 }
             }
         }
+        */
     }
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /************************** 我是分割线 ****************************/
+    
+    /**
+    单例一个 傻瓜式的Alamofire请求返回
+     */
     func requestJSON() {
         let body = [
             "phone": "13611111111",
