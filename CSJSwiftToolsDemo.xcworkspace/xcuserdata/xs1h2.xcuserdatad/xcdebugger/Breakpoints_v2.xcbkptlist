@@ -209,38 +209,6 @@
             endingLineNumber = "133"
             landmarkName = "requestFromData()"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CSJSwiftToolsDemo.ViewController.(requestFromData () -&gt; ()).(closure #1)"
-                  moduleName = "CSJSwiftToolsDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/xs1h2/Desktop/CSJSwiftTools/CSJSwiftToolsDemo/ViewController.swift"
-                  timestampString = "490694510.396976"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "133"
-                  endingLineNumber = "133"
-                  offsetFromSymbolStart = "287">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CSJSwiftToolsDemo.ViewController.(requestFromData () -&gt; ()).(closure #1).(closure #1)"
-                  moduleName = "CSJSwiftToolsDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/xs1h2/Desktop/CSJSwiftTools/CSJSwiftToolsDemo/ViewController.swift"
-                  timestampString = "490694510.397191"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "134"
-                  endingLineNumber = "134"
-                  offsetFromSymbolStart = "147">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -17,6 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        //MR
+        CSJSTCoreDataManager.config()
+        
+        //键盘控制
+        IQKeyboardManager.sharedManager().enable = true
+        //        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
+        IQKeyboardManager.sharedManager().enableAutoToolbar = true
+        IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = false
+        
         return true
     }
 
