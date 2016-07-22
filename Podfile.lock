@@ -14,6 +14,9 @@ PODS:
   - MJExtension (3.0.11)
   - PDTSimpleCalendar (0.9.1)
   - Reachability (3.2)
+  - RxCocoa (2.6.0):
+    - RxSwift (~> 2.5)
+  - RxSwift (2.6.0)
   - SDCycleScrollView (1.65):
     - SDWebImage (~> 3.7)
   - SDWebImage (3.8.1):
@@ -36,6 +39,8 @@ DEPENDENCIES:
   - MJExtension
   - PDTSimpleCalendar (~> 0.9.1)
   - Reachability
+  - RxCocoa
+  - RxSwift
   - SDCycleScrollView (~> 1.3)
   - SDWebImage
   - Siren (~> 0.6)
@@ -64,6 +69,8 @@ SPEC CHECKSUMS:
   MJExtension: f9ae6ddc0f1c482c3c9af750280ccebd14381958
   PDTSimpleCalendar: d1c03387678422715dc021aa1a85d70f4d1014f2
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  RxCocoa: 89ab00d5753502520227940e3a0e0a0413683c6b
+  RxSwift: 77f3a0b15324baa7a1c9bfa9f199648a82424e26
   SDCycleScrollView: f72904c77698a7f93a41bcbbc2d78b073bf7326c
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   Siren: acee4d2839e3cc232d8c4a4a4e2e99208403f6e0
@@ -71,6 +78,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 041175ceeb6d5ef84b538798fa68b3842cb820aa
+PODFILE CHECKSUM: b0ad3e35c7ed63d6a7f63384dc0e3d84ebc0c1db
 
 COCOAPODS: 1.0.1

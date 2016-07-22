@@ -28,6 +28,12 @@ pod 'Siren', '~> 0.6'
 pod 'JLRoutes'
 pod 'SnapKit'
 
+
 # Third-party integration
+#pod 'UMengAnalytics-NO-IDFA'
+
+# Rx
+pod 'RxSwift'
+pod 'RxCocoa'
 
 end

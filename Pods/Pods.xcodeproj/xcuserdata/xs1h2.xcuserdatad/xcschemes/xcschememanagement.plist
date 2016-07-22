@@ -64,6 +64,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RxCocoa.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RxSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SDCycleScrollView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -96,97 +106,6 @@
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>16FB872D0D2D4BA0F378AB34D47CF95F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>19C0DF4E1691836C9627E3B0BB3144CE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3228A614A28C286F663816E682F81E0F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4E1263BFF45F6446CF3DE29AE234C893</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6638D0D1A3F8ECF7B99513D81D5ED6F1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>680E76C7D02688E14A992F260004FD3D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>69EB251ABF86720759972CCDD223C01E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>77AB16E71967928775ACD2706514E867</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7C0126D717EB28DC6DB2EEA2E20B5172</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>867C100C8988050F1C0B5EE8AEEEE9C9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9B57F4EE4746045CEAE2D933A3C8EC9E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A1CDE0FDDE983B3DEBCC6D49B8934F47</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D0400627E14BB3235507BCEBAFCEB7C4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D58D76EC529B4A92F3E5EDADE0A96661</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D5B7008A8024A5F2CEE0296DCDCF1B5C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E3CFCE6440B452099E2F949AFC4B7DA3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E61CE3B6DFA1FE6B3E296965C76C0E10</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>
