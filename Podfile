@@ -16,6 +16,7 @@ pod 'FDStackView'
 pod 'MagicalRecord'
 pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 pod 'MJExtension'
+pod 'MJRefresh'
 
 # Network
 pod 'Alamofire'
@@ -37,5 +38,5 @@ pod 'RxSwift'
 pod 'RxCocoa'
 pod 'RxDataSources'
 pod 'RxViewModel'
-
+pod 'Action'
 end

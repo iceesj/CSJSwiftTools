@@ -10,6 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 import RxDataSources
+import MJRefresh
 
 class ThirdViewController: UIViewController {
     
@@ -42,6 +43,10 @@ class ThirdViewController: UIViewController {
 //            Alert.showInfo(userInfo.name, message: "\(userInfo.age)")
         }.addDisposableTo(disposeBag)
         
+//        self.tableView.header = MJRefreshNormalHeader(refreshingBlock: {
+        
+//        })
+        
         dataSource.configureCell = {
             _, tableView, indexPath, user in
             let cell = tableView.dequeueReusableCellWithIdentifier(self.reuseIdentifier, forIndexPath: indexPath) as! TableViewCell
@@ -50,8 +55,23 @@ class ThirdViewController: UIViewController {
             return cell
         }
         
-        viewModel.getUsers().bindTo(tableView.rx_itemsWithDataSource(dataSource)).addDisposableTo(disposeBag)
         
+        self.viewModel.getUsers().bindTo(self.tableView.rx_itemsWithDataSource(self.dataSource)).addDisposableTo(self.disposeBag)
+        
+        ///*
+        tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
+            
+//            self.viewModel.getUsers().bindTo(self.tableView.rx_itemsWithDataSource(self.dataSource)).addDisposableTo(self.disposeBag)
+            self.tableView.mj_header.endRefreshing()
+        })
+        //*/
+        
+        tableView.mj_header.beginRefreshing()
+        
+    }
+    
+    func headerRereshing() {
+        viewModel.getUsers().bindTo(tableView.rx_itemsWithDataSource(dataSource)).addDisposableTo(disposeBag)
     }
 
 

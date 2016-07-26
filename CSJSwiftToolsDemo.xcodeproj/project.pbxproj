@@ -273,6 +273,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		7B4A3F7D1D478B7600F7E60E /* ObjCCommon */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ObjCCommon;
+			sourceTree = "<group>";
+		};
 		7BAB8F461D2F840D00A767C8 = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +306,7 @@
 		7BAB8F511D2F840D00A767C8 /* CSJSwiftToolsDemo */ = {
 			isa = PBXGroup;
 			children = (
+				7B4A3F7D1D478B7600F7E60E /* ObjCCommon */,
 				7B03C82F1D3F6EEF0026EFCC /* SwiftCommon */,
 				7B03C8201D3F6B090026EFCC /* DataBase */,
 				7B03C8211D3F6B090026EFCC /* VC */,
@@ -735,11 +743,14 @@
 			baseConfigurationReference = 375F2ACE2794B81F5FFA8511 /* Pods-CSJSwiftToolsDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = CSJSwiftToolsDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iceesj.CSJSwiftToolsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CSJSwiftToolsDemo/ObjCCommon/CSJSwiftToolsDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -748,11 +759,13 @@
 			baseConfigurationReference = A2D9DDD03C639714D26EF463 /* Pods-CSJSwiftToolsDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = CSJSwiftToolsDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iceesj.CSJSwiftToolsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CSJSwiftToolsDemo/ObjCCommon/CSJSwiftToolsDemo-Bridging-Header.h";
 			};
 			name = Release;
 		};

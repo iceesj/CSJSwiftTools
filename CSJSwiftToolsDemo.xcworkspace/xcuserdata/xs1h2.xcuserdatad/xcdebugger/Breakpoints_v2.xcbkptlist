@@ -234,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CSJSwiftToolsDemo/VC/ThirdViewModel.swift"
-            timestampString = "491224822.189079"
+            timestampString = "491235273.65717"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "getUsers()"
             landmarkType = "5">
          </BreakpointContent>
@@ -250,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CSJSwiftToolsDemo/VC/ThirdViewModel.swift"
-            timestampString = "491224822.189079"
+            timestampString = "491235273.65717"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "timeUpdate()"
             landmarkType = "5">
          </BreakpointContent>
@@ -266,12 +266,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CSJSwiftToolsDemo/VC/ThirdViewModel.swift"
-            timestampString = "491223283.898742"
+            timestampString = "491235273.65717"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "getUsers()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CSJSwiftToolsDemo/VC/ThirdViewModel.swift"
+            timestampString = "491235273.65717"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "getUsers()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CSJSwiftToolsDemo.ThirdViewModel.(getUsers () -&gt; RxSwift.Observable&lt;Swift.Array&lt;RxDataSources.SectionModel&lt;Swift.String, CSJSwiftToolsDemo.TestUserModel&gt;&gt;&gt;).(closure #1)"
+                  moduleName = "CSJSwiftToolsDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xs1h2/Desktop/CSJSwiftTools/CSJSwiftToolsDemo/VC/ThirdViewModel.swift"
+                  timestampString = "491230893.684868"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "2281">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CSJSwiftToolsDemo.ThirdViewModel.(getUsers () -&gt; RxSwift.Observable&lt;Swift.Array&lt;RxDataSources.SectionModel&lt;Swift.String, CSJSwiftToolsDemo.TestUserModel&gt;&gt;&gt;).(closure #1).(closure #1)"
+                  moduleName = "CSJSwiftToolsDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xs1h2/Desktop/CSJSwiftTools/CSJSwiftToolsDemo/VC/ThirdViewModel.swift"
+                  timestampString = "491230893.685062"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CSJSwiftToolsDemo/VC/ThirdViewController.swift"
+            timestampString = "491235620.507591"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "headerRereshing()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -282,12 +346,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CSJSwiftToolsDemo/VC/ThirdViewModel.swift"
-            timestampString = "491225068.926445"
+            timestampString = "491235273.65717"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "getUsers()"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "setupData()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -297,46 +361,30 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CSJSwiftToolsDemo/VC/ThirdViewController.swift"
-            timestampString = "491225608.55695"
+            filePath = "CSJSwiftToolsDemo/VC/ThirdViewModel.swift"
+            timestampString = "491235273.65717"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "updateData()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CSJSwiftToolsDemo/VC/ThirdViewController.swift"
+            timestampString = "491235620.507591"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CSJSwiftToolsDemo.ThirdViewController.viewDidLoad () -&gt; ()"
-                  moduleName = "CSJSwiftToolsDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/xs1h2/Desktop/CSJSwiftTools/CSJSwiftToolsDemo/VC/ThirdViewController.swift"
-                  timestampString = "491225615.416665"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "1015">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CSJSwiftToolsDemo.ThirdViewController.(viewDidLoad () -&gt; ()).(closure #1)"
-                  moduleName = "CSJSwiftToolsDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/xs1h2/Desktop/CSJSwiftTools/CSJSwiftToolsDemo/VC/ThirdViewController.swift"
-                  timestampString = "491225615.416773"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "343">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

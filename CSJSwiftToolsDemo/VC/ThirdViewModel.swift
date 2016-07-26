@@ -9,18 +9,21 @@
 import UIKit
 import RxSwift
 import RxDataSources
+import RxViewModel
 
-
-class ThirdViewModel: NSObject {
+class ThirdViewModel: RxViewModel {
+//class ThirdViewModel: NSObject {
     dynamic var dataIndex : String = ""
 //    dynamic var dataSource : NSMutableArray!
     dynamic var dataSource = [TestUserModel]()
 //    dynamic var users1 = [TestUser]()
     
-//    override init() {
-//        super.init()
-    
-//    }
+    /*
+    override init() {
+        super.init()
+        self.setupData()
+    }
+    */
     
     func getUsers() -> Observable<[SectionModel<String, TestUserModel>]> {
         return Observable.create({ (observer) -> Disposable in
@@ -41,9 +44,9 @@ class ThirdViewModel: NSObject {
             let section = [SectionModel(model: "", items: self.dataSource)]
 //            let section = [SectionModel(model: "",items: users)]
             observer.onNext(section)
-//            observer.onCompleted()
+            observer.onCompleted()
             
-            ///*
+            /*
 //            let timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(ThirdViewModel.timeUpdate), userInfo: nil, repeats: true)
 //            timer.fire()
             
@@ -63,7 +66,8 @@ class ThirdViewModel: NSObject {
                 observer.onNext(section)
 //                observer.onCompleted()
             })
-            //*/
+            */
+            
             return AnonymousDisposable{}
         })
     }
@@ -73,10 +77,10 @@ class ThirdViewModel: NSObject {
     }
     
     func setupData() {
-
+        print("setupData")
     }
     
     func updateData() {
-        
+        print("updateData")
     }
 }
