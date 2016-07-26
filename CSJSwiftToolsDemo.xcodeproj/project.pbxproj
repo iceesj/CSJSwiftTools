@@ -33,6 +33,8 @@
 		7B8D68D71D4732F0005535DA /* TestUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8D68D61D4732F0005535DA /* TestUser.swift */; };
 		7B8D68D91D473562005535DA /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8D68D81D473562005535DA /* TableViewCell.swift */; };
 		7B8D68DB1D47435C005535DA /* ThirdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8D68DA1D47435C005535DA /* ThirdViewModel.swift */; };
+		7B8D68DD1D475C2F005535DA /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8D68DC1D475C2F005535DA /* FourthViewController.swift */; };
+		7B8D68DF1D47752F005535DA /* TestUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8D68DE1D47752F005535DA /* TestUserModel.swift */; };
 		7B9EFB311D3737EF00707C7C /* CSJSTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EFB301D3737EF00707C7C /* CSJSTViewController.swift */; };
 		7B9EFB331D37754E00707C7C /* CSJSTNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EFB321D37754E00707C7C /* CSJSTNavViewController.swift */; };
 		7BAB8F531D2F840D00A767C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAB8F521D2F840D00A767C8 /* AppDelegate.swift */; };
@@ -105,6 +107,8 @@
 		7B8D68D61D4732F0005535DA /* TestUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUser.swift; sourceTree = "<group>"; };
 		7B8D68D81D473562005535DA /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		7B8D68DA1D47435C005535DA /* ThirdViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewModel.swift; sourceTree = "<group>"; };
+		7B8D68DC1D475C2F005535DA /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
+		7B8D68DE1D47752F005535DA /* TestUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUserModel.swift; sourceTree = "<group>"; };
 		7B9EFB301D3737EF00707C7C /* CSJSTViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSJSTViewController.swift; sourceTree = "<group>"; };
 		7B9EFB321D37754E00707C7C /* CSJSTNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSJSTNavViewController.swift; sourceTree = "<group>"; };
 		7BAB8F4F1D2F840D00A767C8 /* CSJSwiftToolsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSJSwiftToolsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,7 +195,9 @@
 				7B03C8231D3F6B090026EFCC /* ThirdViewController.swift */,
 				7B8D68DA1D47435C005535DA /* ThirdViewModel.swift */,
 				7B8D68D61D4732F0005535DA /* TestUser.swift */,
+				7B8D68DE1D47752F005535DA /* TestUserModel.swift */,
 				7B8D68D81D473562005535DA /* TableViewCell.swift */,
+				7B8D68DC1D475C2F005535DA /* FourthViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -555,6 +561,7 @@
 				7B9EFB331D37754E00707C7C /* CSJSTNavViewController.swift in Sources */,
 				7B03C8501D3F6EEF0026EFCC /* IQTextView.swift in Sources */,
 				7B03C8281D3F6B090026EFCC /* ThirdViewController.swift in Sources */,
+				7B8D68DF1D47752F005535DA /* TestUserModel.swift in Sources */,
 				7B9EFB311D3737EF00707C7C /* CSJSTViewController.swift in Sources */,
 				7B03C8521D3F6EEF0026EFCC /* IQTitleBarButtonItem.swift in Sources */,
 				7B03C82E1D3F6B9D0026EFCC /* Model.xcdatamodeld in Sources */,
@@ -580,6 +587,7 @@
 				7B03C8481D3F6EEF0026EFCC /* IQUITextFieldView+Additions.swift in Sources */,
 				7BAB8F9D1D33367B00A767C8 /* CSJST+UIImageView.swift in Sources */,
 				7BAB8F531D2F840D00A767C8 /* AppDelegate.swift in Sources */,
+				7B8D68DD1D475C2F005535DA /* FourthViewController.swift in Sources */,
 				7B8D68D71D4732F0005535DA /* TestUser.swift in Sources */,
 				7B03C8491D3F6EEF0026EFCC /* IQUIView+Hierarchy.swift in Sources */,
 				7B03C8461D3F6EEF0026EFCC /* IQNSArray+Sort.swift in Sources */,

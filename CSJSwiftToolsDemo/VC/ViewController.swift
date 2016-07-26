@@ -11,9 +11,16 @@ import SwiftyJSON
 import MJExtension
 import Alamofire
 
+import RxCocoa
+import RxSwift
+
 //主页
 class ViewController: UIViewController {
     
+    @IBOutlet weak var textfield1 : UITextField!
+    @IBOutlet weak var label1 : UILabel!
+    let disposeBag = DisposeBag()
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -75,6 +82,14 @@ class ViewController: UIViewController {
         for i in 0...testArray.count {
             print("i = \(i)")
         }
+        
+        
+        textfield1.backgroundColor = .blackColor()
+        label1.backgroundColor = .blackColor()
+        textfield1.textColor = .whiteColor()
+        label1.textColor = .whiteColor()
+        textfield1.rx_text.bindTo(label1.rx_text).addDisposableTo(disposeBag)
+        
         
     }
     

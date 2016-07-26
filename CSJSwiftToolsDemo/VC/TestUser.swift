@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 struct TestUser {
     let followersCount : Int
     let followingCount : Int

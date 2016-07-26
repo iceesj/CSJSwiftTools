@@ -13,10 +13,12 @@ import RxDataSources
 
 class ThirdViewController: UIViewController {
     
-    let tableView: UITableView = UITableView(frame: UIScreen.mainScreen().bounds, style: .Plain)
+    //UIScreen.mainScreen().bounds
+    let tableView: UITableView = UITableView(frame: CGRectMake(0, 0, SCREEN_WIDTH_CSJST, SCREEN_HEIGHT_CSJST-60-50), style: .Plain)
     let reuseIdentifier = "\(TableViewCell.self)"
     //RxDataSources类指定了我们的数据源包括哪些内容，SectionModel带有一个String作为section的名字，User类作为item的类型
-    let dataSource = RxTableViewSectionedReloadDataSource<SectionModel <String, TestUser>>()
+    //TestUser,,TestUserModel
+    let dataSource = RxTableViewSectionedReloadDataSource<SectionModel <String, TestUserModel>>()
     let viewModel = ThirdViewModel()
     let disposeBag = DisposeBag()
     
@@ -33,6 +35,12 @@ class ThirdViewController: UIViewController {
         view.addSubview(tableView)
         
         tableView.registerClass(TableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
+//        tableView.deselectRowAtIndexPath(NSIndexPath, animated: true)
+        tableView.rx_itemDeselected.subscribeNext { (indexPath) in
+            print("indexPath = \(indexPath)")
+//            let userInfo = ThirdViewController.initialValue[indexPath.row]
+//            Alert.showInfo(userInfo.name, message: "\(userInfo.age)")
+        }.addDisposableTo(disposeBag)
         
         dataSource.configureCell = {
             _, tableView, indexPath, user in
@@ -42,7 +50,7 @@ class ThirdViewController: UIViewController {
             return cell
         }
         
-        viewModel.getUsers().bindTo(tableView.rx_itemsWithDataSource(dataSource)).addDisposableTo(disposeBag)        
+        viewModel.getUsers().bindTo(tableView.rx_itemsWithDataSource(dataSource)).addDisposableTo(disposeBag)
         
     }
 

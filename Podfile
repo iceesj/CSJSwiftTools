@@ -36,5 +36,6 @@ pod 'SnapKit'
 pod 'RxSwift'
 pod 'RxCocoa'
 pod 'RxDataSources'
+pod 'RxViewModel'
 
 end
