@@ -71,13 +71,10 @@ class ViewController: UIViewController {
         
 //        self.requestJSON()
         
-        
         let testArray = [1,2,3]
         for i in 0...testArray.count {
             print("i = \(i)")
         }
-        
-        
         
     }
     

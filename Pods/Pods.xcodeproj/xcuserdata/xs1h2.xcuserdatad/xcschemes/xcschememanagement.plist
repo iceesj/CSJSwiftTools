@@ -69,6 +69,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RxDataSources.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>RxSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -106,6 +111,112 @@
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict/>
+	<dict>
+		<key>12A11CF0C9BE156B040580736C8917DE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>16FB872D0D2D4BA0F378AB34D47CF95F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>19C0DF4E1691836C9627E3B0BB3144CE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2C4D60BBB6DDA818D1C9838A5C029FC8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3228A614A28C286F663816E682F81E0F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>33DACEE39B5FA917620FE43A8D200BFA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4E1263BFF45F6446CF3DE29AE234C893</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4F49A3202455213997935BAA809FF983</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5463D0DF720830C398F18C105820A0C9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>55773C6178DC4361FD621071ADC700C8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>566F2F0D6EAD34D4BAECFBE3419EAD52</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>73842B39DB91FFCF20DDCA4CB0BF8160</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>77AB16E71967928775ACD2706514E867</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7C0126D717EB28DC6DB2EEA2E20B5172</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9B57F4EE4746045CEAE2D933A3C8EC9E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A5A16AC97BD9D99BED03E7CB1D1BD038</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A7AF6B0A644FEDD56AABF9E3DC0F9FE8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D58D76EC529B4A92F3E5EDADE0A96661</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E61CE3B6DFA1FE6B3E296965C76C0E10</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E7F575952CCAA0906CE8635206E0054D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
 </dict>
 </plist>
