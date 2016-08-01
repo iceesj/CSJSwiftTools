@@ -33,6 +33,10 @@ pod 'SnapKit'
 # Third-party integration
 #pod 'UMengAnalytics-NO-IDFA'
 
+# ReactiveCocoa
+#pod 'ReactiveCocoa', '~> 4.0.0'
+#pod 'ReactiveViewModel'
+
 # Rx
 pod 'RxSwift'
 pod 'RxCocoa'

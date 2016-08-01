@@ -11,17 +11,19 @@ import RxCocoa
 import RxSwift
 import RxDataSources
 import MJRefresh
+import SnapKit
 
-class ThirdViewController: UIViewController {
+class ThirdViewController: UIViewController, UITableViewDelegate {
     
     //UIScreen.mainScreen().bounds
-    let tableView: UITableView = UITableView(frame: CGRectMake(0, 0, SCREEN_WIDTH_CSJST, SCREEN_HEIGHT_CSJST-60-50), style: .Plain)
+//    let tableView: UITableView = UITableView(frame: CGRectMake(0, 0, SCREEN_WIDTH_CSJST, SCREEN_HEIGHT_CSJST-60-50), style: .Plain)
+    var tableView = UITableView()
     let reuseIdentifier = "\(TableViewCell.self)"
     //RxDataSources类指定了我们的数据源包括哪些内容，SectionModel带有一个String作为section的名字，User类作为item的类型
     //TestUser,,TestUserModel
     let dataSource = RxTableViewSectionedReloadDataSource<SectionModel <String, TestUserModel>>()
     let viewModel = ThirdViewModel()
-    let disposeBag = DisposeBag()
+    let disposeBag = DisposeBag()// 是在控制器销毁后来控制释放资源的。
     
     
     override func didReceiveMemoryWarning() {
@@ -33,8 +35,17 @@ class ThirdViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initCSJSTSetVC(.whiteColor(), bool: true, title: "RxSwift界面")
-        view.addSubview(tableView)
         
+        
+//        tableView = UITableView()
+        view.addSubview(self.tableView)
+        self.tableView.snp_makeConstraints { (make) in
+//            make.left.top.equalTo(0)
+//            make.right.bottom.equalTo(0)
+            make.edges.equalTo(UIEdgeInsetsZero)
+        }
+        
+
         tableView.registerClass(TableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
 //        tableView.deselectRowAtIndexPath(NSIndexPath, animated: true)
         tableView.rx_itemDeselected.subscribeNext { (indexPath) in
@@ -55,25 +66,26 @@ class ThirdViewController: UIViewController {
             return cell
         }
         
-        
         self.viewModel.getUsers().bindTo(self.tableView.rx_itemsWithDataSource(self.dataSource)).addDisposableTo(self.disposeBag)
         
-        ///*
+        /*
         tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
-            
 //            self.viewModel.getUsers().bindTo(self.tableView.rx_itemsWithDataSource(self.dataSource)).addDisposableTo(self.disposeBag)
             self.tableView.mj_header.endRefreshing()
         })
-        //*/
+        */
         
-        tableView.mj_header.beginRefreshing()
+//        tableView.mj_header.beginRefreshing()
+        tableView
+            .rx_setDelegate(self)
+            .addDisposableTo(disposeBag)
         
     }
     
     func headerRereshing() {
         viewModel.getUsers().bindTo(tableView.rx_itemsWithDataSource(dataSource)).addDisposableTo(disposeBag)
     }
-
+    
 
     /*
     // MARK: - Navigation

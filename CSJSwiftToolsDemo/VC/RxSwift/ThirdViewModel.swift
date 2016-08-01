@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxDataSources
 import RxViewModel
+import Action
 
 class ThirdViewModel: RxViewModel {
 //class ThirdViewModel: NSObject {
@@ -17,6 +18,8 @@ class ThirdViewModel: RxViewModel {
 //    dynamic var dataSource : NSMutableArray!
     dynamic var dataSource = [TestUserModel]()
 //    dynamic var users1 = [TestUser]()
+    
+    
     
     /*
     override init() {
@@ -29,7 +32,7 @@ class ThirdViewModel: RxViewModel {
         return Observable.create({ (observer) -> Disposable in
             ///*
 //            self.dataSource = NSMutableArray.init(capacity: 0)
-            for i in 0..<10 {
+            for i in 0..<2 {
                 let model = TestUserModel()
                 model.screenName = NSString.localizedStringWithFormat("%d", i) as String
 //                self.dataSource.addObject(model)
@@ -37,10 +40,8 @@ class ThirdViewModel: RxViewModel {
             }
             print("dataSource = \(self.dataSource)")
             //*/
-            
-            let users = [TestUser(followersCount: 19_901_990, followingCount:1990, screenName: "Marco Sun"),TestUser(followersCount: 19_901_990, followingCount:1990, screenName: "Marco Sun2")]
-            print("users = \(users)")
-            
+//            let users = [TestUser(followersCount: 19_901_990, followingCount:1990, screenName: "Marco Sun"),TestUser(followersCount: 19_901_990, followingCount:1990, screenName: "Marco Sun2")]
+//            print("users = \(users)")
             let section = [SectionModel(model: "", items: self.dataSource)]
 //            let section = [SectionModel(model: "",items: users)]
             observer.onNext(section)
@@ -55,7 +56,7 @@ class ThirdViewModel: RxViewModel {
 //                self.updateData()
 //                let users = [TestUser(followersCount: 19_901_990, followingCount:1990, screenName: "Marco Sun")]
 //                self.dataSource.removeAll()
-                for i in 0..<10 {
+                for i in 0..<2 {
                     let model = TestUserModel()
                     model.screenName = NSString.localizedStringWithFormat("%d", i) as String
                     //                self.dataSource.addObject(model)
@@ -82,5 +83,6 @@ class ThirdViewModel: RxViewModel {
     
     func updateData() {
         print("updateData")
+        
     }
 }

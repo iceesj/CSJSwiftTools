@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7B03C8271D3F6B090026EFCC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B03C8221D3F6B090026EFCC /* SecondViewController.swift */; };
-		7B03C8281D3F6B090026EFCC /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B03C8231D3F6B090026EFCC /* ThirdViewController.swift */; };
 		7B03C8291D3F6B090026EFCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B03C8241D3F6B090026EFCC /* ViewController.swift */; };
 		7B03C82A1D3F6B090026EFCC /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B03C8251D3F6B090026EFCC /* ViewController2.swift */; };
 		7B03C82B1D3F6B090026EFCC /* ViewControllerLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B03C8261D3F6B090026EFCC /* ViewControllerLeft.swift */; };
@@ -29,12 +28,14 @@
 		7B03C8531D3F6EEF0026EFCC /* IQToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B03C8421D3F6EEF0026EFCC /* IQToolbar.swift */; };
 		7B03C8541D3F6EEF0026EFCC /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B03C8431D3F6EEF0026EFCC /* IQUIView+IQKeyboardToolbar.swift */; };
 		7B03C8551D3F6EEF0026EFCC /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7B03C8451D3F6EEF0026EFCC /* IQKeyboardManager.bundle */; };
+		7B37D3461D48627D008E266F /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B37D3451D48627D008E266F /* FourthViewController.swift */; };
+		7B37D34E1D486483008E266F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B37D3481D486483008E266F /* TableViewCell.swift */; };
+		7B37D34F1D486483008E266F /* TestUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B37D3491D486483008E266F /* TestUser.swift */; };
+		7B37D3501D486483008E266F /* TestUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B37D34A1D486483008E266F /* TestUserModel.swift */; };
+		7B37D3511D486483008E266F /* Third1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B37D34B1D486483008E266F /* Third1ViewController.swift */; };
+		7B37D3521D486483008E266F /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B37D34C1D486483008E266F /* ThirdViewController.swift */; };
+		7B37D3531D486483008E266F /* ThirdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B37D34D1D486483008E266F /* ThirdViewModel.swift */; };
 		7B418F421D38C28100BD3FDD /* CSJSTNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B418F411D38C28100BD3FDD /* CSJSTNetworkManager.swift */; };
-		7B8D68D71D4732F0005535DA /* TestUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8D68D61D4732F0005535DA /* TestUser.swift */; };
-		7B8D68D91D473562005535DA /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8D68D81D473562005535DA /* TableViewCell.swift */; };
-		7B8D68DB1D47435C005535DA /* ThirdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8D68DA1D47435C005535DA /* ThirdViewModel.swift */; };
-		7B8D68DD1D475C2F005535DA /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8D68DC1D475C2F005535DA /* FourthViewController.swift */; };
-		7B8D68DF1D47752F005535DA /* TestUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8D68DE1D47752F005535DA /* TestUserModel.swift */; };
 		7B9EFB311D3737EF00707C7C /* CSJSTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EFB301D3737EF00707C7C /* CSJSTViewController.swift */; };
 		7B9EFB331D37754E00707C7C /* CSJSTNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EFB321D37754E00707C7C /* CSJSTNavViewController.swift */; };
 		7BAB8F531D2F840D00A767C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAB8F521D2F840D00A767C8 /* AppDelegate.swift */; };
@@ -59,6 +60,7 @@
 		7BAB8FA11D333CEC00A767C8 /* CSJST+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAB8FA01D333CEC00A767C8 /* CSJST+UIView.swift */; };
 		7BAB8FA31D33472500A767C8 /* CSJST+UIWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAB8FA21D33472500A767C8 /* CSJST+UIWebView.swift */; };
 		7BAB8FA51D334ADC00A767C8 /* CSJSTLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAB8FA41D334ADC00A767C8 /* CSJSTLocationManager.swift */; };
+		7BD3F1B01D4A0E5D004BCA77 /* DDNNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD3F1AF1D4A0E5D004BCA77 /* DDNNewsCell.swift */; };
 		F869E245A71850C0772FA60A /* Pods_CSJSwiftToolsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8487D0491093B0247CD801CF /* Pods_CSJSwiftToolsDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,7 +84,6 @@
 /* Begin PBXFileReference section */
 		375F2ACE2794B81F5FFA8511 /* Pods-CSJSwiftToolsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSJSwiftToolsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CSJSwiftToolsDemo/Pods-CSJSwiftToolsDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		7B03C8221D3F6B090026EFCC /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		7B03C8231D3F6B090026EFCC /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		7B03C8241D3F6B090026EFCC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7B03C8251D3F6B090026EFCC /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		7B03C8261D3F6B090026EFCC /* ViewControllerLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerLeft.swift; sourceTree = "<group>"; };
@@ -103,12 +104,14 @@
 		7B03C8421D3F6EEF0026EFCC /* IQToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQToolbar.swift; sourceTree = "<group>"; };
 		7B03C8431D3F6EEF0026EFCC /* IQUIView+IQKeyboardToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIView+IQKeyboardToolbar.swift"; sourceTree = "<group>"; };
 		7B03C8451D3F6EEF0026EFCC /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		7B37D3451D48627D008E266F /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
+		7B37D3481D486483008E266F /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		7B37D3491D486483008E266F /* TestUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUser.swift; sourceTree = "<group>"; };
+		7B37D34A1D486483008E266F /* TestUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUserModel.swift; sourceTree = "<group>"; };
+		7B37D34B1D486483008E266F /* Third1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Third1ViewController.swift; sourceTree = "<group>"; };
+		7B37D34C1D486483008E266F /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		7B37D34D1D486483008E266F /* ThirdViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewModel.swift; sourceTree = "<group>"; };
 		7B418F411D38C28100BD3FDD /* CSJSTNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSJSTNetworkManager.swift; sourceTree = "<group>"; };
-		7B8D68D61D4732F0005535DA /* TestUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUser.swift; sourceTree = "<group>"; };
-		7B8D68D81D473562005535DA /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		7B8D68DA1D47435C005535DA /* ThirdViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewModel.swift; sourceTree = "<group>"; };
-		7B8D68DC1D475C2F005535DA /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
-		7B8D68DE1D47752F005535DA /* TestUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUserModel.swift; sourceTree = "<group>"; };
 		7B9EFB301D3737EF00707C7C /* CSJSTViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSJSTViewController.swift; sourceTree = "<group>"; };
 		7B9EFB321D37754E00707C7C /* CSJSTNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSJSTNavViewController.swift; sourceTree = "<group>"; };
 		7BAB8F4F1D2F840D00A767C8 /* CSJSwiftToolsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSJSwiftToolsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +142,8 @@
 		7BAB8FA01D333CEC00A767C8 /* CSJST+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CSJST+UIView.swift"; sourceTree = "<group>"; };
 		7BAB8FA21D33472500A767C8 /* CSJST+UIWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CSJST+UIWebView.swift"; sourceTree = "<group>"; };
 		7BAB8FA41D334ADC00A767C8 /* CSJSTLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSJSTLocationManager.swift; sourceTree = "<group>"; };
+		7BD3F1AD1D49ED49004BCA77 /* CSJSwiftToolsDemo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CSJSwiftToolsDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		7BD3F1AF1D4A0E5D004BCA77 /* DDNNewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDNNewsCell.swift; sourceTree = "<group>"; };
 		8487D0491093B0247CD801CF /* Pods_CSJSwiftToolsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CSJSwiftToolsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D9DDD03C639714D26EF463 /* Pods-CSJSwiftToolsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSJSwiftToolsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CSJSwiftToolsDemo/Pods-CSJSwiftToolsDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -192,12 +197,8 @@
 				7B03C8251D3F6B090026EFCC /* ViewController2.swift */,
 				7B03C8261D3F6B090026EFCC /* ViewControllerLeft.swift */,
 				7B03C8221D3F6B090026EFCC /* SecondViewController.swift */,
-				7B03C8231D3F6B090026EFCC /* ThirdViewController.swift */,
-				7B8D68DA1D47435C005535DA /* ThirdViewModel.swift */,
-				7B8D68D61D4732F0005535DA /* TestUser.swift */,
-				7B8D68DE1D47752F005535DA /* TestUserModel.swift */,
-				7B8D68D81D473562005535DA /* TableViewCell.swift */,
-				7B8D68DC1D475C2F005535DA /* FourthViewController.swift */,
+				7B37D3471D486483008E266F /* RxSwift */,
+				7B37D3441D48626F008E266F /* RAC+MVVM */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -273,9 +274,33 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		7B37D3441D48626F008E266F /* RAC+MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				7BD3F1AE1D4A0E49004BCA77 /* View */,
+				7BE48C621D48918600C33D64 /* ViewModel */,
+				7B37D3451D48627D008E266F /* FourthViewController.swift */,
+			);
+			path = "RAC+MVVM";
+			sourceTree = "<group>";
+		};
+		7B37D3471D486483008E266F /* RxSwift */ = {
+			isa = PBXGroup;
+			children = (
+				7B37D34B1D486483008E266F /* Third1ViewController.swift */,
+				7B37D34C1D486483008E266F /* ThirdViewController.swift */,
+				7B37D3481D486483008E266F /* TableViewCell.swift */,
+				7B37D3491D486483008E266F /* TestUser.swift */,
+				7B37D34A1D486483008E266F /* TestUserModel.swift */,
+				7B37D34D1D486483008E266F /* ThirdViewModel.swift */,
+			);
+			path = RxSwift;
+			sourceTree = "<group>";
+		};
 		7B4A3F7D1D478B7600F7E60E /* ObjCCommon */ = {
 			isa = PBXGroup;
 			children = (
+				7BD3F1AD1D49ED49004BCA77 /* CSJSwiftToolsDemo-Bridging-Header.h */,
 			);
 			path = ObjCCommon;
 			sourceTree = "<group>";
@@ -361,6 +386,21 @@
 				7B418F411D38C28100BD3FDD /* CSJSTNetworkManager.swift */,
 			);
 			path = CSJSwiftTools;
+			sourceTree = "<group>";
+		};
+		7BD3F1AE1D4A0E49004BCA77 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7BD3F1AF1D4A0E5D004BCA77 /* DDNNewsCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7BE48C621D48918600C33D64 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		A51814AA1FFA6167D5C161E2 /* Pods */ = {
@@ -560,6 +600,7 @@
 				7BAB8FA31D33472500A767C8 /* CSJST+UIWebView.swift in Sources */,
 				7BAB8F871D2FA3CE00A767C8 /* CSJST+NSDictionary.swift in Sources */,
 				7BAB8F891D2FA52100A767C8 /* CSJST+UIViewController.swift in Sources */,
+				7B37D3531D486483008E266F /* ThirdViewModel.swift in Sources */,
 				7BAB8F8F1D2FA82A00A767C8 /* CSJSTCoreDataManager.swift in Sources */,
 				7B03C84E1D3F6EEF0026EFCC /* IQKeyboardManager.swift in Sources */,
 				7B03C8471D3F6EEF0026EFCC /* IQUIScrollView+Additions.swift in Sources */,
@@ -568,38 +609,39 @@
 				7B03C8291D3F6B090026EFCC /* ViewController.swift in Sources */,
 				7B9EFB331D37754E00707C7C /* CSJSTNavViewController.swift in Sources */,
 				7B03C8501D3F6EEF0026EFCC /* IQTextView.swift in Sources */,
-				7B03C8281D3F6B090026EFCC /* ThirdViewController.swift in Sources */,
-				7B8D68DF1D47752F005535DA /* TestUserModel.swift in Sources */,
 				7B9EFB311D3737EF00707C7C /* CSJSTViewController.swift in Sources */,
 				7B03C8521D3F6EEF0026EFCC /* IQTitleBarButtonItem.swift in Sources */,
 				7B03C82E1D3F6B9D0026EFCC /* Model.xcdatamodeld in Sources */,
 				7BAB8F8B1D2FA5FD00A767C8 /* CSJST+UIStoryboard.swift in Sources */,
+				7BD3F1B01D4A0E5D004BCA77 /* DDNNewsCell.swift in Sources */,
+				7B37D3461D48627D008E266F /* FourthViewController.swift in Sources */,
 				7BAB8F951D2FB34000A767C8 /* CSJSTContentManager.swift in Sources */,
 				7B03C84B1D3F6EEF0026EFCC /* IQUIWindow+Hierarchy.swift in Sources */,
 				7BAB8F9F1D33391900A767C8 /* CSJST+UILabel.swift in Sources */,
 				7B03C82B1D3F6B090026EFCC /* ViewControllerLeft.swift in Sources */,
-				7B8D68D91D473562005535DA /* TableViewCell.swift in Sources */,
+				7B37D3521D486483008E266F /* ThirdViewController.swift in Sources */,
 				7BAB8FA11D333CEC00A767C8 /* CSJST+UIView.swift in Sources */,
 				7B03C8531D3F6EEF0026EFCC /* IQToolbar.swift in Sources */,
 				7B03C8511D3F6EEF0026EFCC /* IQBarButtonItem.swift in Sources */,
+				7B37D34F1D486483008E266F /* TestUser.swift in Sources */,
 				7BAB8F971D332C7000A767C8 /* CSJST+UserDefaults.swift in Sources */,
 				7B03C8541D3F6EEF0026EFCC /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				7BAB8F8D1D2FA76100A767C8 /* CSJST+NSURL.swift in Sources */,
 				7B03C82A1D3F6B090026EFCC /* ViewController2.swift in Sources */,
+				7B37D3501D486483008E266F /* TestUserModel.swift in Sources */,
 				7BAB8FA51D334ADC00A767C8 /* CSJSTLocationManager.swift in Sources */,
 				7B03C84A1D3F6EEF0026EFCC /* IQUIViewController+Additions.swift in Sources */,
 				7B03C84F1D3F6EEF0026EFCC /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				7BAB8F851D2F8E2200A767C8 /* CSJSwiftToolsDirector.swift in Sources */,
+				7B37D34E1D486483008E266F /* TableViewCell.swift in Sources */,
 				7BAB8F991D332F7600A767C8 /* CSJST+String.swift in Sources */,
 				7B03C8271D3F6B090026EFCC /* SecondViewController.swift in Sources */,
 				7B03C8481D3F6EEF0026EFCC /* IQUITextFieldView+Additions.swift in Sources */,
+				7B37D3511D486483008E266F /* Third1ViewController.swift in Sources */,
 				7BAB8F9D1D33367B00A767C8 /* CSJST+UIImageView.swift in Sources */,
 				7BAB8F531D2F840D00A767C8 /* AppDelegate.swift in Sources */,
-				7B8D68DD1D475C2F005535DA /* FourthViewController.swift in Sources */,
-				7B8D68D71D4732F0005535DA /* TestUser.swift in Sources */,
 				7B03C8491D3F6EEF0026EFCC /* IQUIView+Hierarchy.swift in Sources */,
 				7B03C8461D3F6EEF0026EFCC /* IQNSArray+Sort.swift in Sources */,
-				7B8D68DB1D47435C005535DA /* ThirdViewModel.swift in Sources */,
 				7B03C84D1D3F6EEF0026EFCC /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
