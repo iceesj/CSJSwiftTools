@@ -61,6 +61,8 @@
 		7BAB8FA31D33472500A767C8 /* CSJST+UIWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAB8FA21D33472500A767C8 /* CSJST+UIWebView.swift */; };
 		7BAB8FA51D334ADC00A767C8 /* CSJSTLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAB8FA41D334ADC00A767C8 /* CSJSTLocationManager.swift */; };
 		7BD3F1B01D4A0E5D004BCA77 /* DDNNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD3F1AF1D4A0E5D004BCA77 /* DDNNewsCell.swift */; };
+		7BD7BD501D51A4AE00ACB5FF /* CSJSnapKitDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD7BD4F1D51A4AE00ACB5FF /* CSJSnapKitDemoViewController.swift */; };
+		7BD7BD521D51C78F00ACB5FF /* CSJSnapKitDemoSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD7BD511D51C78F00ACB5FF /* CSJSnapKitDemoSecondViewController.swift */; };
 		F869E245A71850C0772FA60A /* Pods_CSJSwiftToolsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8487D0491093B0247CD801CF /* Pods_CSJSwiftToolsDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -144,6 +146,8 @@
 		7BAB8FA41D334ADC00A767C8 /* CSJSTLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSJSTLocationManager.swift; sourceTree = "<group>"; };
 		7BD3F1AD1D49ED49004BCA77 /* CSJSwiftToolsDemo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CSJSwiftToolsDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		7BD3F1AF1D4A0E5D004BCA77 /* DDNNewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDNNewsCell.swift; sourceTree = "<group>"; };
+		7BD7BD4F1D51A4AE00ACB5FF /* CSJSnapKitDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSJSnapKitDemoViewController.swift; sourceTree = "<group>"; };
+		7BD7BD511D51C78F00ACB5FF /* CSJSnapKitDemoSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSJSnapKitDemoSecondViewController.swift; sourceTree = "<group>"; };
 		8487D0491093B0247CD801CF /* Pods_CSJSwiftToolsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CSJSwiftToolsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D9DDD03C639714D26EF463 /* Pods-CSJSwiftToolsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSJSwiftToolsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CSJSwiftToolsDemo/Pods-CSJSwiftToolsDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -197,6 +201,8 @@
 				7B03C8251D3F6B090026EFCC /* ViewController2.swift */,
 				7B03C8261D3F6B090026EFCC /* ViewControllerLeft.swift */,
 				7B03C8221D3F6B090026EFCC /* SecondViewController.swift */,
+				7BD7BD4F1D51A4AE00ACB5FF /* CSJSnapKitDemoViewController.swift */,
+				7BD7BD511D51C78F00ACB5FF /* CSJSnapKitDemoSecondViewController.swift */,
 				7B37D3471D486483008E266F /* RxSwift */,
 				7B37D3441D48626F008E266F /* RAC+MVVM */,
 			);
@@ -632,6 +638,7 @@
 				7BAB8FA51D334ADC00A767C8 /* CSJSTLocationManager.swift in Sources */,
 				7B03C84A1D3F6EEF0026EFCC /* IQUIViewController+Additions.swift in Sources */,
 				7B03C84F1D3F6EEF0026EFCC /* IQKeyboardReturnKeyHandler.swift in Sources */,
+				7BD7BD521D51C78F00ACB5FF /* CSJSnapKitDemoSecondViewController.swift in Sources */,
 				7BAB8F851D2F8E2200A767C8 /* CSJSwiftToolsDirector.swift in Sources */,
 				7B37D34E1D486483008E266F /* TableViewCell.swift in Sources */,
 				7BAB8F991D332F7600A767C8 /* CSJST+String.swift in Sources */,
@@ -640,6 +647,7 @@
 				7B37D3511D486483008E266F /* Third1ViewController.swift in Sources */,
 				7BAB8F9D1D33367B00A767C8 /* CSJST+UIImageView.swift in Sources */,
 				7BAB8F531D2F840D00A767C8 /* AppDelegate.swift in Sources */,
+				7BD7BD501D51A4AE00ACB5FF /* CSJSnapKitDemoViewController.swift in Sources */,
 				7B03C8491D3F6EEF0026EFCC /* IQUIView+Hierarchy.swift in Sources */,
 				7B03C8461D3F6EEF0026EFCC /* IQNSArray+Sort.swift in Sources */,
 				7B03C84D1D3F6EEF0026EFCC /* IQKeyboardManagerConstantsInternal.swift in Sources */,

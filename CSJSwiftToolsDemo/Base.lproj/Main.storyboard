@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="width" constant="100" id="Kfi-6J-rSR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="99d-dR-fRA">
@@ -36,10 +36,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j95-J0-yUc">
+                                <rect key="frame" x="240" y="244" width="120" height="30"/>
+                                <state key="normal" title="CSJSnapkitDemo"/>
+                                <connections>
+                                    <segue destination="Qjt-L6-AcF" kind="show" id="ECw-0K-IBS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="j95-J0-yUc" firstAttribute="top" secondItem="dEI-9Q-Ce2" secondAttribute="bottom" constant="38" id="BYg-W7-q60"/>
                             <constraint firstItem="99d-dR-fRA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CT2-d9-ybW"/>
+                            <constraint firstItem="j95-J0-yUc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Cy0-8H-6m6"/>
                             <constraint firstItem="dEI-9Q-Ce2" firstAttribute="top" secondItem="99d-dR-fRA" secondAttribute="bottom" constant="41" id="YVY-AG-xFK"/>
                             <constraint firstItem="99d-dR-fRA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="dIC-bU-o7k"/>
                             <constraint firstItem="dEI-9Q-Ce2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gE1-Gj-iwd"/>
@@ -54,6 +63,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1129" y="-1148"/>
+        </scene>
+        <!--Snap Kit Demo Second View Controller-->
+        <scene sceneID="zig-zL-E9f">
+            <objects>
+                <viewController storyboardIdentifier="CSJSnapKitDemoSecondViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5G9-uW-Yuw" customClass="CSJSnapKitDemoSecondViewController" customModule="CSJSwiftToolsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vkB-8Q-Vr5"/>
+                        <viewControllerLayoutGuide type="bottom" id="mRr-R2-su2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nrO-tf-0qx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0KH-uo-ww3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1129" y="-2739"/>
+        </scene>
+        <!--Snap Kit Demo View Controller-->
+        <scene sceneID="tG5-if-cdF">
+            <objects>
+                <viewController storyboardIdentifier="CSJSnapKitDemoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qjt-L6-AcF" customClass="CSJSnapKitDemoViewController" customModule="CSJSwiftToolsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Mue-Vh-1qC"/>
+                        <viewControllerLayoutGuide type="bottom" id="bQg-vj-dl3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2Ii-8v-PrT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aDk-DK-Ziz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1129" y="-1962"/>
         </scene>
         <!--View Controller Left-->
         <scene sceneID="2k3-iU-lda">
@@ -216,8 +261,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1su-Jk-zqA">
-                                <rect key="frame" x="0.0" y="64" width="600" height="100"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1su-Jk-zqA">
+                                <rect key="frame" x="0.0" y="20" width="600" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="你猜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJE-Zy-GVX">
                                         <rect key="frame" x="0.0" y="0.0" width="469" height="100"/>
@@ -609,11 +654,11 @@
             </objects>
             <point key="canvasLocation" x="-596" y="461"/>
         </scene>
-        <!--Item-->
+        <!--首页-->
         <scene sceneID="ING-5F-Do3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MRg-XF-UuF" customClass="CSJSTNavViewController" customModule="CSJSwiftToolsDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="CMg-Tt-UCF"/>
+                    <tabBarItem key="tabBarItem" title="首页" id="CMg-Tt-UCF"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="J0G-2D-kTy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -628,11 +673,11 @@
             </objects>
             <point key="canvasLocation" x="317" y="-1148"/>
         </scene>
-        <!--Item 2-->
+        <!--StackView-->
         <scene sceneID="j6t-QP-db9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Dre-LR-IQH" customClass="CSJSTNavViewController" customModule="CSJSwiftToolsDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="oNa-kI-eGO"/>
+                    <tabBarItem key="tabBarItem" title="StackView" id="oNa-kI-eGO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pbr-Iz-A5i">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -703,11 +748,11 @@
             </objects>
             <point key="canvasLocation" x="1129" y="1298"/>
         </scene>
-        <!--Item3-->
+        <!--RxSwift-->
         <scene sceneID="fPD-1s-coj">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GkB-r5-6dx" customClass="CSJSTNavViewController" customModule="CSJSwiftToolsDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item3" id="vDK-78-Xgv"/>
+                    <tabBarItem key="tabBarItem" title="RxSwift" id="vDK-78-Xgv"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="i6b-0e-OJm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
