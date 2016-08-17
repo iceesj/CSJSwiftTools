@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/iceesj/CSJSwiftTools.git', :tag => '0.0.2' }
   s.source_files  = "CSJSwiftTools/*.{swift}"
   s.platform      = :ios, '8.0'
-  s.frameworks    = "Foundation", CoreLocation", "CoreData", "UIKit", "CoreGraphics"
+  s.frameworks    = "CoreLocation", "CoreData"
   s.dependency 'MagicalRecord', 'Alamofire', 'SwiftyJSON'
   
   s.requires_arc = true
