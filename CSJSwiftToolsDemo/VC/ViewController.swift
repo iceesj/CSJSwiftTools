@@ -40,6 +40,13 @@ class ViewController: UIViewController {
 //        edgesForExtendedLayout = .None
 //        self.navigationItem.title = "item"
         
+        //MARK:时间戳
+        let shijian = CSJSwiftToolsDirector.shijianChuo_10Num()
+        print("10位时间戳 = \(shijian)")
+        let shijian13 = CSJSwiftToolsDirector.shijianChuo_13Num()
+        print("13位时间戳 = \(shijian13)")
+        
+        
         //MARK:时间截取转换
         let lastTimeValueName_Two : String = CSJSwiftToolsDirector.sharedInstance.fengeTime("17:30-18:00").string2
         let lastTimeValueNameTwoInt : Int = CSJSwiftToolsDirector.sharedInstance.zhuanhuanShiduanInt(lastTimeValueName_Two)

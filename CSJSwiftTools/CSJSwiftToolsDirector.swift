@@ -189,6 +189,24 @@ class CSJSwiftToolsDirector: NSObject {
         
     }
     
+    class func shijianChuo_13Num() -> NSString {
+        let dat : NSDate = NSDate.init(timeIntervalSinceNow: 0)
+        print("dat = \(dat)")
+        let a : NSTimeInterval = dat.timeIntervalSince1970 * 1000
+        let timeString = NSString (format: "%.f", a)
+        print("timeString = \(timeString)")
+        return timeString
+    }
+    
+    class func shijianChuo_10Num() -> NSString {
+        let dat : NSDate = NSDate.init(timeIntervalSinceNow: 0)
+        print("dat = \(dat)")
+        let a : NSTimeInterval = dat.timeIntervalSince1970
+        let timeString = NSString (format: "%.f", a)
+        print("timeString = \(timeString)")
+        return timeString
+    }
+    
 }
 
 //MARK: Swift全局共有类
