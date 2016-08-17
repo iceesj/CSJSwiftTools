@@ -22,6 +22,11 @@ class ViewControllerLeft: UIViewController {
         self.setupLeftBarButton()
         self.initCSJSTSetVC(.whiteColor(), bool: true, title: "左边界面")
         
+        let old = [1,2,3]
+        let new = [1,2,4,5]
+        let new1 = Set(new).subtract(old)
+        let new2 = new.subtract(old)
+        print("old = \(old),new = \(new),new1 = \(new1),new2 = \(new2)")
         
     }
 
@@ -56,6 +61,27 @@ class ViewControllerLeft: UIViewController {
     
 
 }
+
+
+/**求差(差异)操作*/
+extension CollectionType where Generator.Element: Hashable {
+    /// 返回一个新数组,该数组中的元素存在于 `self` 中,但是不存在于 `toRemove` 里
+    func subtract(toRemove: [Generator.Element]) -> [Generator.Element] {
+        let removeSet = Set(toRemove)
+        return self.filter {
+            !removeSet.contains($0)
+        }
+    }
+}
+
+extension SequenceType {
+    
+}
+
+
+
+
+
 
 
 
