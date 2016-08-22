@@ -43,10 +43,19 @@
                                     <segue destination="Qjt-L6-AcF" kind="show" id="ECw-0K-IBS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BOp-oR-r2T">
+                                <rect key="frame" x="249" y="299" width="103" height="30"/>
+                                <state key="normal" title="POP Animation"/>
+                                <connections>
+                                    <action selector="popanimation_click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="boM-eC-kB8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="BOp-oR-r2T" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="34s-z6-h4H"/>
                             <constraint firstItem="j95-J0-yUc" firstAttribute="top" secondItem="dEI-9Q-Ce2" secondAttribute="bottom" constant="38" id="BYg-W7-q60"/>
+                            <constraint firstItem="BOp-oR-r2T" firstAttribute="top" secondItem="j95-J0-yUc" secondAttribute="bottom" constant="25" id="CLl-KR-qgT"/>
                             <constraint firstItem="99d-dR-fRA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CT2-d9-ybW"/>
                             <constraint firstItem="j95-J0-yUc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Cy0-8H-6m6"/>
                             <constraint firstItem="dEI-9Q-Ce2" firstAttribute="top" secondItem="99d-dR-fRA" secondAttribute="bottom" constant="41" id="YVY-AG-xFK"/>
@@ -728,6 +737,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CxM-iA-FxM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1896" y="413"/>
+        </scene>
+        <!--Tableview View Controller-->
+        <scene sceneID="0bQ-Oz-rJ4">
+            <objects>
+                <viewController storyboardIdentifier="POPTableviewViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OZe-4h-kCD" customClass="POPTableviewViewController" customModule="CSJSwiftToolsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Yo5-E3-dS9"/>
+                        <viewControllerLayoutGuide type="bottom" id="RVr-ty-awg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QFM-2X-dI7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qud-df-wAz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2636" y="408"/>
+        </scene>
+        <!--Detail Tableview View Controller-->
+        <scene sceneID="Y7B-4H-xB4">
+            <objects>
+                <viewController storyboardIdentifier="POPDetailTableviewViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2OK-w0-W0f" customClass="POPDetailTableviewViewController" customModule="CSJSwiftToolsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3UA-wZ-NS2"/>
+                        <viewControllerLayoutGuide type="bottom" id="QSU-VJ-g5w"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LM2-6N-4cR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FY9-qS-xlX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3384" y="413"/>
         </scene>
         <!--Fourth View Controller-->
         <scene sceneID="8Jn-VY-188">

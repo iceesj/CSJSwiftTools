@@ -47,6 +47,7 @@ class ViewController: UIViewController {
         print("13位时间戳 = \(shijian13)")
         
         
+        
         //MARK:时间截取转换
         let lastTimeValueName_Two : String = CSJSwiftToolsDirector.sharedInstance.fengeTime("17:30-18:00").string2
         let lastTimeValueNameTwoInt : Int = CSJSwiftToolsDirector.sharedInstance.zhuanhuanShiduanInt(lastTimeValueName_Two)
@@ -184,6 +185,10 @@ class ViewController: UIViewController {
     
     
     
+    @IBAction func popanimation_click(sender: AnyObject) {
+        let vc : POPTableviewViewController = self.storyboard?.instantiateViewControllerWithIdentifier("POPTableviewViewController") as! POPTableviewViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     
     

@@ -28,6 +28,7 @@ pod 'Reachability'
 pod 'Siren', '~> 0.6'
 pod 'JLRoutes'
 pod 'SnapKit'
+pod 'pop'
 
 
 # Third-party integration

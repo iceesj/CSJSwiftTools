@@ -17,6 +17,7 @@ PODS:
   - MJExtension (3.0.11)
   - MJRefresh (3.1.10)
   - PDTSimpleCalendar (0.9.1)
+  - pop (1.0.9)
   - Reachability (3.2)
   - RxCocoa (2.6.0):
     - RxSwift (~> 2.5)
@@ -49,6 +50,7 @@ DEPENDENCIES:
   - MJExtension
   - MJRefresh
   - PDTSimpleCalendar (~> 0.9.1)
+  - pop
   - Reachability
   - RxCocoa
   - RxDataSources
@@ -83,6 +85,7 @@ SPEC CHECKSUMS:
   MJExtension: f9ae6ddc0f1c482c3c9af750280ccebd14381958
   MJRefresh: bb72948c985914b0b5cecac573a2c69a8915fb02
   PDTSimpleCalendar: d1c03387678422715dc021aa1a85d70f4d1014f2
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   RxCocoa: 89ab00d5753502520227940e3a0e0a0413683c6b
   RxDataSources: e169bba94a7be584df7c1e1487fa56edc8753ae6
@@ -95,6 +98,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 8bc3af6e011d7b70dc850711aee85fd9ee1124fc
+PODFILE CHECKSUM: 5110221583690efdb53251fc96ef958bb64d5666
 
 COCOAPODS: 1.0.1

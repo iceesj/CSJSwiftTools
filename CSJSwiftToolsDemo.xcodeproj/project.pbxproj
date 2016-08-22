@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B035DA71D655188003F88ED /* POPTableviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B035DA61D655188003F88ED /* POPTableviewViewController.swift */; };
+		7B035DA91D6555C7003F88ED /* POPDetailTableviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B035DA81D6555C7003F88ED /* POPDetailTableviewViewController.swift */; };
 		7B03C8271D3F6B090026EFCC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B03C8221D3F6B090026EFCC /* SecondViewController.swift */; };
 		7B03C8291D3F6B090026EFCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B03C8241D3F6B090026EFCC /* ViewController.swift */; };
 		7B03C82A1D3F6B090026EFCC /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B03C8251D3F6B090026EFCC /* ViewController2.swift */; };
@@ -85,6 +87,8 @@
 
 /* Begin PBXFileReference section */
 		375F2ACE2794B81F5FFA8511 /* Pods-CSJSwiftToolsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSJSwiftToolsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CSJSwiftToolsDemo/Pods-CSJSwiftToolsDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		7B035DA61D655188003F88ED /* POPTableviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POPTableviewViewController.swift; sourceTree = "<group>"; };
+		7B035DA81D6555C7003F88ED /* POPDetailTableviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POPDetailTableviewViewController.swift; sourceTree = "<group>"; };
 		7B03C8221D3F6B090026EFCC /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		7B03C8241D3F6B090026EFCC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7B03C8251D3F6B090026EFCC /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
@@ -200,6 +204,8 @@
 				7B03C8241D3F6B090026EFCC /* ViewController.swift */,
 				7B03C8251D3F6B090026EFCC /* ViewController2.swift */,
 				7B03C8261D3F6B090026EFCC /* ViewControllerLeft.swift */,
+				7B035DA61D655188003F88ED /* POPTableviewViewController.swift */,
+				7B035DA81D6555C7003F88ED /* POPDetailTableviewViewController.swift */,
 				7B03C8221D3F6B090026EFCC /* SecondViewController.swift */,
 				7BD7BD4F1D51A4AE00ACB5FF /* CSJSnapKitDemoViewController.swift */,
 				7BD7BD511D51C78F00ACB5FF /* CSJSnapKitDemoSecondViewController.swift */,
@@ -608,11 +614,13 @@
 				7BAB8F891D2FA52100A767C8 /* CSJST+UIViewController.swift in Sources */,
 				7B37D3531D486483008E266F /* ThirdViewModel.swift in Sources */,
 				7BAB8F8F1D2FA82A00A767C8 /* CSJSTCoreDataManager.swift in Sources */,
+				7B035DA71D655188003F88ED /* POPTableviewViewController.swift in Sources */,
 				7B03C84E1D3F6EEF0026EFCC /* IQKeyboardManager.swift in Sources */,
 				7B03C8471D3F6EEF0026EFCC /* IQUIScrollView+Additions.swift in Sources */,
 				7BAB8F9B1D33328D00A767C8 /* CSJST+UIColor.swift in Sources */,
 				7BAB8F931D2FADA800A767C8 /* CSJST+Date.swift in Sources */,
 				7B03C8291D3F6B090026EFCC /* ViewController.swift in Sources */,
+				7B035DA91D6555C7003F88ED /* POPDetailTableviewViewController.swift in Sources */,
 				7B9EFB331D37754E00707C7C /* CSJSTNavViewController.swift in Sources */,
 				7B03C8501D3F6EEF0026EFCC /* IQTextView.swift in Sources */,
 				7B9EFB311D3737EF00707C7C /* CSJSTViewController.swift in Sources */,

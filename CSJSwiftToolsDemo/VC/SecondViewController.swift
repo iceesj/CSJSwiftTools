@@ -28,7 +28,7 @@ class SecondViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.initCSJSTSetVC(.whiteColor(),bool: true, title: "界面二")
+        self.initCSJSTSetVC(.whiteColor(),bool: true, title: "界面二 StackView")
         
         
         print("进入StackView")
