@@ -6,7 +6,7 @@ CSJSwiftTools is an Swift library for iOS developers.
 
 ##Version
 
-####0.0.0.2
+####0.0.2
 * add CSJSTNetworkManager
 
 ####0.0.1
