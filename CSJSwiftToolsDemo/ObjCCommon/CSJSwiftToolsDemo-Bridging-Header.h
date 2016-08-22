@@ -10,4 +10,8 @@
 //#import <ReactiveCocoa/ReactiveCocoa.h>
 //#import <ReactiveViewModel/ReactiveViewModel.h>
 
-#import <pop/POP.h>
+//#import <pop/POP.h>
+//#import <pop/POPPropertyAnimation.h>
+//#import <POP/POP.h>
+
+//@import pop;

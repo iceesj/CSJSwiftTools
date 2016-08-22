@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7B035DA71D655188003F88ED /* POPTableviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B035DA61D655188003F88ED /* POPTableviewViewController.swift */; };
-		7B035DA91D6555C7003F88ED /* POPDetailTableviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B035DA81D6555C7003F88ED /* POPDetailTableviewViewController.swift */; };
+		7B035DB51D6ADBA7003F88ED /* POPDetailTableviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B035DB01D6ADBA7003F88ED /* POPDetailTableviewViewController.swift */; };
+		7B035DB61D6ADBA7003F88ED /* POPTableviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B035DB11D6ADBA7003F88ED /* POPTableviewViewController.swift */; };
+		7B035DB71D6ADBA7003F88ED /* CSJSnapKitDemoSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B035DB31D6ADBA7003F88ED /* CSJSnapKitDemoSecondViewController.swift */; };
+		7B035DB81D6ADBA7003F88ED /* CSJSnapKitDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B035DB41D6ADBA7003F88ED /* CSJSnapKitDemoViewController.swift */; };
+		7B035DBB1D6ADC1E003F88ED /* RealmTableviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B035DBA1D6ADC1E003F88ED /* RealmTableviewViewController.swift */; };
+		7B035DBD1D6ADC5D003F88ED /* RealmDetailTableviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B035DBC1D6ADC5D003F88ED /* RealmDetailTableviewViewController.swift */; };
+		7B035DBF1D6AFAF4003F88ED /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B035DAB1D6ADAAC003F88ED /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B035DC11D6AFAF4003F88ED /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B035DAC1D6ADAAC003F88ED /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B035DC31D6AFB26003F88ED /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B035DAB1D6ADAAC003F88ED /* Realm.framework */; };
+		7B035DC41D6AFB26003F88ED /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B035DAC1D6ADAAC003F88ED /* RealmSwift.framework */; };
 		7B03C8271D3F6B090026EFCC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B03C8221D3F6B090026EFCC /* SecondViewController.swift */; };
 		7B03C8291D3F6B090026EFCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B03C8241D3F6B090026EFCC /* ViewController.swift */; };
 		7B03C82A1D3F6B090026EFCC /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B03C8251D3F6B090026EFCC /* ViewController2.swift */; };
@@ -63,8 +71,6 @@
 		7BAB8FA31D33472500A767C8 /* CSJST+UIWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAB8FA21D33472500A767C8 /* CSJST+UIWebView.swift */; };
 		7BAB8FA51D334ADC00A767C8 /* CSJSTLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAB8FA41D334ADC00A767C8 /* CSJSTLocationManager.swift */; };
 		7BD3F1B01D4A0E5D004BCA77 /* DDNNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD3F1AF1D4A0E5D004BCA77 /* DDNNewsCell.swift */; };
-		7BD7BD501D51A4AE00ACB5FF /* CSJSnapKitDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD7BD4F1D51A4AE00ACB5FF /* CSJSnapKitDemoViewController.swift */; };
-		7BD7BD521D51C78F00ACB5FF /* CSJSnapKitDemoSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD7BD511D51C78F00ACB5FF /* CSJSnapKitDemoSecondViewController.swift */; };
 		F869E245A71850C0772FA60A /* Pods_CSJSwiftToolsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8487D0491093B0247CD801CF /* Pods_CSJSwiftToolsDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,10 +91,31 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7B035DC21D6AFAF4003F88ED /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7B035DC11D6AFAF4003F88ED /* RealmSwift.framework in Embed Frameworks */,
+				7B035DBF1D6AFAF4003F88ED /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		375F2ACE2794B81F5FFA8511 /* Pods-CSJSwiftToolsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSJSwiftToolsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CSJSwiftToolsDemo/Pods-CSJSwiftToolsDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		7B035DA61D655188003F88ED /* POPTableviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POPTableviewViewController.swift; sourceTree = "<group>"; };
-		7B035DA81D6555C7003F88ED /* POPDetailTableviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POPDetailTableviewViewController.swift; sourceTree = "<group>"; };
+		7B035DAB1D6ADAAC003F88ED /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		7B035DAC1D6ADAAC003F88ED /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		7B035DB01D6ADBA7003F88ED /* POPDetailTableviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POPDetailTableviewViewController.swift; sourceTree = "<group>"; };
+		7B035DB11D6ADBA7003F88ED /* POPTableviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POPTableviewViewController.swift; sourceTree = "<group>"; };
+		7B035DB31D6ADBA7003F88ED /* CSJSnapKitDemoSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSJSnapKitDemoSecondViewController.swift; sourceTree = "<group>"; };
+		7B035DB41D6ADBA7003F88ED /* CSJSnapKitDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSJSnapKitDemoViewController.swift; sourceTree = "<group>"; };
+		7B035DBA1D6ADC1E003F88ED /* RealmTableviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmTableviewViewController.swift; sourceTree = "<group>"; };
+		7B035DBC1D6ADC5D003F88ED /* RealmDetailTableviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDetailTableviewViewController.swift; sourceTree = "<group>"; };
 		7B03C8221D3F6B090026EFCC /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		7B03C8241D3F6B090026EFCC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7B03C8251D3F6B090026EFCC /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
@@ -150,8 +177,6 @@
 		7BAB8FA41D334ADC00A767C8 /* CSJSTLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSJSTLocationManager.swift; sourceTree = "<group>"; };
 		7BD3F1AD1D49ED49004BCA77 /* CSJSwiftToolsDemo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CSJSwiftToolsDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		7BD3F1AF1D4A0E5D004BCA77 /* DDNNewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDNNewsCell.swift; sourceTree = "<group>"; };
-		7BD7BD4F1D51A4AE00ACB5FF /* CSJSnapKitDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSJSnapKitDemoViewController.swift; sourceTree = "<group>"; };
-		7BD7BD511D51C78F00ACB5FF /* CSJSnapKitDemoSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSJSnapKitDemoSecondViewController.swift; sourceTree = "<group>"; };
 		8487D0491093B0247CD801CF /* Pods_CSJSwiftToolsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CSJSwiftToolsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D9DDD03C639714D26EF463 /* Pods-CSJSwiftToolsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSJSwiftToolsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CSJSwiftToolsDemo/Pods-CSJSwiftToolsDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -162,6 +187,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F869E245A71850C0772FA60A /* Pods_CSJSwiftToolsDemo.framework in Frameworks */,
+				7B035DC31D6AFB26003F88ED /* Realm.framework in Frameworks */,
+				7B035DC41D6AFB26003F88ED /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +217,42 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7B035DAA1D6ADAAC003F88ED /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				7B035DAB1D6ADAAC003F88ED /* Realm.framework */,
+				7B035DAC1D6ADAAC003F88ED /* RealmSwift.framework */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		7B035DAF1D6ADBA7003F88ED /* POP */ = {
+			isa = PBXGroup;
+			children = (
+				7B035DB11D6ADBA7003F88ED /* POPTableviewViewController.swift */,
+				7B035DB01D6ADBA7003F88ED /* POPDetailTableviewViewController.swift */,
+			);
+			path = POP;
+			sourceTree = "<group>";
+		};
+		7B035DB21D6ADBA7003F88ED /* SnapKit */ = {
+			isa = PBXGroup;
+			children = (
+				7B035DB31D6ADBA7003F88ED /* CSJSnapKitDemoSecondViewController.swift */,
+				7B035DB41D6ADBA7003F88ED /* CSJSnapKitDemoViewController.swift */,
+			);
+			path = SnapKit;
+			sourceTree = "<group>";
+		};
+		7B035DB91D6ADBDA003F88ED /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				7B035DBA1D6ADC1E003F88ED /* RealmTableviewViewController.swift */,
+				7B035DBC1D6ADC5D003F88ED /* RealmDetailTableviewViewController.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 		7B03C8201D3F6B090026EFCC /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,11 +267,10 @@
 				7B03C8241D3F6B090026EFCC /* ViewController.swift */,
 				7B03C8251D3F6B090026EFCC /* ViewController2.swift */,
 				7B03C8261D3F6B090026EFCC /* ViewControllerLeft.swift */,
-				7B035DA61D655188003F88ED /* POPTableviewViewController.swift */,
-				7B035DA81D6555C7003F88ED /* POPDetailTableviewViewController.swift */,
 				7B03C8221D3F6B090026EFCC /* SecondViewController.swift */,
-				7BD7BD4F1D51A4AE00ACB5FF /* CSJSnapKitDemoViewController.swift */,
-				7BD7BD511D51C78F00ACB5FF /* CSJSnapKitDemoSecondViewController.swift */,
+				7B035DB91D6ADBDA003F88ED /* Realm */,
+				7B035DB21D6ADBA7003F88ED /* SnapKit */,
+				7B035DAF1D6ADBA7003F88ED /* POP */,
 				7B37D3471D486483008E266F /* RxSwift */,
 				7B37D3441D48626F008E266F /* RAC+MVVM */,
 			);
@@ -218,6 +280,7 @@
 		7B03C82F1D3F6EEF0026EFCC /* SwiftCommon */ = {
 			isa = PBXGroup;
 			children = (
+				7B035DAA1D6ADAAC003F88ED /* Realm */,
 				7B03C8301D3F6EEF0026EFCC /* IQKeyboardManagerSwift */,
 			);
 			path = SwiftCommon;
@@ -437,6 +500,7 @@
 				7BAB8F4D1D2F840D00A767C8 /* Resources */,
 				28A5EF14B97B2CC8341C665A /* [CP] Embed Pods Frameworks */,
 				A1308398B41812C04C7BA9E9 /* [CP] Copy Pods Resources */,
+				7B035DC21D6AFAF4003F88ED /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -614,15 +678,15 @@
 				7BAB8F891D2FA52100A767C8 /* CSJST+UIViewController.swift in Sources */,
 				7B37D3531D486483008E266F /* ThirdViewModel.swift in Sources */,
 				7BAB8F8F1D2FA82A00A767C8 /* CSJSTCoreDataManager.swift in Sources */,
-				7B035DA71D655188003F88ED /* POPTableviewViewController.swift in Sources */,
 				7B03C84E1D3F6EEF0026EFCC /* IQKeyboardManager.swift in Sources */,
 				7B03C8471D3F6EEF0026EFCC /* IQUIScrollView+Additions.swift in Sources */,
 				7BAB8F9B1D33328D00A767C8 /* CSJST+UIColor.swift in Sources */,
 				7BAB8F931D2FADA800A767C8 /* CSJST+Date.swift in Sources */,
+				7B035DB51D6ADBA7003F88ED /* POPDetailTableviewViewController.swift in Sources */,
 				7B03C8291D3F6B090026EFCC /* ViewController.swift in Sources */,
-				7B035DA91D6555C7003F88ED /* POPDetailTableviewViewController.swift in Sources */,
 				7B9EFB331D37754E00707C7C /* CSJSTNavViewController.swift in Sources */,
 				7B03C8501D3F6EEF0026EFCC /* IQTextView.swift in Sources */,
+				7B035DB81D6ADBA7003F88ED /* CSJSnapKitDemoViewController.swift in Sources */,
 				7B9EFB311D3737EF00707C7C /* CSJSTViewController.swift in Sources */,
 				7B03C8521D3F6EEF0026EFCC /* IQTitleBarButtonItem.swift in Sources */,
 				7B03C82E1D3F6B9D0026EFCC /* Model.xcdatamodeld in Sources */,
@@ -638,15 +702,18 @@
 				7B03C8531D3F6EEF0026EFCC /* IQToolbar.swift in Sources */,
 				7B03C8511D3F6EEF0026EFCC /* IQBarButtonItem.swift in Sources */,
 				7B37D34F1D486483008E266F /* TestUser.swift in Sources */,
+				7B035DBD1D6ADC5D003F88ED /* RealmDetailTableviewViewController.swift in Sources */,
+				7B035DB61D6ADBA7003F88ED /* POPTableviewViewController.swift in Sources */,
 				7BAB8F971D332C7000A767C8 /* CSJST+UserDefaults.swift in Sources */,
 				7B03C8541D3F6EEF0026EFCC /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				7BAB8F8D1D2FA76100A767C8 /* CSJST+NSURL.swift in Sources */,
 				7B03C82A1D3F6B090026EFCC /* ViewController2.swift in Sources */,
+				7B035DB71D6ADBA7003F88ED /* CSJSnapKitDemoSecondViewController.swift in Sources */,
 				7B37D3501D486483008E266F /* TestUserModel.swift in Sources */,
+				7B035DBB1D6ADC1E003F88ED /* RealmTableviewViewController.swift in Sources */,
 				7BAB8FA51D334ADC00A767C8 /* CSJSTLocationManager.swift in Sources */,
 				7B03C84A1D3F6EEF0026EFCC /* IQUIViewController+Additions.swift in Sources */,
 				7B03C84F1D3F6EEF0026EFCC /* IQKeyboardReturnKeyHandler.swift in Sources */,
-				7BD7BD521D51C78F00ACB5FF /* CSJSnapKitDemoSecondViewController.swift in Sources */,
 				7BAB8F851D2F8E2200A767C8 /* CSJSwiftToolsDirector.swift in Sources */,
 				7B37D34E1D486483008E266F /* TableViewCell.swift in Sources */,
 				7BAB8F991D332F7600A767C8 /* CSJST+String.swift in Sources */,
@@ -655,7 +722,6 @@
 				7B37D3511D486483008E266F /* Third1ViewController.swift in Sources */,
 				7BAB8F9D1D33367B00A767C8 /* CSJST+UIImageView.swift in Sources */,
 				7BAB8F531D2F840D00A767C8 /* AppDelegate.swift in Sources */,
-				7BD7BD501D51A4AE00ACB5FF /* CSJSnapKitDemoViewController.swift in Sources */,
 				7B03C8491D3F6EEF0026EFCC /* IQUIView+Hierarchy.swift in Sources */,
 				7B03C8461D3F6EEF0026EFCC /* IQNSArray+Sort.swift in Sources */,
 				7B03C84D1D3F6EEF0026EFCC /* IQKeyboardManagerConstantsInternal.swift in Sources */,
@@ -802,6 +868,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CSJSwiftToolsDemo/SwiftCommon/Realm",
+				);
 				INFOPLIST_FILE = CSJSwiftToolsDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -818,6 +888,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CSJSwiftToolsDemo/SwiftCommon/Realm",
+				);
 				INFOPLIST_FILE = CSJSwiftToolsDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
