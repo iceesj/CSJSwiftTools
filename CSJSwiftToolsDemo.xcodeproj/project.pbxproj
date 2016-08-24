@@ -17,6 +17,7 @@
 		7B035DC11D6AFAF4003F88ED /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B035DAC1D6ADAAC003F88ED /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7B035DC31D6AFB26003F88ED /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B035DAB1D6ADAAC003F88ED /* Realm.framework */; };
 		7B035DC41D6AFB26003F88ED /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B035DAC1D6ADAAC003F88ED /* RealmSwift.framework */; };
+		7B035DC61D6BFD78003F88ED /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B035DC51D6BFD78003F88ED /* libc++.tbd */; };
 		7B03C8271D3F6B090026EFCC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B03C8221D3F6B090026EFCC /* SecondViewController.swift */; };
 		7B03C8291D3F6B090026EFCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B03C8241D3F6B090026EFCC /* ViewController.swift */; };
 		7B03C82A1D3F6B090026EFCC /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B03C8251D3F6B090026EFCC /* ViewController2.swift */; };
@@ -38,6 +39,7 @@
 		7B03C8531D3F6EEF0026EFCC /* IQToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B03C8421D3F6EEF0026EFCC /* IQToolbar.swift */; };
 		7B03C8541D3F6EEF0026EFCC /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B03C8431D3F6EEF0026EFCC /* IQUIView+IQKeyboardToolbar.swift */; };
 		7B03C8551D3F6EEF0026EFCC /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7B03C8451D3F6EEF0026EFCC /* IQKeyboardManager.bundle */; };
+		7B11FC091D6C489100D74FC4 /* RealmDetailBasicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B11FC081D6C489100D74FC4 /* RealmDetailBasicVC.swift */; };
 		7B37D3461D48627D008E266F /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B37D3451D48627D008E266F /* FourthViewController.swift */; };
 		7B37D34E1D486483008E266F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B37D3481D486483008E266F /* TableViewCell.swift */; };
 		7B37D34F1D486483008E266F /* TestUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B37D3491D486483008E266F /* TestUser.swift */; };
@@ -116,6 +118,7 @@
 		7B035DB41D6ADBA7003F88ED /* CSJSnapKitDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSJSnapKitDemoViewController.swift; sourceTree = "<group>"; };
 		7B035DBA1D6ADC1E003F88ED /* RealmTableviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmTableviewViewController.swift; sourceTree = "<group>"; };
 		7B035DBC1D6ADC5D003F88ED /* RealmDetailTableviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDetailTableviewViewController.swift; sourceTree = "<group>"; };
+		7B035DC51D6BFD78003F88ED /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		7B03C8221D3F6B090026EFCC /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		7B03C8241D3F6B090026EFCC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7B03C8251D3F6B090026EFCC /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
@@ -137,6 +140,7 @@
 		7B03C8421D3F6EEF0026EFCC /* IQToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQToolbar.swift; sourceTree = "<group>"; };
 		7B03C8431D3F6EEF0026EFCC /* IQUIView+IQKeyboardToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIView+IQKeyboardToolbar.swift"; sourceTree = "<group>"; };
 		7B03C8451D3F6EEF0026EFCC /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		7B11FC081D6C489100D74FC4 /* RealmDetailBasicVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDetailBasicVC.swift; sourceTree = "<group>"; };
 		7B37D3451D48627D008E266F /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 		7B37D3481D486483008E266F /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		7B37D3491D486483008E266F /* TestUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUser.swift; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B035DC61D6BFD78003F88ED /* libc++.tbd in Frameworks */,
 				F869E245A71850C0772FA60A /* Pods_CSJSwiftToolsDemo.framework in Frameworks */,
 				7B035DC31D6AFB26003F88ED /* Realm.framework in Frameworks */,
 				7B035DC41D6AFB26003F88ED /* RealmSwift.framework in Frameworks */,
@@ -212,6 +217,7 @@
 		316E222026819C7F540250D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7B035DC51D6BFD78003F88ED /* libc++.tbd */,
 				8487D0491093B0247CD801CF /* Pods_CSJSwiftToolsDemo.framework */,
 			);
 			name = Frameworks;
@@ -249,6 +255,7 @@
 			children = (
 				7B035DBA1D6ADC1E003F88ED /* RealmTableviewViewController.swift */,
 				7B035DBC1D6ADC5D003F88ED /* RealmDetailTableviewViewController.swift */,
+				7B11FC081D6C489100D74FC4 /* RealmDetailBasicVC.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -501,6 +508,7 @@
 				28A5EF14B97B2CC8341C665A /* [CP] Embed Pods Frameworks */,
 				A1308398B41812C04C7BA9E9 /* [CP] Copy Pods Resources */,
 				7B035DC21D6AFAF4003F88ED /* Embed Frameworks */,
+				7B035DC81D6BFDB7003F88ED /* Strip Framework Architectures */,
 			);
 			buildRules = (
 			);
@@ -634,6 +642,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CSJSwiftToolsDemo/Pods-CSJSwiftToolsDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7B035DC81D6BFDB7003F88ED /* Strip Framework Architectures */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Strip Framework Architectures";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
+			showEnvVarsInLog = 0;
+		};
 		A1308398B41812C04C7BA9E9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -706,6 +729,7 @@
 				7B035DB61D6ADBA7003F88ED /* POPTableviewViewController.swift in Sources */,
 				7BAB8F971D332C7000A767C8 /* CSJST+UserDefaults.swift in Sources */,
 				7B03C8541D3F6EEF0026EFCC /* IQUIView+IQKeyboardToolbar.swift in Sources */,
+				7B11FC091D6C489100D74FC4 /* RealmDetailBasicVC.swift in Sources */,
 				7BAB8F8D1D2FA76100A767C8 /* CSJST+NSURL.swift in Sources */,
 				7B03C82A1D3F6B090026EFCC /* ViewController2.swift in Sources */,
 				7B035DB71D6ADBA7003F88ED /* CSJSnapKitDemoSecondViewController.swift in Sources */,

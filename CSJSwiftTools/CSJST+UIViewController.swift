@@ -20,12 +20,12 @@ public extension UIViewController {
      初始化VC，颜色，是否layout.None，标题设置
      */
     func initCSJSTSetVC(color: UIColor, bool :Bool, title:String) {
-        self.view.backgroundColor = .whiteColor()
+        self.view.backgroundColor = color
         //是否layout展示
         if bool == true {
             edgesForExtendedLayout = .None
         }else{
-            
+            print("iOS 7 use false")
         }
         /**bar的文字*/
         self.navigationItem.title = title

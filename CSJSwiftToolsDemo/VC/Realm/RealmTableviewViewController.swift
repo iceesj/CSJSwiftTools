@@ -9,6 +9,18 @@
 import UIKit
 import RealmSwift
 
+class Person: Object {
+    dynamic var name = ""
+    dynamic var picture: NSData? = nil // 支持可选值
+    let dogs = List<Dog>()
+}
+
+class Dog: Object {
+    dynamic var name = ""
+    dynamic var age = 0
+    dynamic var owner : Person?
+}
+
 class RealmTableviewViewController: UIViewController {
     
     var tableView : UITableView!
@@ -22,9 +34,9 @@ class RealmTableviewViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.whiteColor()
-        self.navigationItem.title = "POPAnimation Demo"
+        self.navigationItem.title = "Realm Demo"
         
-        self.mutableArray = ["kPOPLayerSize","kPOPLayerPosition","kPOPViewFrame","kPOPViewAlpha","kPOPBOX"]
+        self.mutableArray = ["Realm Basic","Realm TableView"]
         
         //init TableView
         self.tableView=UITableView(frame:CGRectMake(0, 0, SCREEN_WIDTH_CSJST, SCREEN_HEIGHT_CSJST-60),style:.Plain)
@@ -67,11 +79,23 @@ extension RealmTableviewViewController : UITableViewDelegate {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         print("点击行数 = \(indexPath.row)")
         
-        /*
-        let vc : POPDetailTableviewViewController = self.storyboard?.instantiateViewControllerWithIdentifier("POPDetailTableviewViewController") as! POPDetailTableviewViewController
-        vc.panduanString = "\(self.mutableArray[indexPath.row])"
-        self.navigationController?.pushViewController(vc, animated: true)
-        */
+        let string_click = self.mutableArray[indexPath.row] as! String
+        print("点击的String = \(string_click)")
+        
+        if string_click == "Realm TableView" {
+            print("Realm TableView")
+            let vc : RealmDetailTableviewViewController = self.storyboard?.instantiateViewControllerWithIdentifier("RealmDetailTableviewViewController") as! RealmDetailTableviewViewController
+            //        vc.panduanString = "\(self.mutableArray[indexPath.row])"
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        else if string_click == "Realm Basic"{
+            print("Realm Basic")
+            let vc : RealmDetailBasicVC = self.storyboard?.instantiateViewControllerWithIdentifier("RealmDetailBasicVC") as! RealmDetailBasicVC
+            //        vc.panduanString = "\(self.mutableArray[indexPath.row])"
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        
     }
 }
 

@@ -184,13 +184,17 @@ class ViewController: UIViewController {
     
     
     
-    
+    //MARK：popanimation
     @IBAction func popanimation_click(sender: AnyObject) {
         let vc : POPTableviewViewController = self.storyboard?.instantiateViewControllerWithIdentifier("POPTableviewViewController") as! POPTableviewViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    
+    //MARK: Realm
+    @IBAction func realmdemo_click(sender: AnyObject) {
+        let vc : RealmTableviewViewController = self.storyboard?.instantiateViewControllerWithIdentifier("RealmTableviewViewController") as! RealmTableviewViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     
     
