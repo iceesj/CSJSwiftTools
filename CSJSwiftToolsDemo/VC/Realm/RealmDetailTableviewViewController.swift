@@ -56,7 +56,7 @@ class RealmDetailTableviewViewController: UIViewController {
         setupUI()
         
         //init TableView
-        self.tableView=UITableView(frame:CGRectMake(0, 0, SCREEN_WIDTH_CSJST, SCREEN_HEIGHT_CSJST-60),style:.Plain)
+        self.tableView=UITableView(frame:CGRectMake(0, 0, SCREEN_WIDTH_CSJST, SCREEN_HEIGHT_CSJST-60-50),style:.Plain)
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.backgroundColor = UIColor.clearColor()
@@ -104,12 +104,22 @@ class RealmDetailTableviewViewController: UIViewController {
     func backgroundAdd(){
         print("backgroundAdd")
         
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { 
+            let realm = try! Realm()
+            realm.beginWrite()
+            
+            for _ in 0..<5 {
+                realm.create(DemoObject.self , value: [RealmDetailTableviewViewController.randomString(), RealmDetailTableviewViewController.randomDate()] )
+            }
+            
+            try! realm.commitWrite()
+        }
     }
     
     func add() {
         print("add")
         realm.beginWrite()
-        realm.create(DemoObject.self, value:[RealmDetailTableviewViewController.randomString(), RealmDetailTableviewViewController.randomDate()])
+        realm.create(DemoObject.self, value:[RealmDetailTableviewViewController.randomString(), RealmDetailTableviewViewController.randomDate()] )
         try! realm.commitWrite()
     }
     
@@ -142,6 +152,18 @@ extension RealmDetailTableviewViewController : UITableViewDataSource{
 }
 
 extension RealmDetailTableviewViewController : UITableViewDelegate {
+//    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+//        return true
+//    }
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            realm.beginWrite()
+            realm.delete(results[indexPath.row])
+            try! realm.commitWrite()
+        }
+    }
+    
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }

@@ -228,10 +228,63 @@ struct CSJST_GlobalConstants {
     static var brownColor = UIColor.brownColor()
     static var clearColor = UIColor.clearColor()
     
+    
+    
+    static var BarTintColor            = UIColor(red: 250.0 / 255.0, green: 210.0 / 255.0, blue: 10.0 / 255.0, alpha: 1.0)
+    static var BannerBackgroundColor   = UIColor.whiteColor()
+    
+    //appdelegate 统一颜色
+    //    static var NavigationForegroundColor = UIColor(red: 120.0 / 255.0, green: 66.0 / 255.0, blue: 3.0 / 255.0, alpha: 1.0)
     static var NavigationForegroundColor = UIColor(red: 0.0 / 255.0, green: 0.0 / 255.0, blue: 0.0 / 255.0, alpha: 1.0)
+    
+    //    static var NavigationTitleColor = UIColor(red: 162.0 / 255.0, green: 90.0 / 255.0, blue: 31.0 / 255.0, alpha: 1.0)
+    //第六次迭代-统一改成黑色
+    static var NavigationTitleColor = UIColor(red: 0.0 / 255.0, green: 0.0 / 255.0, blue: 0.0 / 255.0, alpha: 1.0)
+    static var NavigationTitleColor_White = UIColor.whiteColor()
+    
+    static var Main_BackgroundColor = UIColor(red: 243.0 / 255.0, green: 245.0 / 255.0, blue: 248.0 / 255.0, alpha: 1.0)
+    //灰线
+    static var Line_Color = UIColor(red: 226.0 / 255.0, green: 231.0 / 255.0, blue: 238.0 / 255.0, alpha: 1.0)
+    
+    static var TabbarTextNormalColor   = UIColor(red: 106.0 / 255.0, green: 106.0 / 255.0, blue: 106.0 / 255.0, alpha: 1.0)
+    static var TabbarTextSelectedColor = UIColor(red: 249.0 / 255.0, green: 205.0 / 255.0, blue: 0 / 255.0, alpha: 1.0)
+    static var BarButtonItemColor      = UIColor(red: 120.0 / 255.0, green: 66.0 / 255.0, blue: 3.0 / 255.0, alpha: 1.0)
+    
+    static var CycleViewDotColor = UIColor(red: 250.0 / 255.0, green: 210.0 / 255.0, blue: 10.0 / 255.0, alpha: 1.0)
+    static var PlaceholderColor = UIColor(red: 153.0 / 255.0, green: 152.0 / 255.0, blue: 153.0 / 255.0, alpha: 1.0)
+    
+    static let FinishedLineBackgroundColor = UIColor(red: 72.0 / 255.0, green: 207.0 / 255.0, blue: 173.0 / 255.0, alpha: 1.0)
+    static let UnfinishedLineBackgroundColor = UIColor(red: 232.0 / 255.0, green: 236.0 / 255.0, blue: 242.0 / 255.0, alpha: 1.0)
+    
+    //tableView分割线
+    static let tableViewLineAJM = UIColor(red: 232/255.0, green: 236/255.0, blue: 242/255.0, alpha: 1.0)
+    
+    //    static let tableViewLineAJM = UIColor(red: 227/255.0, green: 91/255.0, blue: 21/255.0, alpha: 1.0)
+    
+    //西底颜色
+    static let toolbarViewColor = UIColor(red: 37/255.0, green: 42/255.0, blue: 45/255.0, alpha: 0.95)
+    
+    //购物车底色
+    static let toolbarViewPriceColor = UIColor(red: 217/255.0, green: 90/255.0, blue: 4/255.0, alpha: 0.8)
+    
+    //橘色
+    static let tuangou_orange_color = UIColor(red: 227/255.0, green: 91/255.0, blue: 21/255.0, alpha: 1.0)
+    
+    //header Background
+    static let adreess_Header_Background = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 1.0)
+    
+    //黄色
+    static let Normal_Yellow_AJM = UIColor(red: 250/255, green: 210/255, blue: 9/255, alpha: 1.0)
     
     //字体
     static var BarButtonItemFont = UIFont.systemFontOfSize(13.0)
+    static var TabbarTextFont = UIFont.systemFontOfSize(11.0)
+    static var NavigationBarFont = UIFont.systemFontOfSize(17.0)
+    static var EmptyTitleFont = UIFont.systemFontOfSize(13.0)
+    static var PlaceholderFont = UIFont.systemFontOfSize(13.0)
+    static var HUDFont = UIFont.systemFontOfSize(15.0)
+    static let NavigationTitleFont = UIFont.systemFontOfSize(17.0)
+    
     //高度
     //frame 1
     static var height_banner = CGFloat(SCREEN_WIDTH_CSJST * 120 / 320)

@@ -197,12 +197,11 @@ class ViewController: UIViewController {
     }
     
     
-    
-    
-    
-    
-    
-    
+    @IBAction func viewmodelTableview_click(sender: AnyObject) {
+        print("viewmodelTableview")
+        let vc : BaomingViewController = self.storyboard?.instantiateViewControllerWithIdentifier("BaomingViewController") as! BaomingViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     
     

@@ -39,6 +39,10 @@
 		7B03C8531D3F6EEF0026EFCC /* IQToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B03C8421D3F6EEF0026EFCC /* IQToolbar.swift */; };
 		7B03C8541D3F6EEF0026EFCC /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B03C8431D3F6EEF0026EFCC /* IQUIView+IQKeyboardToolbar.swift */; };
 		7B03C8551D3F6EEF0026EFCC /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7B03C8451D3F6EEF0026EFCC /* IQKeyboardManager.bundle */; };
+		7B0A77EB1D6D914300CAC198 /* BaomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0A77E91D6D914300CAC198 /* BaomingViewController.swift */; };
+		7B0A77EC1D6D914300CAC198 /* BaomingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0A77EA1D6D914300CAC198 /* BaomingViewModel.swift */; };
+		7B0A77F01D6D945500CAC198 /* MBProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0A77EF1D6D945500CAC198 /* MBProgressHUD.swift */; };
+		7B0A77F21D6D9AEB00CAC198 /* CSJST+Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0A77F11D6D9AEB00CAC198 /* CSJST+Character.swift */; };
 		7B11FC091D6C489100D74FC4 /* RealmDetailBasicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B11FC081D6C489100D74FC4 /* RealmDetailBasicVC.swift */; };
 		7B37D3461D48627D008E266F /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B37D3451D48627D008E266F /* FourthViewController.swift */; };
 		7B37D34E1D486483008E266F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B37D3481D486483008E266F /* TableViewCell.swift */; };
@@ -140,6 +144,10 @@
 		7B03C8421D3F6EEF0026EFCC /* IQToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQToolbar.swift; sourceTree = "<group>"; };
 		7B03C8431D3F6EEF0026EFCC /* IQUIView+IQKeyboardToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIView+IQKeyboardToolbar.swift"; sourceTree = "<group>"; };
 		7B03C8451D3F6EEF0026EFCC /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		7B0A77E91D6D914300CAC198 /* BaomingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaomingViewController.swift; sourceTree = "<group>"; };
+		7B0A77EA1D6D914300CAC198 /* BaomingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaomingViewModel.swift; sourceTree = "<group>"; };
+		7B0A77EF1D6D945500CAC198 /* MBProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBProgressHUD.swift; sourceTree = "<group>"; };
+		7B0A77F11D6D9AEB00CAC198 /* CSJST+Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CSJST+Character.swift"; sourceTree = "<group>"; };
 		7B11FC081D6C489100D74FC4 /* RealmDetailBasicVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDetailBasicVC.swift; sourceTree = "<group>"; };
 		7B37D3451D48627D008E266F /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 		7B37D3481D486483008E266F /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -275,6 +283,7 @@
 				7B03C8251D3F6B090026EFCC /* ViewController2.swift */,
 				7B03C8261D3F6B090026EFCC /* ViewControllerLeft.swift */,
 				7B03C8221D3F6B090026EFCC /* SecondViewController.swift */,
+				7B0A77E81D6D806700CAC198 /* TableView */,
 				7B035DB91D6ADBDA003F88ED /* Realm */,
 				7B035DB21D6ADBA7003F88ED /* SnapKit */,
 				7B035DAF1D6ADBA7003F88ED /* POP */,
@@ -356,6 +365,31 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		7B0A77E81D6D806700CAC198 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				7B0A77E91D6D914300CAC198 /* BaomingViewController.swift */,
+				7B0A77EA1D6D914300CAC198 /* BaomingViewModel.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		7B0A77ED1D6D945500CAC198 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				7B0A77EE1D6D945500CAC198 /* Wrappers */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		7B0A77EE1D6D945500CAC198 /* Wrappers */ = {
+			isa = PBXGroup;
+			children = (
+				7B0A77EF1D6D945500CAC198 /* MBProgressHUD.swift */,
+			);
+			path = Wrappers;
+			sourceTree = "<group>";
+		};
 		7B37D3441D48626F008E266F /* RAC+MVVM */ = {
 			isa = PBXGroup;
 			children = (
@@ -413,6 +447,7 @@
 		7BAB8F511D2F840D00A767C8 /* CSJSwiftToolsDemo */ = {
 			isa = PBXGroup;
 			children = (
+				7B0A77ED1D6D945500CAC198 /* Utility */,
 				7B4A3F7D1D478B7600F7E60E /* ObjCCommon */,
 				7B03C82F1D3F6EEF0026EFCC /* SwiftCommon */,
 				7B03C8201D3F6B090026EFCC /* DataBase */,
@@ -457,6 +492,7 @@
 				7BAB8F921D2FADA800A767C8 /* CSJST+Date.swift */,
 				7BAB8F961D332C7000A767C8 /* CSJST+UserDefaults.swift */,
 				7BAB8F981D332F7600A767C8 /* CSJST+String.swift */,
+				7B0A77F11D6D9AEB00CAC198 /* CSJST+Character.swift */,
 				7BAB8F9A1D33328D00A767C8 /* CSJST+UIColor.swift */,
 				7BAB8F9C1D33367B00A767C8 /* CSJST+UIImageView.swift */,
 				7BAB8F9E1D33391900A767C8 /* CSJST+UILabel.swift */,
@@ -711,7 +747,10 @@
 				7B03C8501D3F6EEF0026EFCC /* IQTextView.swift in Sources */,
 				7B035DB81D6ADBA7003F88ED /* CSJSnapKitDemoViewController.swift in Sources */,
 				7B9EFB311D3737EF00707C7C /* CSJSTViewController.swift in Sources */,
+				7B0A77F21D6D9AEB00CAC198 /* CSJST+Character.swift in Sources */,
 				7B03C8521D3F6EEF0026EFCC /* IQTitleBarButtonItem.swift in Sources */,
+				7B0A77EB1D6D914300CAC198 /* BaomingViewController.swift in Sources */,
+				7B0A77F01D6D945500CAC198 /* MBProgressHUD.swift in Sources */,
 				7B03C82E1D3F6B9D0026EFCC /* Model.xcdatamodeld in Sources */,
 				7BAB8F8B1D2FA5FD00A767C8 /* CSJST+UIStoryboard.swift in Sources */,
 				7BD3F1B01D4A0E5D004BCA77 /* DDNNewsCell.swift in Sources */,
@@ -722,6 +761,7 @@
 				7B03C82B1D3F6B090026EFCC /* ViewControllerLeft.swift in Sources */,
 				7B37D3521D486483008E266F /* ThirdViewController.swift in Sources */,
 				7BAB8FA11D333CEC00A767C8 /* CSJST+UIView.swift in Sources */,
+				7B0A77EC1D6D914300CAC198 /* BaomingViewModel.swift in Sources */,
 				7B03C8531D3F6EEF0026EFCC /* IQToolbar.swift in Sources */,
 				7B03C8511D3F6EEF0026EFCC /* IQBarButtonItem.swift in Sources */,
 				7B37D34F1D486483008E266F /* TestUser.swift in Sources */,
