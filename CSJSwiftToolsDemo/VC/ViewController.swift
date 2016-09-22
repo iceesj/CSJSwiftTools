@@ -35,10 +35,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         //直接添加返回
-//        self.setupLeftBarButton()
-//        self.view.backgroundColor = .whiteColor()
-//        edgesForExtendedLayout = .None
-//        self.navigationItem.title = "item"
+        self.setupLeftBarButton()
+        self.view.backgroundColor = UIColor.white
+        self.edgesForExtendedLayout = UIRectEdge()
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.tabBarController?.tabBar.isTranslucent = false
+        
+        self.navigationItem.title = "item"
         
         //MARK:时间戳
         let shijian = CSJSwiftToolsDirector.shijianChuo_10Num()

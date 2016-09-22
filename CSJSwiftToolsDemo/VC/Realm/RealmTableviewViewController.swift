@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 /*
 class Person: Object {
     dynamic var name = ""

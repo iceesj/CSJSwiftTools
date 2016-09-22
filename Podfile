@@ -47,5 +47,6 @@ pod 'pop'
 #pod 'RxViewModel'
 #pod 'Action'
 
-#pod 'Realm'
+pod 'Realm'
+
 end
