@@ -7,11 +7,12 @@
 //
 
 import UIKit
-import RealmSwift
 
+
+/*
 class Person: Object {
     dynamic var name = ""
-    dynamic var picture: NSData? = nil // 支持可选值
+    dynamic var picture: Data? = nil // 支持可选值
     let dogs = List<Dog>()
 }
 
@@ -20,7 +21,7 @@ class Dog: Object {
     dynamic var age = 0
     dynamic var owner : Person?
 }
-
+*/
 
 class RealmTableviewViewController: UIViewController {
     
@@ -34,20 +35,23 @@ class RealmTableviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
         self.navigationItem.title = "Realm Demo"
         
         self.mutableArray = ["Realm Basic","Realm TableView"]
+
         
+        /*
         //init TableView
-        self.tableView=UITableView(frame:CGRectMake(0, 0, SCREEN_WIDTH_CSJST, SCREEN_HEIGHT_CSJST-60),style:.Plain)
+        self.tableView=UITableView(frame:CGRect(x: 0, y: 0, width: SCREEN_WIDTH_CSJST, height: SCREEN_HEIGHT_CSJST-60),style:.plain)
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.tableView.backgroundColor = UIColor.clearColor()
-        self.tableView.separatorStyle = .None
+        self.tableView.backgroundColor = UIColor.clear
+        self.tableView.separatorStyle = .none
         self.view.addSubview(self.tableView)
         
-        self.tableView.tableFooterView = UIView(frame: CGRectZero)
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+        */
     }
 
     
@@ -56,42 +60,42 @@ class RealmTableviewViewController: UIViewController {
 
 
 extension RealmTableviewViewController : UITableViewDataSource {
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.mutableArray.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "MyTestCell")
-        cell.textLabel?.text = self.mutableArray[indexPath.row] as? String
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "MyTestCell")
+        cell.textLabel?.text = self.mutableArray[(indexPath as NSIndexPath).row] as? String
         return cell
     }
 }
 
 extension RealmTableviewViewController : UITableViewDelegate {
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    @objc(numberOfSectionsInTableView:) func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        print("点击行数 = \(indexPath.row)")
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        print("点击行数 = \((indexPath as NSIndexPath).row)")
         
-        let string_click = self.mutableArray[indexPath.row] as! String
+        let string_click = self.mutableArray[(indexPath as NSIndexPath).row] as! String
         print("点击的String = \(string_click)")
         
         if string_click == "Realm TableView" {
             print("Realm TableView")
-            let vc : RealmDetailTableviewViewController = self.storyboard?.instantiateViewControllerWithIdentifier("RealmDetailTableviewViewController") as! RealmDetailTableviewViewController
+            let vc : RealmDetailTableviewViewController = self.storyboard?.instantiateViewController(withIdentifier: "RealmDetailTableviewViewController") as! RealmDetailTableviewViewController
             //        vc.panduanString = "\(self.mutableArray[indexPath.row])"
             self.navigationController?.pushViewController(vc, animated: true)
         }
         else if string_click == "Realm Basic"{
             print("Realm Basic")
-            let vc : RealmDetailBasicVC = self.storyboard?.instantiateViewControllerWithIdentifier("RealmDetailBasicVC") as! RealmDetailBasicVC
+            let vc : RealmDetailBasicVC = self.storyboard?.instantiateViewController(withIdentifier: "RealmDetailBasicVC") as! RealmDetailBasicVC
             //        vc.panduanString = "\(self.mutableArray[indexPath.row])"
             self.navigationController?.pushViewController(vc, animated: true)
         }

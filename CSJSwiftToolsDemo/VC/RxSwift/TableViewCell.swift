@@ -15,7 +15,7 @@ class TableViewCell: UITableViewCell {
     var user : TestUserModel? {
         willSet{
             let string = "screenName=\(newValue!.screenName),followersCount=\(newValue!.followersCount),followingCount=\(newValue!.followingCount)"
-            backgroundColor = tag % 2 == 0 ? .lightGrayColor() : .whiteColor()
+            backgroundColor = tag % 2 == 0 ? UIColor.lightGray : UIColor.white
             textLabel?.text = string
             textLabel?.numberOfLines = 0
         }
@@ -37,7 +37,7 @@ class TableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

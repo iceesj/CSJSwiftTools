@@ -24,7 +24,7 @@ class BaomingViewController: UIViewController , UITableViewDataSource {
     var overLayView2 : UIView!//备用
     
     //方法二
-    var baomingStatus = BaomingStatus.Login{
+    var baomingStatus = BaomingStatus.login{
         didSet{
             tableView.reloadData()
             print("当前是已登录的")
@@ -51,45 +51,45 @@ class BaomingViewController: UIViewController , UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
         self.navigationItem.title = "巴比面点活动报名页"
-        self.edgesForExtendedLayout = .None
+        self.edgesForExtendedLayout = UIRectEdge()
         
-        tableView.scrollEnabled = false
+        tableView.isScrollEnabled = false
         tableView.dataSource = self
-        tableView.tableFooterView = UIView(frame: CGRectZero)
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
 
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "返回")?.imageWithRenderingMode(.AlwaysOriginal), style: .Plain, target: self, action: #selector(UIViewController.leftBarButtonTapped(_:)))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "返回")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(UIViewController.leftBarButtonTapped(_:)))
         navigationItem.hidesBackButton = true
         
 //        self.initView()
         
         self.xuhaoLabel = UILabel()
-        self.xuhaoLabel.font = UIFont.systemFontOfSize(14)
-        self.xuhaoLabel.textColor = UIColor.grayColor()
+        self.xuhaoLabel.font = UIFont.systemFont(ofSize: 14)
+        self.xuhaoLabel.textColor = UIColor.gray
         
         self.panduanISZhuce = false
         
         
-        self.headerView.userInteractionEnabled = true
+        self.headerView.isUserInteractionEnabled = true
         let headerViewTap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(BaomingViewController.headerViewTap) )
         self.headerView.addGestureRecognizer(headerViewTap)
         
         self.addOverLayView()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(BaomingViewController.beginTicker_Item_NC(_:)), name: "beginTicker_Item_NC", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(BaomingViewController.beginTicker_Item_NC(_:)), name: NSNotification.Name(rawValue: "beginTicker_Item_NC"), object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(BaomingViewController.AJMNSNotificationCenter_BaomingViewController_Pop), name: "AJMNSNotificationCenter_BaomingViewController_Pop", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(BaomingViewController.AJMNSNotificationCenter_BaomingViewController_Pop), name: NSNotification.Name(rawValue: "AJMNSNotificationCenter_BaomingViewController_Pop"), object: nil)
 
     }
     
     
     func AJMNSNotificationCenter_BaomingViewController_Pop(){
-        self.navigationController?.popViewControllerAnimated(true)
+        let _ = self.navigationController?.popViewController(animated: true)
     }
     
     //MARK: 通知中心
-    func beginTicker_Item_NC(notification : NSNotification){
+    func beginTicker_Item_NC(_ notification : Notification){
         let dictString : String = notification.object as! String
         print("string111 = \(dictString)")
         self.xuhaoLabel.text = "序号:\(dictString)"
@@ -115,8 +115,8 @@ class BaomingViewController: UIViewController , UITableViewDataSource {
     
     func initView() {
         self.headerView = UIView()
-        self.headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH_CSJST, 128)
-        self.headerView.backgroundColor = UIColor.redColor()
+        self.headerView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH_CSJST, height: 128)
+        self.headerView.backgroundColor = UIColor.red
         self.view.addSubview(self.headerView)
         
     }
@@ -124,35 +124,35 @@ class BaomingViewController: UIViewController , UITableViewDataSource {
     func addOverLayView() {
         self.overLayView = UIView()
 //        self.overLayView.frame = self.view.frame
-        self.overLayView.frame = CGRectMake(0, 0, SCREEN_WIDTH_CSJST, SCREEN_HEIGHT_CSJST)
-        self.overLayView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
-        self.overLayView.hidden = true
+        self.overLayView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH_CSJST, height: SCREEN_HEIGHT_CSJST)
+        self.overLayView.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        self.overLayView.isHidden = true
 //        self.view.superview!.addSubview(self.overLayView)
         self.navigationController?.view.superview?.addSubview(self.overLayView)
 //        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
 //        delegate.webNav.view.superview!.addSubview(self.overLayView)
         
         let img = UIImageView()
-        img.frame = CGRectMake(100 , 200, SCREEN_WIDTH_CSJST-200, 100)
+        img.frame = CGRect(x: 100 , y: 200, width: SCREEN_WIDTH_CSJST-200, height: 100)
 //        img.image = UIImage(named: "活动报名弹框")
         img.image = UIImage(named: "恭喜你报名成功")
         self.overLayView.addSubview(img)
         
         
-        self.overLayView.userInteractionEnabled = true
+        self.overLayView.isUserInteractionEnabled = true
         let overLayViewTap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(BaomingViewController.overLayViewTap) )
         self.overLayView.addGestureRecognizer(overLayViewTap)
     }
     
     func overLayViewTap(){
         print("点击")
-        self.overLayView.hidden = true
+        self.overLayView.isHidden = true
         
-        NSNotificationCenter.defaultCenter().postNotificationName("AJMNSNotificationCenter_BaomingViewController_Pop", object: nil)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "AJMNSNotificationCenter_BaomingViewController_Pop"), object: nil)
     }
     
     //提交报名
-    @IBAction func loginButtonTapped(sender: UIButton) {
+    @IBAction func loginButtonTapped(_ sender: UIButton) {
         print("提交报名");
         /*
         if self.panduanISZhuce == true {
@@ -169,7 +169,7 @@ class BaomingViewController: UIViewController , UITableViewDataSource {
         var input = (phone: "", securityCode: "", userName: "", companyName:"")
         print("123 = \(loginViewModel[baomingStatus])")
         
-        let AJM_Panduan_BaomingSEX = NSUserDefaults.standardUserDefaults().objectForKey("AJM_Panduan_BaomingSEX") as! String
+        let AJM_Panduan_BaomingSEX = UserDefaults.standard.object(forKey: "AJM_Panduan_BaomingSEX") as! String
         print("AJM_Panduan_BaomingSEX = \(AJM_Panduan_BaomingSEX)")
         
         for i in 0 ..< 5 {
@@ -182,12 +182,12 @@ class BaomingViewController: UIViewController , UITableViewDataSource {
             }
             else if i==4 {
                 print("是公司")
-                let textFieldText = (tableView.cellForRowAtIndexPath(NSIndexPath(forRow: i, inSection: 0)) as? TextCell)?.textFieldText
+                let textFieldText = (tableView.cellForRow(at: IndexPath(row: i, section: 0)) as? TextCell)?.textFieldText
                 input.companyName = textFieldText!
             }
             else{
                 let (validator, prompt) = loginViewModel.validator(baomingStatus, i)
-                guard let textFieldText = (tableView.cellForRowAtIndexPath(NSIndexPath(forRow: i, inSection: 0)) as? TextCell)?.textFieldText where validator(textFieldText)() else {
+                guard let textFieldText = (tableView.cellForRow(at: IndexPath(row: i, section: 0)) as? TextCell)?.textFieldText , validator(textFieldText)() else {
                     //                    MBProgressHUD.showWithStatus(prompt, onView: self.view)
                     if prompt == "Error"{
                         if i==2 {
@@ -269,12 +269,12 @@ class BaomingViewController: UIViewController , UITableViewDataSource {
         */
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        guard let (cellIdentifier, _) = loginViewModel[baomingStatus, indexPath.row],let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) else {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let (cellIdentifier, _) = loginViewModel[baomingStatus, (indexPath as NSIndexPath).row],let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) else {
                 return UITableViewCell()
         }
         
@@ -291,11 +291,11 @@ class BaomingViewController: UIViewController , UITableViewDataSource {
         
         //输入验证码cell
         if let cell = cell as? TextTwoWithPlaceholderCell {
-            cell.textField.secureTextEntry = false
-            cell.textField.keyboardType = .NumberPad
+            cell.textField.isSecureTextEntry = false
+            cell.textField.keyboardType = .numberPad
             
-            self.xuhaoLabel.frame = CGRectMake(SCREEN_WIDTH_CSJST-100, 10, 90, 30)
-            self.xuhaoLabel.backgroundColor = UIColor.clearColor()
+            self.xuhaoLabel.frame = CGRect(x: SCREEN_WIDTH_CSJST-100, y: 10, width: 90, height: 30)
+            self.xuhaoLabel.backgroundColor = UIColor.clear
             cell.contentView.addSubview(self.xuhaoLabel)
 //            cell.backgroundColor = UIColor.redColor()
             cell.setupWithPlaceHolder("请输入短信中的验证码")
@@ -334,7 +334,7 @@ class BaomingViewController: UIViewController , UITableViewDataSource {
 
 
 protocol TextCell: class {
-    func setupWithPlaceHolder(placeHolder: String)
+    func setupWithPlaceHolder(_ placeHolder: String)
     var textFieldText: String? {get}
 }
 
@@ -342,9 +342,11 @@ class TextNameCell : UITableViewCell , TextCell {
     
     @IBOutlet weak var textField: UITextField!
     
-    func setupWithPlaceHolder(placeholder: String) {
-        let style : NSMutableParagraphStyle = textField.defaultTextAttributes[NSParagraphStyleAttributeName]!.mutableCopy() as! NSMutableParagraphStyle
-        style.minimumLineHeight = textField.font!.lineHeight - (textField.font!.lineHeight - UIFont.systemFontOfSize(13.0).lineHeight) / 2.0
+    func setupWithPlaceHolder(_ placeholder: String) {
+//        let style = NSMutableParagraphStyle()
+        let style = NSMutableParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+//        let style : NSMutableParagraphStyle = (textField.defaultTextAttributes[NSParagraphStyleAttributeName]! as AnyObject).mutableCopy() as! NSMutableParagraphStyle
+        style.minimumLineHeight = textField.font!.lineHeight - (textField.font!.lineHeight - UIFont.systemFont(ofSize: 13.0).lineHeight) / 2.0
         textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes:
             [
                 NSFontAttributeName: CSJST_GlobalConstants.PlaceholderFont,
@@ -367,9 +369,10 @@ class TextGSCell : UITableViewCell , TextCell {
     
     @IBOutlet weak var textField: UITextField!
     
-    func setupWithPlaceHolder(placeholder: String) {
-        let style : NSMutableParagraphStyle = textField.defaultTextAttributes[NSParagraphStyleAttributeName]!.mutableCopy() as! NSMutableParagraphStyle
-        style.minimumLineHeight = textField.font!.lineHeight - (textField.font!.lineHeight - UIFont.systemFontOfSize(13.0).lineHeight) / 2.0
+    func setupWithPlaceHolder(_ placeholder: String) {
+        let style = NSMutableParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+//        let style : NSMutableParagraphStyle = (textField.defaultTextAttributes[NSParagraphStyleAttributeName]! as AnyObject).mutableCopy() as! NSMutableParagraphStyle
+        style.minimumLineHeight = textField.font!.lineHeight - (textField.font!.lineHeight - UIFont.systemFont(ofSize: 13.0).lineHeight) / 2.0
         textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes:
             [
                 NSFontAttributeName: CSJST_GlobalConstants.PlaceholderFont,
@@ -392,9 +395,10 @@ class TextTwoWithPlaceholderCell: UITableViewCell, TextCell {
     
     @IBOutlet weak var textField: UITextField!
     
-    func setupWithPlaceHolder(placeholder: String) {
-        let style : NSMutableParagraphStyle = textField.defaultTextAttributes[NSParagraphStyleAttributeName]!.mutableCopy() as! NSMutableParagraphStyle
-        style.minimumLineHeight = textField.font!.lineHeight - (textField.font!.lineHeight - UIFont.systemFontOfSize(13.0).lineHeight) / 2.0
+    func setupWithPlaceHolder(_ placeholder: String) {
+        let style = NSMutableParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+//        let style : NSMutableParagraphStyle = (textField.defaultTextAttributes[NSParagraphStyleAttributeName]! as AnyObject).mutableCopy() as! NSMutableParagraphStyle
+        style.minimumLineHeight = textField.font!.lineHeight - (textField.font!.lineHeight - UIFont.systemFont(ofSize: 13.0).lineHeight) / 2.0
         textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes:
             [
                 NSFontAttributeName: CSJST_GlobalConstants.PlaceholderFont,
@@ -405,9 +409,10 @@ class TextTwoWithPlaceholderCell: UITableViewCell, TextCell {
         //        textField.contentVerticalAlignment = .Center
         textField.text = ""
     }
-    func setupWithPlaceHolder2(placeholder: String) {
-        let style : NSMutableParagraphStyle = textField.defaultTextAttributes[NSParagraphStyleAttributeName]!.mutableCopy() as! NSMutableParagraphStyle
-        style.minimumLineHeight = textField.font!.lineHeight - (textField.font!.lineHeight - UIFont.systemFontOfSize(13.0).lineHeight) / 2.0
+    func setupWithPlaceHolder2(_ placeholder: String) {
+        let style = NSMutableParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+//        let style : NSMutableParagraphStyle = (textField.defaultTextAttributes[NSParagraphStyleAttributeName]! as AnyObject).mutableCopy() as! NSMutableParagraphStyle
+        style.minimumLineHeight = textField.font!.lineHeight - (textField.font!.lineHeight - UIFont.systemFont(ofSize: 13.0).lineHeight) / 2.0
         textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes:
             [
                 NSFontAttributeName: CSJST_GlobalConstants.PlaceholderFont,
@@ -430,7 +435,7 @@ class TextWithButtonCell: UITableViewCell, TextCell {
     
     let tickerUpperLimit = 60
     var tickTimes = 0
-    var ticker: NSTimer?
+    var ticker: Timer?
     
     weak var parentView: UIView!
     
@@ -440,9 +445,10 @@ class TextWithButtonCell: UITableViewCell, TextCell {
     var smsCodeString : String = ""
     
     
-    func setupWithPlaceHolder(placeHolder: String) {
-        let style : NSMutableParagraphStyle = textField.defaultTextAttributes[NSParagraphStyleAttributeName]!.mutableCopy() as! NSMutableParagraphStyle
-        style.minimumLineHeight = textField.font!.lineHeight - (textField.font!.lineHeight - UIFont.systemFontOfSize(13.0).lineHeight) / 2.0
+    func setupWithPlaceHolder(_ placeHolder: String) {
+        let style = NSMutableParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+//        let style : NSMutableParagraphStyle = (textField.defaultTextAttributes[NSParagraphStyleAttributeName]! as AnyObject).mutableCopy() as! NSMutableParagraphStyle
+        style.minimumLineHeight = textField.font!.lineHeight - (textField.font!.lineHeight - UIFont.systemFont(ofSize: 13.0).lineHeight) / 2.0
         textField.attributedPlaceholder = NSAttributedString(string: placeHolder, attributes:
             [
                 NSFontAttributeName: CSJST_GlobalConstants.PlaceholderFont,
@@ -453,16 +459,17 @@ class TextWithButtonCell: UITableViewCell, TextCell {
         //上线账号 13611111111
         //        textField.text = "18601784252"
         textField.text = ""
-        button.hidden = false
-        button.addTarget(self, action: #selector(TextWithButtonCell.beginTicker(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        button.isHidden = false
+        button.addTarget(self, action: #selector(TextWithButtonCell.beginTicker(_:)), for: UIControlEvents.touchUpInside)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TextWithButtonCell.resetTicker), name: "viewDidDisappear", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(TextWithButtonCell.resetTicker), name: NSNotification.Name(rawValue: "viewDidDisappear"), object: nil)
     }
     
     //输入密码字段的时候用
-    func setupWithPlaceHolder2(placeHolder: String) {
-        let style : NSMutableParagraphStyle = textField.defaultTextAttributes[NSParagraphStyleAttributeName]!.mutableCopy() as! NSMutableParagraphStyle
-        style.minimumLineHeight = textField.font!.lineHeight - (textField.font!.lineHeight - UIFont.systemFontOfSize(13.0).lineHeight) / 2.0
+    func setupWithPlaceHolder2(_ placeHolder: String) {
+        let style = NSMutableParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+//        let style : NSMutableParagraphStyle = (textField.defaultTextAttributes[NSParagraphStyleAttributeName]! as AnyObject).mutableCopy() as! NSMutableParagraphStyle
+        style.minimumLineHeight = textField.font!.lineHeight - (textField.font!.lineHeight - UIFont.systemFont(ofSize: 13.0).lineHeight) / 2.0
         textField.attributedPlaceholder = NSAttributedString(string: placeHolder, attributes:
             [
                 NSFontAttributeName: CSJST_GlobalConstants.PlaceholderFont,
@@ -473,9 +480,9 @@ class TextWithButtonCell: UITableViewCell, TextCell {
         //上线账号 13611111111
         //        textField.text = "18601784252"
         textField.text = ""
-        button.hidden = true
-        button.addTarget(self, action: #selector(TextWithButtonCell.beginTicker(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TextWithButtonCell.resetTicker), name: "viewDidDisappear", object: nil)
+        button.isHidden = true
+        button.addTarget(self, action: #selector(TextWithButtonCell.beginTicker(_:)), for: UIControlEvents.touchUpInside)
+        NotificationCenter.default.addObserver(self, selector: #selector(TextWithButtonCell.resetTicker), name: NSNotification.Name(rawValue: "viewDidDisappear"), object: nil)
     }
     
     var textFieldText: String? {
@@ -485,30 +492,30 @@ class TextWithButtonCell: UITableViewCell, TextCell {
     }
     
     //MARK:获取验证码
-    func beginTicker(sender: UIButton!) {
+    func beginTicker(_ sender: UIButton!) {
         guard ticker == nil && tickTimes == 0 else {return}
         
         parentView.endEditing(true)
-        guard let text = textField.text where text.isValidPhoneNumber() else {
+        guard let text = textField.text , text.isValidPhoneNumber() else {
             MBProgressHUD.showWithStatus("请输入正确的手机号", onView: parentView)
             return
         }
         
-        sender.enabled = false
-        sender.setTitle("(\(tickerUpperLimit - tickTimes)S) 重新获取", forState: .Normal)
-        ticker = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(TextWithButtonCell.ticks), userInfo: nil, repeats: true)
-        NSRunLoop.currentRunLoop().addTimer(ticker!, forMode: NSRunLoopCommonModes)
+        sender.isEnabled = false
+        sender.setTitle("(\(tickerUpperLimit - tickTimes)S) 重新获取", for: UIControlState())
+        ticker = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(TextWithButtonCell.ticks), userInfo: nil, repeats: true)
+        RunLoop.current.add(ticker!, forMode: RunLoopMode.commonModes)
         
         //随机数
         let temp:Int = Int(arc4random_uniform(9))+0
         //        var smsCode : Int = 10
-        if (NSUserDefaults().integerForKey("beginTicker_Item") != 0){
-            let smsOne_Save: Int = NSUserDefaults().integerForKey("beginTicker_Item")
+        if (UserDefaults().integer(forKey: "beginTicker_Item") != 0){
+            let smsOne_Save: Int = UserDefaults().integer(forKey: "beginTicker_Item")
             print("之前存着的 十位数 = \(smsOne_Save)")
             var smsOne_New : Int = 0
             if (smsOne_Save == 9){
                 smsOne_New = 1
-                NSUserDefaults().setInteger(smsOne_New, forKey: "beginTicker_Item")
+                UserDefaults().set(smsOne_New, forKey: "beginTicker_Item")
                 let smsOne_Shiwei = smsOne_New * 10
                 let smsCode = smsOne_Shiwei + temp
                 print("已有smsCode = \(smsCode)")
@@ -516,7 +523,7 @@ class TextWithButtonCell: UITableViewCell, TextCell {
 //                ContentManager.sharedInstance.securityCode(text, smsCode: self.smsCodeString, block: nil)
             }else{
                 smsOne_New = smsOne_Save + 1
-                NSUserDefaults().setInteger(smsOne_New, forKey: "beginTicker_Item")
+                UserDefaults().set(smsOne_New, forKey: "beginTicker_Item")
                 let smsOne_Shiwei = smsOne_New * 10
                 let smsCode = smsOne_Shiwei + temp
                 print("已有smsCode = \(smsCode)")
@@ -526,8 +533,8 @@ class TextWithButtonCell: UITableViewCell, TextCell {
         }else{
             //            var smsOne = NSUserDefaults().valueForKey("beginTicker_Item")
             let smsOne : Int = 1
-            NSUserDefaults().setInteger(smsOne, forKey: "beginTicker_Item")
-            let smsOne_Save : Int = NSUserDefaults().integerForKey("beginTicker_Item")
+            UserDefaults().set(smsOne, forKey: "beginTicker_Item")
+            let smsOne_Save : Int = UserDefaults().integer(forKey: "beginTicker_Item")
             print("smsOne_Save = \(smsOne_Save)")
             let smsOne_Shiwei = smsOne_Save * 10
             let smsCode = smsOne_Shiwei + temp
@@ -535,7 +542,7 @@ class TextWithButtonCell: UITableViewCell, TextCell {
             self.smsCodeString = "\(smsCode)"
 //            ContentManager.sharedInstance.securityCode(text, smsCode: self.smsCodeString, block: nil)
         }
-        NSNotificationCenter.defaultCenter().postNotificationName("beginTicker_Item_NC", object: self.smsCodeString)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "beginTicker_Item_NC"), object: self.smsCodeString)
         
 //        ContentManager.sharedInstance.securityCode(text, block: nil)
     }
@@ -545,9 +552,9 @@ class TextWithButtonCell: UITableViewCell, TextCell {
         ticker?.invalidate()
         ticker = nil
         
-        button.enabled = true
+        button.isEnabled = true
         //        button.setTitle("重新获取", forState: .Normal)
-        button.setTitle("获取验证码", forState: .Normal)
+        button.setTitle("获取验证码", for: UIControlState())
     }
     
     func ticks() {
@@ -558,7 +565,7 @@ class TextWithButtonCell: UITableViewCell, TextCell {
             return
         }
         
-        button.setTitle("(\(tickerUpperLimit - tickTimes)S) 重新获取", forState: .Normal)
+        button.setTitle("(\(tickerUpperLimit - tickTimes)S) 重新获取", for: UIControlState())
     }
     
 }
@@ -602,40 +609,40 @@ class TextSexCell : UITableViewCell {
     func setupWithCell() {
         //先生
         let xiansheng_normalTap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TextSexCell.xiansheng_normalTap) )
-        self.xiansheng_normal.userInteractionEnabled = true
+        self.xiansheng_normal.isUserInteractionEnabled = true
         self.xiansheng_normal.addGestureRecognizer(xiansheng_normalTap)
         
         let xiansheng_clickTap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TextSexCell.xiansheng_clickTap) )
-        self.xiansheng_click.userInteractionEnabled = true
+        self.xiansheng_click.isUserInteractionEnabled = true
         self.xiansheng_click.addGestureRecognizer(xiansheng_clickTap)
         
         let xianshengTap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TextSexCell.xianshengTap) )
-        self.xiansheng.userInteractionEnabled = true
+        self.xiansheng.isUserInteractionEnabled = true
         self.xiansheng.addGestureRecognizer(xianshengTap)
         
         //女士
         let nvshi_normalTap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TextSexCell.nvshi_normalTap) )
-        self.nvshi_normal.userInteractionEnabled = true
+        self.nvshi_normal.isUserInteractionEnabled = true
         self.nvshi_normal.addGestureRecognizer(nvshi_normalTap)
         
         let nvshi_clickTap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TextSexCell.nvshi_clickTap) )
-        self.nvshi_click.userInteractionEnabled = true
+        self.nvshi_click.isUserInteractionEnabled = true
         self.nvshi_click.addGestureRecognizer(nvshi_clickTap)
         
         let nvshiTap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TextSexCell.nvshiTap) )
-        self.nvshi.userInteractionEnabled = true
+        self.nvshi.isUserInteractionEnabled = true
         self.nvshi.addGestureRecognizer(nvshiTap)
         
         //判断
-        self.xiansheng_normal.hidden = false
-        self.xiansheng_click.hidden = true
+        self.xiansheng_normal.isHidden = false
+        self.xiansheng_click.isHidden = true
         
-        self.nvshi_normal.hidden = false
-        self.nvshi_click.hidden = true
+        self.nvshi_normal.isHidden = false
+        self.nvshi_click.isHidden = true
         
         //状态初始化
-        NSUserDefaults.standardUserDefaults().setObject("Nomal", forKey: "AJM_Panduan_BaomingSEX")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        UserDefaults.standard.set("Nomal", forKey: "AJM_Panduan_BaomingSEX")
+        UserDefaults.standard.synchronize()
     }
     
     
@@ -653,14 +660,14 @@ class TextSexCell : UITableViewCell {
         self.xiansheng_Method()
     }
     func xiansheng_Method() {
-        self.xiansheng_normal.hidden = true
-        self.xiansheng_click.hidden = false
+        self.xiansheng_normal.isHidden = true
+        self.xiansheng_click.isHidden = false
         
-        self.nvshi_normal.hidden = false
-        self.nvshi_click.hidden = true
+        self.nvshi_normal.isHidden = false
+        self.nvshi_click.isHidden = true
         
-        NSUserDefaults.standardUserDefaults().setObject("Mon", forKey: "AJM_Panduan_BaomingSEX")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        UserDefaults.standard.set("Mon", forKey: "AJM_Panduan_BaomingSEX")
+        UserDefaults.standard.synchronize()
     }
     
     //MARK: 女士
@@ -679,14 +686,14 @@ class TextSexCell : UITableViewCell {
     }
     
     func nvshi_Method(){
-        self.nvshi_normal.hidden = true
-        self.nvshi_click.hidden = false
+        self.nvshi_normal.isHidden = true
+        self.nvshi_click.isHidden = false
         
-        self.xiansheng_normal.hidden = false
-        self.xiansheng_click.hidden = true
+        self.xiansheng_normal.isHidden = false
+        self.xiansheng_click.isHidden = true
         
-        NSUserDefaults.standardUserDefaults().setObject("Womon", forKey: "AJM_Panduan_BaomingSEX")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        UserDefaults.standard.set("Womon", forKey: "AJM_Panduan_BaomingSEX")
+        UserDefaults.standard.synchronize()
     }
     
     

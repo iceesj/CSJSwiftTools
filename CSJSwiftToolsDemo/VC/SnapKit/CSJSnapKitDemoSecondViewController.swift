@@ -12,27 +12,27 @@ class CSJSnapKitDemoSecondViewController: UIViewController {
     
     let oneView : UIView = {
         let view = UIView()
-        view.backgroundColor = .redColor()
+        view.backgroundColor = UIColor.red
         return view
     }()
     let twoView : UIView = {
         let view = UIView()
-        view.backgroundColor = .greenColor()
+        view.backgroundColor = UIColor.green
         return view
     }()
     let threeView: UIView = {
         let view = UIView()
-        view.backgroundColor = .blueColor()
+        view.backgroundColor = UIColor.blue
         return view
     }()
     let fourView: UIView = {
         let view = UIView()
-        view.backgroundColor = .yellowColor()
+        view.backgroundColor = UIColor.yellow
         return view
     }()
     let fiveView: UIView = {
         let view = UIView()
-        view.backgroundColor = .blackColor()
+        view.backgroundColor = UIColor.black
         return view
     }()
     
@@ -45,8 +45,8 @@ class CSJSnapKitDemoSecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        edgesForExtendedLayout = .None
-        view.backgroundColor = UIColor.whiteColor()
+        edgesForExtendedLayout = UIRectEdge()
+        view.backgroundColor = UIColor.white
         navigationItem.title = "SnapKit"
         
         view.addSubview(oneView)
@@ -58,52 +58,52 @@ class CSJSnapKitDemoSecondViewController: UIViewController {
         let padding : CGFloat = 15
         
         if self.panduanString == "1" {
-            self.oneView.snp_makeConstraints(closure: { (make) in
+            self.oneView.snp.makeConstraints({ (make) in
                 make.top.left.equalTo(padding)
                 make.right.bottom.equalTo(-padding)
             })
         }
         else if self.panduanString == "2"{
             //上下
-            self.oneView.snp_makeConstraints(closure: { (make) in
+            self.oneView.snp.makeConstraints({ (make) in
                 make.top.left.equalTo(padding)
                 make.right.equalTo(-padding)
-                make.bottom.equalTo(self.twoView.snp_top).offset(-padding)
+                make.bottom.equalTo(self.twoView.snp.top).offset(-padding)
             })
             
-            self.twoView.snp_makeConstraints(closure: { (make) in
+            self.twoView.snp.makeConstraints({ (make) in
                 make.left.equalTo(padding)
                 make.right.equalTo(-padding)
                 make.bottom.equalTo(-padding)
                 
-                make.width.equalTo(self.oneView.snp_width)
-                make.height.equalTo(self.oneView.snp_height)
+                make.width.equalTo(self.oneView.snp.width)
+                make.height.equalTo(self.oneView.snp.height)
                 
             })
         }
         else if self.panduanString == "3"{
             //3
-            self.oneView.snp_makeConstraints(closure: { (make) in
+            self.oneView.snp.makeConstraints({ (make) in
                 make.left.top.equalTo(padding)
                 make.right.equalTo(-padding)
-                make.bottom.equalTo(self.twoView.snp_top).offset(-padding)
+                make.bottom.equalTo(self.twoView.snp.top).offset(-padding)
                 
             })
-            self.twoView.snp_makeConstraints(closure: { (make) in
+            self.twoView.snp.makeConstraints({ (make) in
                 make.left.equalTo(padding)
                 make.right.equalTo(-padding)
-                make.bottom.equalTo(self.threeView.snp_top).offset(-padding)
+                make.bottom.equalTo(self.threeView.snp.top).offset(-padding)
                 
-                make.width.equalTo(self.oneView.snp_width)
-                make.height.equalTo(self.oneView.snp_height)
+                make.width.equalTo(self.oneView.snp.width)
+                make.height.equalTo(self.oneView.snp.height)
                 
             })
-            self.threeView.snp_makeConstraints(closure: { (make) in
+            self.threeView.snp.makeConstraints({ (make) in
                 make.left.equalTo(padding)
                 make.right.bottom.equalTo(-padding)
                 
-                make.width.equalTo(self.oneView.snp_width)
-                make.height.equalTo(self.oneView.snp_height)
+                make.width.equalTo(self.oneView.snp.width)
+                make.height.equalTo(self.oneView.snp.height)
             })
         }
         else if self.panduanString == "4"{

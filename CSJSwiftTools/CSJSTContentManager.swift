@@ -15,7 +15,7 @@ class CSJSTContentManager: NSObject {
     //用户token
     static var Token: String? {
         get {
-            return NSUserDefaults().stringForKey("token") ?? ""
+            return UserDefaults().string(forKey: "token") ?? ""
         }
         set {
             setUserDefaultItem(newValue, forKey: "token")
@@ -23,10 +23,10 @@ class CSJSTContentManager: NSObject {
     }
     
     
-    private class func setUserDefaultItem(item: String?, forKey key: String) {
-        NSUserDefaults().removeObjectForKey(key)
+    fileprivate class func setUserDefaultItem(_ item: String?, forKey key: String) {
+        UserDefaults().removeObject(forKey: key)
         if let string = item {
-            NSUserDefaults().setValue(string, forKeyPath: key)
+            UserDefaults().setValue(string, forKeyPath: key)
         }
     }
     

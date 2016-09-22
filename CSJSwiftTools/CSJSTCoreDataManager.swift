@@ -29,7 +29,7 @@ class CSJSTCoreDataManager: NSObject {
      saveInBackground
      */
     func saveInBackground() {
-        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreWithCompletion {
+        NSManagedObjectContext.mr_default().mr_saveToPersistentStore {
             (success, error) in
 //            DDLogInfo("save in background: \(success) \(error)")
         }
@@ -40,7 +40,7 @@ class CSJSTCoreDataManager: NSObject {
      */
     func saveInForeground() {
         //        NSManagedObjectContext.MR_defaultContext().MR_saveOnlySelfAndWait()
-        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+        NSManagedObjectContext.mr_default().mr_saveToPersistentStoreAndWait()
     }
     
     /**
@@ -55,25 +55,25 @@ class CSJSTCoreDataManager: NSObject {
 //    }
     
     ///*
-    func dictionaryFromManagedObject(managedObject : NSManagedObject?) -> NSMutableDictionary {
+    func dictionaryFromManagedObject(_ managedObject : NSManagedObject?) -> NSMutableDictionary {
         guard managedObject != nil else{
             return NSMutableDictionary(capacity: 0)
         }
         let resultDict : NSMutableDictionary = NSMutableDictionary(capacity: 0)
         
-        let attributesByName : NSDictionary = (managedObject?.entity.attributesByName)!
-        let valuesDictionary : NSDictionary = (managedObject?.dictionaryWithValuesForKeys(attributesByName.allKeys as! [String]))!
-        resultDict.setObject((managedObject?.entity.name)!, forKey: "ManagedObjectName")
+        let attributesByName : NSDictionary = (managedObject?.entity.attributesByName)! as NSDictionary
+        let valuesDictionary : NSDictionary = (managedObject?.dictionaryWithValues(forKeys: attributesByName.allKeys as! [String]))! as NSDictionary
+        resultDict.setObject((managedObject?.entity.name)!, forKey: "ManagedObjectName" as NSCopying)
         
         for attr in valuesDictionary {
-            let attrString : String = String(attr)
-            var value : AnyObject = valuesDictionary.valueForKey(attrString)!
+            let attrString : String = String(describing: attr)
+            var value : AnyObject = valuesDictionary.value(forKey: attrString)! as AnyObject
             NSLog("value = \(value)")
             
-            if value.isKindOfClass(NSDate.self) {
-                let dateFormatter : NSDateFormatter = NSDateFormatter()
+            if value.isKind(of: NSDate.self) {
+                let dateFormatter : DateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                value = dateFormatter.stringFromDate(value as! NSDate)
+                value = dateFormatter.string(from: value as! Date) as AnyObject
                 
             }
         }

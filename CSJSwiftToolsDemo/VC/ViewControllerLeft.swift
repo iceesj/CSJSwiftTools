@@ -20,7 +20,7 @@ class ViewControllerLeft: UIViewController {
 
         // Do any additional setup after loading the view.
         self.setupLeftBarButton()
-        self.initCSJSTSetVC(.whiteColor(), bool: true, title: "左边界面")
+        self.initCSJSTSetVC(UIColor.white, bool: true, title: "左边界面")
         
         let old = [1,2,3]
         let new = [1,2,4,5]
@@ -30,7 +30,7 @@ class ViewControllerLeft: UIViewController {
         
     }
 
-    @IBAction func alertViewQueding(sender: AnyObject) {
+    @IBAction func alertViewQueding(_ sender: AnyObject) {
 //        CSJSwiftToolsDirector.sharedInstance.ui_showAlert确定View("单个确定", message: "")
         CSJSwiftToolsDirector.sharedInstance.ui_showAlert确定View(self, title: "单个确定", message: "") { (quedingString) in
             
@@ -38,16 +38,16 @@ class ViewControllerLeft: UIViewController {
     }
     
     
-    @IBAction func alertViewTwo(sender: AnyObject) {
+    @IBAction func alertViewTwo(_ sender: AnyObject) {
         CSJSwiftToolsDirector.sharedInstance.ui_showAlertVC(self, title: "nicai", message: "",block: { (quedingString) in
             print("确定按钮 返回作用")
-            self.navigationController?.popViewControllerAnimated(true)
+            let _ = self.navigationController?.popViewController(animated: true)
         }) { (quxiaoString) in
             print("取消按钮 无作用")
         }
     }
     
-    @IBAction func actionSheet(sender: AnyObject) {
+    @IBAction func actionSheet(_ sender: AnyObject) {
         CSJSwiftToolsDirector.sharedInstance.ui_showActionSheet(self, title: "nicai2", message: "", block: { (quedingString) in
             print("确定按钮")
             CSJSwiftToolsDirector.sharedInstance.ui_showAlert确定View(self, title: "点击了确定", message: "", block: { (quedingString) in
@@ -64,9 +64,9 @@ class ViewControllerLeft: UIViewController {
 
 
 /**求差(差异)操作*/
-extension CollectionType where Generator.Element: Hashable {
+extension Collection where Iterator.Element: Hashable {
     /// 返回一个新数组,该数组中的元素存在于 `self` 中,但是不存在于 `toRemove` 里
-    func subtract(toRemove: [Generator.Element]) -> [Generator.Element] {
+    func subtract(_ toRemove: [Iterator.Element]) -> [Iterator.Element] {
         let removeSet = Set(toRemove)
         return self.filter {
             !removeSet.contains($0)
@@ -74,7 +74,7 @@ extension CollectionType where Generator.Element: Hashable {
     }
 }
 
-extension SequenceType {
+extension Sequence {
     
 }
 

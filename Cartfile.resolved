@@ -1,0 +1,4 @@
+github "Alamofire/Alamofire" "4.0.0"
+github "ReactiveX/RxSwift" "3.0.0-beta.1"
+github "SnapKit/SnapKit" "25bd7dab9e0a2aec5c7867b1fc9135857425ad84"
+github "RxSwiftCommunity/RxDataSources" "1.0.0-beta.2"

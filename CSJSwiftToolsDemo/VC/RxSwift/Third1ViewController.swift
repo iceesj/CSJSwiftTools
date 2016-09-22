@@ -31,7 +31,7 @@ class Table1ViewCell: UITableViewCell {
         // Initialization code
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
@@ -51,7 +51,7 @@ class Third1ViewController: UIViewController, UITableViewDelegate {
     let reuseIdentifier = "\(Table1ViewCell.self)"
 //    let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, String>>()
     let dataSource = RxTableViewSectionedAnimatedDataSource<AnimatableSectionModel<String, String>>()
-
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -61,13 +61,14 @@ class Third1ViewController: UIViewController, UITableViewDelegate {
         super.viewDidLoad()
         navigationItem.title = "汇总"
         
-        tableView.rx_setDelegate(self).addDisposableTo(disposeBag)
+//        tableView.rx_setDelegate(self).addDisposableTo(disposeBag)
+        tableView.rx.setDelegate(self).addDisposableTo(disposeBag)
         view.addSubview(self.tableView)
-        tableView.registerClass(Table1ViewCell.self, forCellReuseIdentifier: reuseIdentifier)
-        tableView.snp_makeConstraints { (make) in
+        tableView.register(Table1ViewCell.self, forCellReuseIdentifier: reuseIdentifier)
+        tableView.snp.makeConstraints { (make) in
             //            make.left.top.equalTo(0)
             //            make.right.bottom.equalTo(0)
-            make.edges.equalTo(UIEdgeInsetsZero)
+            make.edges.equalTo(UIEdgeInsets.zero)
         }
         
         let items = Observable.just([
@@ -79,28 +80,28 @@ class Third1ViewController: UIViewController, UITableViewDelegate {
         
         dataSource.configureCell = { (_, tv, indexPath, element) in
 //            let cell = tv.dequeueReusableCellWithIdentifier(self.reuseIdentifier, forIndexPath: indexPath) as! Table1ViewCell
-            let cell = tv.dequeueReusableCellWithIdentifier(self.reuseIdentifier)!
+            let cell = tv.dequeueReusableCell(withIdentifier: self.reuseIdentifier)!
             cell.textLabel?.text = "\(element)"
             return cell
         }
         
-        items.bindTo(tableView.rx_itemsWithDataSource(dataSource)).addDisposableTo(disposeBag)
+        items.bindTo(tableView.rx.items(dataSource: dataSource)).addDisposableTo(disposeBag)
         
-        ///*
+        /*
         tableView
-            .rx_itemSelected
+            .rx.itemSelected
             .map { indexPath in
                 return (indexPath, self.dataSource.itemAtIndexPath(indexPath))
             }
             .subscribeNext { indexPath, model in
-                print("Tapped `\(model)` @ \(indexPath.row)")
-                if indexPath.row == 0 {
+                print("Tapped `\(model)` @ \((indexPath as NSIndexPath).row)")
+                if (indexPath as NSIndexPath).row == 0 {
                     let vc2 = UIStoryboard.CSJST_initViewControllerWithIdentifier("ThirdViewController") as! ThirdViewController
                     self.navigationController?.pushViewController(vc2, animated: true)
                 }
             }
             .addDisposableTo(disposeBag)
-        //*/
+        */
         
         /*
         items
@@ -113,17 +114,17 @@ class Third1ViewController: UIViewController, UITableViewDelegate {
         
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 100
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("tableView")
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel(frame: CGRect.zero)
-        label.text = self.dataSource.sectionAtIndex(section).model ?? ""
+        label.text = self.dataSource.sectionAtIndex(section).model 
         return label
     }
 

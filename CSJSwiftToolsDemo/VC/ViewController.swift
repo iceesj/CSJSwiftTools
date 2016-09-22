@@ -26,9 +26,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.initCSJSTSetVC(.whiteColor(), bool: true, title: "界面一")
+        self.initCSJSTSetVC(UIColor.white, bool: true, title: "界面一")
     }
     
     override func viewDidLoad() {
@@ -49,33 +49,33 @@ class ViewController: UIViewController {
         
         
         //MARK:时间截取转换
-        let lastTimeValueName_Two : String = CSJSwiftToolsDirector.sharedInstance.fengeTime("17:30-18:00").string2
+        let lastTimeValueName_Two : String = CSJSwiftToolsDirector.sharedInstance.fengeTime("17:30-18:00").string2!
         let lastTimeValueNameTwoInt : Int = CSJSwiftToolsDirector.sharedInstance.zhuanhuanShiduanInt(lastTimeValueName_Two)
         print("lastTimeValueNameTwoInt = \(lastTimeValueNameTwoInt)")
 
         
         //MARK:changeHight
         let headerIMG : UIImageView = UIImageView()
-        headerIMG.backgroundColor = .redColor()
-        headerIMG.frame = CGRectMake(50 , 50, 50, CSJSwiftToolsDirector.sharedInstance.changeHight(40)!)
+        headerIMG.backgroundColor = UIColor.red
+        headerIMG.frame = CGRect(x: 50 , y: 50, width: 50, height: CSJSwiftToolsDirector.sharedInstance.changeHight(40)!)
         view.addSubview(headerIMG)
         
         //MARK:convertStringToDictionary
         //fake JSON，假的JSON
         let dd : NSDictionary = ["functionName": "getCurrentPosition","data":"定位出错"]
         let data = dd.mj_JSONString()
-        let dict = CSJSwiftToolsDirector.sharedInstance.convertStringToDictionary(data)
+        let dict = CSJSwiftToolsDirector.sharedInstance.convertStringToDictionary(data!)
         print("dict = \(dict!)")
         
         //MARK:自定义分割
-        let stringFENGGETest : String = CSJSwiftToolsDirector.sharedInstance.fengeStringCOMMON("你好~~再见", "~~").string2
+        let stringFENGGETest : String = CSJSwiftToolsDirector.sharedInstance.fengeStringCOMMON("你好~~再见", "~~").string2!
         print("自定义截取字 = \(stringFENGGETest)")
         
         self.csjst_nav右键文字("右键跳转")
         self.csjst_nav左键文字("警告窗口")
         
         //csj点击
-        headerIMG.userInteractionEnabled = true
+        headerIMG.isUserInteractionEnabled = true
         let thisViewTap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.headerIMGTap) )
         headerIMG.addGestureRecognizer(thisViewTap)
         
@@ -92,12 +92,11 @@ class ViewController: UIViewController {
         }
         
         
-        textfield1.backgroundColor = .blackColor()
-        label1.backgroundColor = .blackColor()
-        textfield1.textColor = .whiteColor()
-        label1.textColor = .whiteColor()
-        textfield1.rx_text.bindTo(label1.rx_text).addDisposableTo(disposeBag)
-        
+        textfield1.backgroundColor = UIColor.black
+        label1.backgroundColor = UIColor.black
+        textfield1.textColor = UIColor.white
+        label1.textColor = UIColor.white
+//        textfield1.rx_text.bindTo(label1.rx_text).addDisposableTo(disposeBag)
         
     }
     
@@ -106,7 +105,7 @@ class ViewController: UIViewController {
     }
     
 
-    override func csjst_右键文字(sender: UIBarButtonItem){
+    override func csjst_右键文字(_ sender: UIBarButtonItem){
 //        if self.respondsToSelector(Selector("interactivePopGestureRecognizer")) {
 //        print("self.navigationController = \(self.navigationController)")
 //        print("123 = \(self.navigationController?.interactivePopGestureRecognizer?.enabled)")
@@ -118,7 +117,7 @@ class ViewController: UIViewController {
     }
     
     
-    override func csjst_左键文字(sender: UIBarButtonItem){
+    override func csjst_左键文字(_ sender: UIBarButtonItem){
         let vcLeft = UIStoryboard.CSJST_initViewControllerWithIdentifier("ViewControllerLeft") as! ViewControllerLeft
         vcLeft.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vcLeft, animated: true)
@@ -131,10 +130,11 @@ class ViewController: UIViewController {
      POST JSON，Back JSON
      */
     func requestOne() {
+        /*
         let parameters = ["phone":"13611111111","messageNumber":"123456"]
         
         CSJSTNetworkManager.sharedInstance.loginMima(parameters) { (json, error) in
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 if error == nil, let json = json {
                     print("json = \(json)")
                 }
@@ -143,12 +143,14 @@ class ViewController: UIViewController {
                 }
             }
         }
+        */
     }
     
     /**
      POST Form-data， Back JSON
      */
     func requestFromData() {
+        /*
         let body = [
             "tradeId":"20160623142414796650971207862444",
             "device":"pc",
@@ -158,7 +160,7 @@ class ViewController: UIViewController {
             ]
         
         CSJSTNetworkManager.sharedInstance.sendRequest2(body) { (json, error) in
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 if error == nil, let json = json {
                     print("json = \(json)")
                 }
@@ -167,6 +169,9 @@ class ViewController: UIViewController {
                 }
             }
         }
+        */
+        
+        
         /*
         CSJSTNetworkManager.sharedInstance.sendRequest(body) { (json, error) in
             dispatch_async(dispatch_get_main_queue()) {
@@ -185,21 +190,21 @@ class ViewController: UIViewController {
     
     
     //MARK：popanimation
-    @IBAction func popanimation_click(sender: AnyObject) {
-        let vc : POPTableviewViewController = self.storyboard?.instantiateViewControllerWithIdentifier("POPTableviewViewController") as! POPTableviewViewController
+    @IBAction func popanimation_click(_ sender: AnyObject) {
+        let vc : POPTableviewViewController = self.storyboard?.instantiateViewController(withIdentifier: "POPTableviewViewController") as! POPTableviewViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     //MARK: Realm
-    @IBAction func realmdemo_click(sender: AnyObject) {
-        let vc : RealmTableviewViewController = self.storyboard?.instantiateViewControllerWithIdentifier("RealmTableviewViewController") as! RealmTableviewViewController
+    @IBAction func realmdemo_click(_ sender: AnyObject) {
+        let vc : RealmTableviewViewController = self.storyboard?.instantiateViewController(withIdentifier: "RealmTableviewViewController") as! RealmTableviewViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
-    @IBAction func viewmodelTableview_click(sender: AnyObject) {
+    @IBAction func viewmodelTableview_click(_ sender: AnyObject) {
         print("viewmodelTableview")
-        let vc : BaomingViewController = self.storyboard?.instantiateViewControllerWithIdentifier("BaomingViewController") as! BaomingViewController
+        let vc : BaomingViewController = self.storyboard?.instantiateViewController(withIdentifier: "BaomingViewController") as! BaomingViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -212,13 +217,15 @@ class ViewController: UIViewController {
     单例一个 傻瓜式的Alamofire请求返回
      */
     func requestJSON() {
+        /*
         let body = [
             "phone": "13611111111",
             "messageNumber": "123456"
         ]
         
+         
         CSJSTNetworkManager.sharedInstance.sendRequest_JSON(body) { (json, error) in
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 if error == nil, let json = json {
                     print("json = \(json)")
                 }
@@ -227,7 +234,7 @@ class ViewController: UIViewController {
                 }
             }
         }
-        
+        */
     }
     
     

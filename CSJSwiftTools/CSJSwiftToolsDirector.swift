@@ -9,8 +9,8 @@
 import UIKit
 import Foundation
 
-let SCREEN_WIDTH_CSJST = UIScreen.mainScreen().bounds.size.width
-let SCREEN_HEIGHT_CSJST = UIScreen.mainScreen().bounds.size.height
+let SCREEN_WIDTH_CSJST = UIScreen.main.bounds.size.width
+let SCREEN_HEIGHT_CSJST = UIScreen.main.bounds.size.height
 
 //单例导演类 提供各种方法
 class CSJSwiftToolsDirector: NSObject {
@@ -19,15 +19,15 @@ class CSJSwiftToolsDirector: NSObject {
     /**
      等宽，不同高度计算
      */
-    func changeHight(height :CGFloat) -> CGFloat? {
+    func changeHight(_ height :CGFloat) -> CGFloat? {
         let newHeight : CGFloat = SCREEN_WIDTH_CSJST * height / CGFloat(640)
-        return CGFloat(newHeight) ?? 0
+        return CGFloat(newHeight) 
     }
     
     /*
      转换时段 时间截取 DoujiangViewController用
      */
-    func zhuanhuanShiduanInt(value :String) -> (Int){
+    func zhuanhuanShiduanInt(_ value :String) -> (Int){
         //String字符串长度
         //        let strLength = value.characters.count
         let valueString : NSString = value as NSString
@@ -44,10 +44,10 @@ class CSJSwiftToolsDirector: NSObject {
         print("ss = \(ss)")
         
         let ssLength = ss.length
-        let ss1range = ss.rangeOfString(":").location
-        let ss2range = ss.rangeOfString(":").location+1
-        let ss1 : NSString = ss.substringWithRange(NSMakeRange(0, ss1range))
-        let ss2 : NSString = ss.substringWithRange(NSMakeRange(ss2range, ssLength-ss2range))
+        let ss1range = ss.range(of: ":").location
+        let ss2range = ss.range(of: ":").location+1
+        let ss1 : NSString = ss.substring(with: NSMakeRange(0, ss1range)) as NSString
+        let ss2 : NSString = ss.substring(with: NSMakeRange(ss2range, ssLength-ss2range)) as NSString
         print("ss1 = \(ss1),ss2 = \(ss2)")
         let ssNew = "\(ss1)\(ss2)"
         //        print("ssNew = \(ssNew)")
@@ -59,10 +59,10 @@ class CSJSwiftToolsDirector: NSObject {
     /*
      JSON的String 转化成 dict
      */
-    func convertStringToDictionary(text: String) -> [String:AnyObject]? {
-        if let data = text.dataUsingEncoding(NSUTF8StringEncoding) {
+    func convertStringToDictionary(_ text: String) -> [String:AnyObject]? {
+        if let data = text.data(using: String.Encoding.utf8) {
             do {
-                let json = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as? [String:AnyObject]
+                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:AnyObject]
                 return json
             } catch {
                 print("Something String to AnyObject wrong")
@@ -75,58 +75,70 @@ class CSJSwiftToolsDirector: NSObject {
     /*
      分割时间 符号 -
      */
-    func fengeTime(resultString :String!) -> (string1 : String! ,string2 : String!){
+    func fengeTime(_ resultString :String!) -> (string1 : String? ,string2 : String?){
         let strLength = resultString.characters.count
         let resultStringNew : NSString = resultString as NSString
-        let subValue = resultStringNew.rangeOfString("-").location+1
+        let subValue = resultStringNew.range(of: "-").location+1
         print("subVlue = \(subValue)")
-        let subString1 = resultStringNew.substringWithRange(NSMakeRange(0, subValue-1)) as NSString
-        let subString2 = resultStringNew.substringWithRange(NSMakeRange(subValue, strLength-subValue)) as NSString
+        let subString1 = resultStringNew.substring(with: NSMakeRange(0, subValue-1)) as NSString
+        let subString2 = resultStringNew.substring(with: NSMakeRange(subValue, strLength-subValue)) as NSString
         return (string1:subString1 as String,string2:subString2 as String)
     }
     
     /*
      fengeString 为需要分割的字符
      */
-    func fengeStringCOMMON(resultString : String, _ fengeString : String) -> (string1 : String! ,string2 : String!){
+    func fengeStringCOMMON(_ resultString : String, _ fengeString : String) -> (string1 : String? ,string2 : String?){
         let strLength = resultString.characters.count
         let fengeStringLength = fengeString.characters.count
         let resultStringNew : NSString = resultString as NSString
-        let subValue = resultStringNew.rangeOfString(fengeString).location+fengeStringLength
+        let subValue = resultStringNew.range(of: fengeString).location+fengeStringLength
         print("su bVlueInt = \(subValue)")
-        let subString1 = resultStringNew.substringWithRange(NSMakeRange(0, subValue)) as NSString
-        let subString2 = resultStringNew.substringWithRange(NSMakeRange(subValue, strLength-subValue)) as NSString
+        let subString1 = resultStringNew.substring(with: NSMakeRange(0, subValue)) as NSString
+        let subString2 = resultStringNew.substring(with: NSMakeRange(subValue, strLength-subValue)) as NSString
         return (string1:subString1 as String,string2:subString2 as String)
     }
     
     
     // if file doesn't exist or any error happens
-    private class func dataForFileName(folder: String, name: String) -> NSData? {
-        let path = (NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true) ).first!
-        let manager = NSFileManager.defaultManager()
-        guard let filePath = NSURL(fileURLWithPath: path)
-            .URLByAppendingPathComponent(folder)
-            .URLByAppendingPathComponent(name).path else {return nil}
+    fileprivate class func dataForFileName(_ folder: String, name: String) -> Data? {
+        let path = (NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true) ).first!
+        let manager = Foundation.FileManager.default
         
-        if manager.fileExistsAtPath(filePath) {
-            return NSData(contentsOfFile: filePath)
+        //csjswift
+        let filePath = ""
+        guard filePath == URL(fileURLWithPath: path).appendingPathComponent(folder).appendingPathComponent(name).path else {return nil}
+        
+        
+        if manager.fileExists(atPath: filePath) {
+            return (try? Data(contentsOf: URL(fileURLWithPath: filePath)))
         }
         return nil
     }
     
-    func saveDataOfFileName(data: NSData, folder: String, name: String, override: Bool) -> Bool {
-        let cachePath = (NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)).first!
-        let url = NSURL(fileURLWithPath: cachePath).URLByAppendingPathComponent(folder)
-        let manager = NSFileManager.defaultManager()
-        guard let folderPath = url.path else {return false}
-        guard let filePath = url.URLByAppendingPathComponent(name).path else {return false}
+    func saveDataOfFileName(_ data: Data, folder: String, name: String, override: Bool) -> Bool {
+        let cachePath = (NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)).first!
+        let url = URL(fileURLWithPath: cachePath).appendingPathComponent(folder)
+//        let manager = FileManager.default
+        let manager = Foundation.FileManager.default
+        
+        let folderPath = url.path
+        if folderPath == ""{
+            return false
+        }
+        let filePath = url.appendingPathComponent(name).path
+        if filePath == ""{
+            return false
+        }
+//        guard let folderPath = url.path else {return false}
+//        guard let filePath = url.appendingPathComponent(name).path else {return false}
         
         do {
-            if !manager.fileExistsAtPath(folderPath) {
-                try manager.createDirectoryAtPath(folderPath, withIntermediateDirectories: true, attributes: nil)
+            if !manager.fileExists(atPath: folderPath) {
+                try manager.createDirectory(atPath: folderPath, withIntermediateDirectories: true, attributes: nil)
             }
-            if !manager.fileExistsAtPath(filePath) || override {
-                return data.writeToFile(filePath, atomically: true)
+            if !manager.fileExists(atPath: filePath) || override {
+                return ((try? data.write(to: URL(fileURLWithPath: filePath), options: [.atomic])) != nil)
             }
             return true
         } catch let error {
@@ -137,71 +149,71 @@ class CSJSwiftToolsDirector: NSObject {
     
     
     /**返回上一页*/
-    func ui_backToLastVC(view: UIView) {
+    func ui_backToLastVC(_ view: UIView) {
         let vc = view.findUIViewController()
-        vc?.navigationController?.popViewControllerAnimated(true)
+        let _ = vc?.navigationController?.popViewController(animated: true)
     }
     
     /**
      展示一个只有确定的警告框
      */
-    func ui_showAlert确定View(vc: UIViewController, title:String,message:String,block:((quedingString: String?) -> Void)?) {
+    func ui_showAlert确定View(_ vc: UIViewController, title:String,message:String,block:((_ quedingString: String?) -> Void)?) {
 //        let alert = UIAlertView()
 //        alert.title = title
 //        alert.message = message
 //        alert.addButtonWithTitle("确定")
 //        alert.show()
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        alertController.addAction(UIAlertAction(title: "确定",style: .Default, handler: { action in
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "确定",style: .default, handler: { action in
             print("你猜 确定")
-            block?(quedingString: "确定")
+            block?("确定")
         }))
-        vc.presentViewController(alertController, animated: true, completion: nil)
+        vc.present(alertController, animated: true, completion: nil)
     }
     
     /**自定义Alert*/
-    func ui_showAlertVC(vc: UIViewController, title : String, message : String,block:((quedingString: String?) -> Void)? , block2:((quxiaoString: String?) -> Void)? ) {
+    func ui_showAlertVC(_ vc: UIViewController, title : String, message : String,block:((_ quedingString: String?) -> Void)? , block2:((_ quxiaoString: String?) -> Void)? ) {
         
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        alertController.addAction(UIAlertAction(title: "确定",style: .Default, handler: { action in
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "确定",style: .default, handler: { action in
             print("你猜 确定")
-            block?(quedingString: "确定")
+            block?("确定")
         }))
-        alertController.addAction(UIAlertAction(title: "取消",style: .Cancel, handler: { action in
+        alertController.addAction(UIAlertAction(title: "取消",style: .cancel, handler: { action in
             print("你猜 取消")
-            block2?(quxiaoString: "取消")
+            block2?("取消")
         }))
-        vc.presentViewController(alertController, animated: true, completion: nil)
+        vc.present(alertController, animated: true, completion: nil)
     }
     
-    func ui_showActionSheet(vc: UIViewController, title: String, message: String, block:((quedingString: String?) -> Void)? , block2:((quxiaoString: String?) -> Void)? ) {
+    func ui_showActionSheet(_ vc: UIViewController, title: String, message: String, block:((_ quedingString: String?) -> Void)? , block2:((_ quxiaoString: String?) -> Void)? ) {
         
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .ActionSheet)
-        alertController.addAction(UIAlertAction(title: "确定",style: .Default, handler: { action in
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "确定",style: .default, handler: { action in
             print("你猜 确定")
-            block?(quedingString: "确定")
+            block?("确定")
         }))
-        alertController.addAction(UIAlertAction(title: "取消",style: .Cancel, handler: { action in
+        alertController.addAction(UIAlertAction(title: "取消",style: .cancel, handler: { action in
             print("你猜 取消")
-            block2?(quxiaoString: "取消")
+            block2?("取消")
         }))
-        vc.presentViewController(alertController, animated: true, completion: nil)
+        vc.present(alertController, animated: true, completion: nil)
         
     }
     
     class func shijianChuo_13Num() -> NSString {
-        let dat : NSDate = NSDate.init(timeIntervalSinceNow: 0)
+        let dat : Date = Date.init(timeIntervalSinceNow: 0)
         print("dat = \(dat)")
-        let a : NSTimeInterval = dat.timeIntervalSince1970 * 1000
+        let a : TimeInterval = dat.timeIntervalSince1970 * 1000
         let timeString = NSString (format: "%.f", a)
         print("timeString = \(timeString)")
         return timeString
     }
     
     class func shijianChuo_10Num() -> NSString {
-        let dat : NSDate = NSDate.init(timeIntervalSinceNow: 0)
+        let dat : Date = Date.init(timeIntervalSinceNow: 0)
         print("dat = \(dat)")
-        let a : NSTimeInterval = dat.timeIntervalSince1970
+        let a : TimeInterval = dat.timeIntervalSince1970
         let timeString = NSString (format: "%.f", a)
         print("timeString = \(timeString)")
         return timeString
@@ -212,26 +224,26 @@ class CSJSwiftToolsDirector: NSObject {
 //MARK: Swift全局共有类
 struct CSJST_GlobalConstants {
     static let PromptLoginViewControllerStoryboardID = "Login Navigation Controller"
-    static var blackColor = UIColor.blackColor()
-    static var darkGrayColor = UIColor.darkGrayColor()
-    static var lightGrayColor = UIColor.lightGrayColor()
-    static var whiteColor = UIColor.whiteColor()
-    static var grayColor = UIColor.grayColor()
-    static var redColor = UIColor.redColor()
-    static var greenColor = UIColor.greenColor()
-    static var blueColor = UIColor.blueColor()
-    static var cyanColor = UIColor.cyanColor()
-    static var yellowColor = UIColor.yellowColor()
-    static var magentaColor = UIColor.magentaColor()
-    static var orangeColor = UIColor.orangeColor()
-    static var purpleColor = UIColor.purpleColor()
-    static var brownColor = UIColor.brownColor()
-    static var clearColor = UIColor.clearColor()
+    static var blackColor = UIColor.black
+    static var darkGrayColor = UIColor.darkGray
+    static var lightGrayColor = UIColor.lightGray
+    static var whiteColor = UIColor.white
+    static var grayColor = UIColor.gray
+    static var redColor = UIColor.red
+    static var greenColor = UIColor.green
+    static var blueColor = UIColor.blue
+    static var cyanColor = UIColor.cyan
+    static var yellowColor = UIColor.yellow
+    static var magentaColor = UIColor.magenta
+    static var orangeColor = UIColor.orange
+    static var purpleColor = UIColor.purple
+    static var brownColor = UIColor.brown
+    static var clearColor = UIColor.clear
     
     
     
     static var BarTintColor            = UIColor(red: 250.0 / 255.0, green: 210.0 / 255.0, blue: 10.0 / 255.0, alpha: 1.0)
-    static var BannerBackgroundColor   = UIColor.whiteColor()
+    static var BannerBackgroundColor   = UIColor.white
     
     //appdelegate 统一颜色
     //    static var NavigationForegroundColor = UIColor(red: 120.0 / 255.0, green: 66.0 / 255.0, blue: 3.0 / 255.0, alpha: 1.0)
@@ -240,7 +252,7 @@ struct CSJST_GlobalConstants {
     //    static var NavigationTitleColor = UIColor(red: 162.0 / 255.0, green: 90.0 / 255.0, blue: 31.0 / 255.0, alpha: 1.0)
     //第六次迭代-统一改成黑色
     static var NavigationTitleColor = UIColor(red: 0.0 / 255.0, green: 0.0 / 255.0, blue: 0.0 / 255.0, alpha: 1.0)
-    static var NavigationTitleColor_White = UIColor.whiteColor()
+    static var NavigationTitleColor_White = UIColor.white
     
     static var Main_BackgroundColor = UIColor(red: 243.0 / 255.0, green: 245.0 / 255.0, blue: 248.0 / 255.0, alpha: 1.0)
     //灰线
@@ -277,13 +289,13 @@ struct CSJST_GlobalConstants {
     static let Normal_Yellow_AJM = UIColor(red: 250/255, green: 210/255, blue: 9/255, alpha: 1.0)
     
     //字体
-    static var BarButtonItemFont = UIFont.systemFontOfSize(13.0)
-    static var TabbarTextFont = UIFont.systemFontOfSize(11.0)
-    static var NavigationBarFont = UIFont.systemFontOfSize(17.0)
-    static var EmptyTitleFont = UIFont.systemFontOfSize(13.0)
-    static var PlaceholderFont = UIFont.systemFontOfSize(13.0)
-    static var HUDFont = UIFont.systemFontOfSize(15.0)
-    static let NavigationTitleFont = UIFont.systemFontOfSize(17.0)
+    static var BarButtonItemFont = UIFont.systemFont(ofSize: 13.0)
+    static var TabbarTextFont = UIFont.systemFont(ofSize: 11.0)
+    static var NavigationBarFont = UIFont.systemFont(ofSize: 17.0)
+    static var EmptyTitleFont = UIFont.systemFont(ofSize: 13.0)
+    static var PlaceholderFont = UIFont.systemFont(ofSize: 13.0)
+    static var HUDFont = UIFont.systemFont(ofSize: 15.0)
+    static let NavigationTitleFont = UIFont.systemFont(ofSize: 17.0)
     
     //高度
     //frame 1

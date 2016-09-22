@@ -8,7 +8,7 @@
 
 import UIKit
 
-public extension NSURL
+public extension URL
 {
     /*
     public subscript(key:String) -> String{
@@ -18,11 +18,12 @@ public extension NSURL
     }
     */
     
+    /*
     public func parameters()-> Dictionary<String,String>{
         var params = [String:String]()
         let query = self.query ?? ""
-        for paramString in query.componentsSeparatedByString("&"){
-            let paramPair = paramString.componentsSeparatedByString("=")
+        for paramString in query.components(separatedBy: "&"){
+            let paramPair = paramString.components(separatedBy: "=")
             if paramPair.count == 2{
                 let key     = paramPair[0].stringByRemovingPercentEncoding ?? ""
                 let value   = paramPair[1].stringByRemovingPercentEncoding ?? ""
@@ -31,5 +32,6 @@ public extension NSURL
         }
         return params
     }
+    */
 }
     

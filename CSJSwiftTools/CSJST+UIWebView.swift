@@ -11,55 +11,55 @@ import UIKit
 public extension UIWebView
 {
     
-    func injectJS_csjst(name: String?, ofType ext: String?) -> String?
+    func injectJS_csjst(_ name: String?, ofType ext: String?) -> String?
     {
-        let path = NSBundle.mainBundle().pathForResource(name, ofType:ext)
-        let js   = try? NSString(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
+        let path = Bundle.main.path(forResource: name, ofType:ext)
+        let js   = try? NSString(contentsOfFile: path!, encoding: String.Encoding.utf8.rawValue)
         
         let find = NSString(format:"var script = document.createElement('script');script.type = 'text/javascript';script.text = %@;document.getElementsByTagName('body')[0].appendChild(script);",js!) as String
         
         //注入js
-        return self.stringByEvaluatingJavaScriptFromString(find)
+        return self.stringByEvaluatingJavaScript(from: find)
     }
     
     
-    func js_csjst(theJS:String!) -> String?
+    func js_csjst(_ theJS:String!) -> String?
     {
-        return self.stringByEvaluatingJavaScriptFromString(theJS)
+        return self.stringByEvaluatingJavaScript(from: theJS)
     }
     
     
-    func loadURL_csjst(url:NSURL?)
+    func loadURL_csjst(_ url:URL?)
     {
         if url != nil
         {
-            let request = NSURLRequest(URL: url!)
+            let request = URLRequest(url: url!)
             self.loadRequest(request)
         }
     }
-    func loadURLString_csjst(s:String)
+    func loadURLString_csjst(_ s:String)
     {
-        if let URL = NSURL(string: s)
+        if let URL = URL(string: s)
         {
-            let request = NSURLRequest(URL: URL)
+            let request = URLRequest(url: URL)
             self.loadRequest(request)
         }
     }
-    func loadFile_csjst(name: String?, ofType ext: String?)
+    func loadFile_csjst(_ name: String?, ofType ext: String?)
     {
-        let path = NSBundle.mainBundle().pathForResource(name, ofType:ext)
-        let content   = (try! NSString(contentsOfFile: path!, encoding: NSUTF8StringEncoding)) as String
+        let path = Bundle.main.path(forResource: name, ofType:ext)
+        let content   = (try! NSString(contentsOfFile: path!, encoding: String.Encoding.utf8.rawValue)) as String
         
-        self.loadHTMLString(content, baseURL: NSURL(string: "")!)
+        self.loadHTMLString(content, baseURL: URL(string: "")!)
     }
     func webTitle_csjst() -> String
     {
-        let value = self.stringByEvaluatingJavaScriptFromString("document.title")
+        let value = self.stringByEvaluatingJavaScript(from: "document.title")
         return value ?? ""
     }
     func webDescription_csjst() -> String
     {
-        let value = self.stringByEvaluatingJavaScriptFromString("document.getElementById(\"description\").content")
+        let value = self.stringByEvaluatingJavaScript(from: "document.getElementById(\"description\").content")
         return value ?? ""
     }
     

@@ -11,7 +11,7 @@ import UIKit
 public extension UIView
 {
     //MARK: Circle圆形
-    public func radius(adius:Float){
+    public func radius(_ adius:Float){
         self.clipsToBounds = true
         self.layer.cornerRadius = CGFloat(adius)
     }
@@ -26,9 +26,9 @@ public extension UIView
     public func widthConstraints() -> Array<NSLayoutConstraint>{
         var result = [NSLayoutConstraint]()
         for c in self.constraints{
-            if c.firstAttribute == .Width &&
+            if c.firstAttribute == .width &&
                 (c.firstItem as? NSObject) == self &&
-                c.secondAttribute == .NotAnAttribute &&
+                c.secondAttribute == .notAnAttribute &&
                 (c.secondItem as? NSObject) == nil{
                 result.append(c)
             }
@@ -41,9 +41,9 @@ public extension UIView
         var result = [NSLayoutConstraint]()
         for c in self.constraints
         {
-            if c.firstAttribute == .Height &&
+            if c.firstAttribute == .height &&
                 (c.firstItem as? NSObject) == self &&
-                c.secondAttribute == .NotAnAttribute &&
+                c.secondAttribute == .notAnAttribute &&
                 (c.secondItem as? NSObject) == nil
             {
                 result.append(c)
@@ -54,23 +54,23 @@ public extension UIView
     
     public func fitWidth()
     {
-        let size = self.sizeThatFits(CGSizeZero)
+        let size = self.sizeThatFits(CGSize.zero)
         changeWidth(size.width)
     }
     
     public func fitHeight()
     {
-        let size = self.sizeThatFits(CGSizeZero)
+        let size = self.sizeThatFits(CGSize.zero)
         changeWidth(size.height)
     }
-    public func changeWidth(width:CGFloat)
+    public func changeWidth(_ width:CGFloat)
     {
         self.widthConstraints().forEach {
             $0.constant = width
         }
     }
     
-    public func changeHeight(height:CGFloat)
+    public func changeHeight(_ height:CGFloat)
     {
         self.widthConstraints().forEach {
             $0.constant = height
@@ -78,7 +78,7 @@ public extension UIView
     }
     
     
-    public func constraint(identifier:String) -> NSLayoutConstraint?
+    public func constraint(_ identifier:String) -> NSLayoutConstraint?
     {
         for c in self.constraints
         {
@@ -91,7 +91,7 @@ public extension UIView
         return nil
     }
     
-    public func constraintInSubviews(identifier:String) -> NSLayoutConstraint?
+    public func constraintInSubviews(_ identifier:String) -> NSLayoutConstraint?
     {
         var c = self.constraint(identifier)
         
@@ -115,22 +115,22 @@ public extension UIView
     
     //MARK: Render
     enum RenderType {
-        case UIView
-        case UILabel
-        case UIImageView
-        case UIButton
-        case UISwitch
-        case UISegmentedControl
-        case UISlider
-        case UIActivityIndicatorView
-        case UIProgressView
-        case UIStepper
-        case UITableView
-        case UICollectionView
-        case UIScrollView
-        case UIWebView
-        case UITextView
-        case UITextField
+        case uiView
+        case uiLabel
+        case uiImageView
+        case uiButton
+        case uiSwitch
+        case uiSegmentedControl
+        case uiSlider
+        case uiActivityIndicatorView
+        case uiProgressView
+        case uiStepper
+        case uiTableView
+        case uiCollectionView
+        case uiScrollView
+        case uiWebView
+        case uiTextView
+        case uiTextField
     }
     
     subscript (tag:Int) -> AnyObject?
@@ -141,92 +141,92 @@ public extension UIView
     }
     
     
-    func view(tag:Int) -> UIView?
+    func view(_ tag:Int) -> UIView?
     {
         return self[tag] as? UIView
     }
-    func lable(tag:Int) -> UILabel?
+    func lable(_ tag:Int) -> UILabel?
     {
         return self[tag] as? UILabel
     }
-    func imageView(tag:Int) -> UIImageView?
+    func imageView(_ tag:Int) -> UIImageView?
     {
         return self[tag] as? UIImageView
     }
-    func button(tag:Int) -> UIButton?
+    func button(_ tag:Int) -> UIButton?
     {
         return self[tag] as? UIButton
     }
-    func textView(tag:Int) -> UITextView?
+    func textView(_ tag:Int) -> UITextView?
     {
         return self[tag] as? UITextView
     }
-    func textField(tag:Int) -> UITextField?
+    func textField(_ tag:Int) -> UITextField?
     {
         return self[tag] as? UITextField
     }
-    func segmentedControl(tag:Int) -> UISegmentedControl?
+    func segmentedControl(_ tag:Int) -> UISegmentedControl?
     {
         return self[tag] as? UISegmentedControl
     }
     
-    func slider(tag:Int) -> UISlider?
+    func slider(_ tag:Int) -> UISlider?
     {
         return self[tag] as? UISlider
     }
     
-    func activityIndicatorView(tag:Int) -> UIActivityIndicatorView?
+    func activityIndicatorView(_ tag:Int) -> UIActivityIndicatorView?
     {
         return self[tag] as? UIActivityIndicatorView
     }
     
-    func progressView(tag:Int) -> UIProgressView?
+    func progressView(_ tag:Int) -> UIProgressView?
     {
         return self[tag] as? UIProgressView
     }
     
-    func stepper(tag:Int) -> UIStepper?
+    func stepper(_ tag:Int) -> UIStepper?
     {
         return self[tag] as? UIStepper
     }
     
-    func tableView(tag:Int) -> UITableView?
+    func tableView(_ tag:Int) -> UITableView?
     {
         return self[tag] as? UITableView
     }
     
-    func collectionView(tag:Int) -> UICollectionView?
+    func collectionView(_ tag:Int) -> UICollectionView?
     {
         return self[tag] as? UICollectionView
     }
     
-    func scrollView(tag:Int) -> UIScrollView?
+    func scrollView(_ tag:Int) -> UIScrollView?
     {
         return self[tag] as? UIScrollView
     }
     
-    func webView(tag:Int) -> UIWebView?
+    func webView(_ tag:Int) -> UIWebView?
     {
         return self[tag] as? UIWebView
     }
     
-    func tap(target: AnyObject?, action: Selector) -> UITapGestureRecognizer
+    func tap(_ target: AnyObject?, action: Selector) -> UITapGestureRecognizer
     {
         let tap = UITapGestureRecognizer(target: target, action: action)
-        self.userInteractionEnabled = true
+        self.isUserInteractionEnabled = true
         self.addGestureRecognizer(tap)
         return tap
     }
     
     
-    class func xib(xib:String) -> UIView?
+    class func xib(_ xib:String) -> UIView?
     {
-        let views = NSBundle.mainBundle().loadNibNamed(xib, owner: nil, options: nil)
-        return views.first as? UIView
+        let views = Bundle.main.loadNibNamed(xib, owner: nil, options: nil)
+        return views?.first as? UIView
     }
     
     
-    func renderLabels(data:Dictionary<Int,String>) -> UIView
+    func renderLabels(_ data:Dictionary<Int,String>) -> UIView
     {
         for (tag,value) in data
         {
@@ -237,46 +237,47 @@ public extension UIView
     
     //MARK: ZXQuartz
     //矩形、圆角矩形 rect
-    func zx_drawRect(rect:CGRect,radius:Float=0,fillMode:CGPathDrawingMode=CGPathDrawingMode.FillStroke)
+    /*
+    func zx_drawRect(_ rect:CGRect,radius:Float=0,fillMode:CGPathDrawingMode=CGPathDrawingMode.fillStroke)
     {
         let context = UIGraphicsGetCurrentContext()
         let path    = self.path(rect, radius: radius)
-        CGContextAddPath(context, path)
-        CGContextDrawPath(context, fillMode)
+        context?.addPath(path)
+        context?.drawPath(using: fillMode)
     }
     
     
     //Polygon
-    func drawPolygon(points:Array<CGPoint>,fillMode:CGPathDrawingMode=CGPathDrawingMode.FillStroke)
+    func drawPolygon(_ points:Array<CGPoint>,fillMode:CGPathDrawingMode=CGPathDrawingMode.fillStroke)
     {
         assert(points.count >= 2, "The count of points must be more than 2.")
         
         let context = UIGraphicsGetCurrentContext()
         let start = points.first!
         
-        for (i,point) in points.enumerate()
+        for (i,point) in points.enumerated()
         {
             if i == 0
             {
-                CGContextMoveToPoint(context, point.x, point.y);
+                context?.move(to: CGPoint(x: point.x, y: point.y));
             }
             else if i == points.count - 1
             {
-                CGContextAddLineToPoint(context, point.x,point.y);
+                context?.addLine(to: CGPoint(x: point.x, y: point.y));
             }else
             {
-                CGContextAddLineToPoint(context, start.x,start.y);
+                context?.addLine(to: CGPoint(x: start.x, y: start.y));
             }
         }
-        CGContextDrawPath(context, fillMode)
+        context?.drawPath(using: fillMode)
     }
     
     
-    func drawCircle(center:CGPoint,radius:Float,fillMode:CGPathDrawingMode=CGPathDrawingMode.FillStroke)
+    func drawCircle(_ center:CGPoint,radius:Float,fillMode:CGPathDrawingMode=CGPathDrawingMode.fillStroke)
     {
         drawArc(center, radius: radius, start: 0, end: Float(M_PI*2),fillMode:fillMode)
     }
-    func drawArc(center:CGPoint,radius:Float,start:Float,end:Float,fillMode:CGPathDrawingMode=CGPathDrawingMode.FillStroke)
+    func drawArc(_ center:CGPoint,radius:Float,start:Float,end:Float,fillMode:CGPathDrawingMode=CGPathDrawingMode.fillStroke)
     {
         assert(radius > 0, "The cradius must be more than 0.")
         
@@ -290,58 +291,58 @@ public extension UIView
                         CGFloat(start),
                         CGFloat(end),
                         0);
-        CGContextDrawPath(context, fillMode)
+        context?.drawPath(using: fillMode)
     }
     
-    func drawBezierCurve(start:CGPoint,end:CGPoint,control1:CGPoint,control2:CGPoint,fillMode:CGPathDrawingMode=CGPathDrawingMode.FillStroke)
+    func drawBezierCurve(_ start:CGPoint,end:CGPoint,control1:CGPoint,control2:CGPoint,fillMode:CGPathDrawingMode=CGPathDrawingMode.fillStroke)
     {
         let context = UIGraphicsGetCurrentContext()
         
-        CGContextMoveToPoint(context, start.x, start.y);
+        context?.move(to: CGPoint(x: start.x, y: start.y));
         CGContextAddCurveToPoint(context, control1.x, control1.y, control1.x, control1.y, end.x, end.y)
-        CGContextDrawPath(context, fillMode)
+        context?.drawPath(using: fillMode)
     }
     
-    func drawLine(start:CGPoint,end:CGPoint,fillMode:CGPathDrawingMode=CGPathDrawingMode.FillStroke)
+    func drawLine(_ start:CGPoint,end:CGPoint,fillMode:CGPathDrawingMode=CGPathDrawingMode.fillStroke)
     {
         drawLines([start,end], fillMode: fillMode)
     }
-    func drawLines(points:Array<CGPoint>,fillMode:CGPathDrawingMode=CGPathDrawingMode.FillStroke)
+    func drawLines(_ points:Array<CGPoint>,fillMode:CGPathDrawingMode=CGPathDrawingMode.fillStroke)
     {
         assert(points.count >= 0, "The count of points must be more than 2.")
         
         let context = UIGraphicsGetCurrentContext()
         
-        for (i,point) in points.enumerate()
+        for (i,point) in points.enumerated()
         {
             if i == 0
             {
-                CGContextMoveToPoint(context, point.x, point.y);
+                context?.move(to: CGPoint(x: point.x, y: point.y));
             }else
             {
-                CGContextAddLineToPoint(context, point.x,point.y);
+                context?.addLine(to: CGPoint(x: point.x, y: point.y));
             }
         }
-        CGContextDrawPath(context, fillMode)
+        context?.drawPath(using: fillMode)
     }
     
     
-    func drawImage(image:UIImage,point:CGPoint, blendMode: CGBlendMode = CGBlendMode.Normal, alpha: CGFloat=1)
+    func drawImage(_ image:UIImage,point:CGPoint, blendMode: CGBlendMode = CGBlendMode.normal, alpha: CGFloat=1)
     {
-        image.drawAtPoint(point, blendMode: blendMode, alpha: alpha)
+        image.draw(at: point, blendMode: blendMode, alpha: alpha)
     }
     func drawString()
     {
         assert(false, "unfinish.")
     }
     
-    func drawShadow(offset:CGSize, blur:CGFloat, color:CGColor?=nil)
+    func drawShadow(_ offset:CGSize, blur:CGFloat, color:CGColor?=nil)
     {
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetShadowWithColor(context, offset, blur, color)
+        context?.setShadow(offset: offset, blur: blur, color: color)
     }
     
-    func path(frame:CGRect,radius:Float) -> CGMutablePath
+    func path(_ frame:CGRect,radius:Float) -> CGMutablePath
     {
         
         var x1,x2,x3,x4,y1,y2,y3,y4,y5,y6,y7,y8:CGPoint
@@ -351,22 +352,22 @@ public extension UIView
         let r = CGFloat(radius)
         
         x1 = frame.origin;
-        x2 = CGPointMake(frame.origin.x+frame.size.width, frame.origin.y);
-        x3 = CGPointMake(frame.origin.x+frame.size.width, frame.origin.y+frame.size.height);
-        x4 = CGPointMake(frame.origin.x                 , frame.origin.y+frame.size.height);
+        x2 = CGPoint(x: frame.origin.x+frame.size.width, y: frame.origin.y);
+        x3 = CGPoint(x: frame.origin.x+frame.size.width, y: frame.origin.y+frame.size.height);
+        x4 = CGPoint(x: frame.origin.x                 , y: frame.origin.y+frame.size.height);
         
         
-        y1 = CGPointMake(frame.origin.x+r, frame.origin.y);
-        y2 = CGPointMake(frame.origin.x+frame.size.width-r, frame.origin.y);
-        y3 = CGPointMake(frame.origin.x+frame.size.width, frame.origin.y+r);
-        y4 = CGPointMake(frame.origin.x+frame.size.width, frame.origin.y+frame.size.height-r);
+        y1 = CGPoint(x: frame.origin.x+r, y: frame.origin.y);
+        y2 = CGPoint(x: frame.origin.x+frame.size.width-r, y: frame.origin.y);
+        y3 = CGPoint(x: frame.origin.x+frame.size.width, y: frame.origin.y+r);
+        y4 = CGPoint(x: frame.origin.x+frame.size.width, y: frame.origin.y+frame.size.height-r);
         
-        y5 = CGPointMake(frame.origin.x+frame.size.width-r, frame.origin.y+frame.size.height);
-        y6 = CGPointMake(frame.origin.x+r, frame.origin.y+frame.size.height);
-        y7 = CGPointMake(frame.origin.x, frame.origin.y+frame.size.height-r);
-        y8 = CGPointMake(frame.origin.x, frame.origin.y+r);
+        y5 = CGPoint(x: frame.origin.x+frame.size.width-r, y: frame.origin.y+frame.size.height);
+        y6 = CGPoint(x: frame.origin.x+r, y: frame.origin.y+frame.size.height);
+        y7 = CGPoint(x: frame.origin.x, y: frame.origin.y+frame.size.height-r);
+        y8 = CGPoint(x: frame.origin.x, y: frame.origin.y+r);
         
-        let pathRef = CGPathCreateMutable()
+        let pathRef = CGMutablePath()
         
         if (r <= 0) {
             
@@ -393,10 +394,10 @@ public extension UIView
         }
         
         
-        CGPathCloseSubpath(pathRef);
+        pathRef.closeSubpath();
         return pathRef;
     }
-    
+    */
     
     func findUIViewController() -> UIViewController? {
         //        id nextResponder = [self nextResponder];
@@ -413,10 +414,10 @@ public extension UIView
     }
     
     func findForUIViewControllerIteratively() -> UIViewController?{
-        if let nextResponder = self.nextResponder(){
-            if nextResponder.isKindOfClass(UIViewController.self){
+        if let nextResponder = self.next{
+            if nextResponder.isKind(of: UIViewController.self){
                 return nextResponder as? UIViewController
-            }else if nextResponder.isKindOfClass(UIView.self){
+            }else if nextResponder.isKind(of: UIView.self){
                 return (nextResponder as? UIView)?.findForUIViewControllerIteratively()
             }else{
                 return nil

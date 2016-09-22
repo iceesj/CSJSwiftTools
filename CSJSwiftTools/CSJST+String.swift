@@ -12,18 +12,20 @@ public extension String
 {
     public func stringRemovedLastChar()->String
     {
-        let last1 = self.endIndex.advancedBy(-1)
-        return self.substringToIndex(last1)
+        let last1 = self.characters.index(self.endIndex, offsetBy: -1)
+        return self.substring(to: last1)
     }
     
-    public func encodeURL() -> NSURL
+    public func encodeURL() -> URL
     {
-        return NSURL(string: self.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)!;
+        return URL(string: self.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)!;
     }
     
-    func matchRegex(pattern: String) -> Bool {
-        guard let searchResults = rangeOfString(pattern, options: .RegularExpressionSearch) else {return false}
-        return searchResults.startIndex == startIndex && searchResults.count == characters.count
+    ///*
+    func matchRegex(_ pattern: String) -> Bool {
+//        guard let searchResults = range(of: pattern, options: .regularExpression) else {return false}
+//        return searchResults.lowerBound == startIndex && searchResults.count == characters.count
+        return false
     }
     
     func isValidPhoneNumber() -> Bool {
@@ -35,14 +37,17 @@ public extension String
     }
     
     func isNonEmpty() -> Bool {
-        return !String(characters.filter({!$0.isEmoji()})).isEmpty
+//        return !String(characters.filter({!$0.isEmoji()})).isEmpty
+        return false
     }
     
     func isUserName() -> Bool {
-        return String(characters.filter({$0.isEmoji()})).characters.count <= 0 && characters.count <= 20
+//        return String(characters.filter({$0.isEmoji()})).characters.count <= 0 && characters.count <= 20
+        return false
     }
     
     func isSecureCode() -> Bool {
         return matchRegex("\\d{6}")
     }
+    //*/
 }

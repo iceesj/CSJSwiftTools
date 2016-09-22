@@ -12,42 +12,42 @@ import SwiftyJSON
 
 typealias NetworkCallbackBlock = (JSON?, NetworkErrorType?) -> Void
 
-enum NetworkErrorType: ErrorType, CustomStringConvertible {
+enum NetworkErrorType: Error, CustomStringConvertible {
     
-    case NetworkUnreachable(String) // Timeout or Unreachable
-    case NetworkUnauthenticated(String) // 401 or 403
-    case NetworkServerError(String) // 5XX
-    case NetworkForbiddenAccess(String) // 400 or 404
-    case NetworkWrongParameter(String) // 422
+    case networkUnreachable(String) // Timeout or Unreachable
+    case networkUnauthenticated(String) // 401 or 403
+    case networkServerError(String) // 5XX
+    case networkForbiddenAccess(String) // 400 or 404
+    case networkWrongParameter(String) // 422
     
     init(stringLiteral value: StringLiteralType) {
         switch value {
         case "NetworkUnreachable":
-            self = .NetworkUnreachable(value)
+            self = .networkUnreachable(value)
         case "NetworkUnauthenticated":
-            self = .NetworkUnauthenticated(value)
+            self = .networkUnauthenticated(value)
         case "NetworkServerError":
-            self = .NetworkServerError(value)
+            self = .networkServerError(value)
         case "NetworkWrongParameter":
-            self = .NetworkWrongParameter(value)
+            self = .networkWrongParameter(value)
         default:
-            self = .NetworkForbiddenAccess(value)
+            self = .networkForbiddenAccess(value)
         }
     }
     
     var description: String {
         get {
             switch self {
-            case .NetworkUnreachable(_):
+            case .networkUnreachable(_):
                 return "Timeout or Unreachable"
 //                return message
-            case .NetworkUnauthenticated(let message):
+            case .networkUnauthenticated(let message):
                 return message
-            case .NetworkServerError(let message):
+            case .networkServerError(let message):
                 return message
-            case .NetworkForbiddenAccess(let message):
+            case .networkForbiddenAccess(let message):
                 return message
-            case .NetworkWrongParameter(let message):
+            case .networkWrongParameter(let message):
                 return message
             }
         }
@@ -59,12 +59,12 @@ class CSJSTNetworkManager: NSObject {
     static let sharedInstance = CSJSTNetworkManager()
     
     //csj第一步 =。=
-    private struct Constants {
+    fileprivate struct Constants {
         static let LoginMima              = "LoginMima"
         static let UpdateChannel = "Update Channel"
     }
     
-    private static var PendingOpDict = [String : (Request, NSDate)]()
+    fileprivate static var PendingOpDict = [String : (Request, Date)]()
     
     /**
      Execute the network request
@@ -73,10 +73,10 @@ class CSJSTNetworkManager: NSObject {
      - parameter request:  request (or value) in caching dictionary
      - parameter callback: a block executed when network request finished
      */
-    private class func executeRequestWithKey(key: String, request: Request, callback: NetworkCallbackBlock) {
+    fileprivate class func executeRequestWithKey(_ key: String, request: Request, callback: NetworkCallbackBlock) {
         print("网络请求 = \(key)")
         // Add a new item in the caching dictionary
-        PendingOpDict[key] = (request, NSDate())
+        PendingOpDict[key] = (request, Date())
         // Executing request
         request.responseJSON { (response) in
             let (response, result) = (response.response, response.result)
@@ -130,7 +130,7 @@ class CSJSTNetworkManager: NSObject {
     /** 
      form-data传送数据
      */
-    private class func executeRequestWithKey_FromData(key: String, request: Request, callback: NetworkCallbackBlock) {
+    fileprivate class func executeRequestWithKey_FromData(_ key: String, request: Request, callback: NetworkCallbackBlock) {
         print("网络请求 = \(key)")
         // Add a new item in the caching dictionary
 //        PendingOpDict[key] = (request, NSDate())
@@ -172,14 +172,14 @@ class CSJSTNetworkManager: NSObject {
     }
     
     // Default network manager, timeout set to 10s
-    private static let Manager: Alamofire.Manager = {
+    fileprivate static let Manager: Alamofire.Manager = {
         let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
         configuration.timeoutIntervalForRequest = 10.0
         return Alamofire.Manager(configuration: configuration, serverTrustPolicyManager: nil)
     }()
     
     
-    class func existPendingOperation(key: String) -> Bool {
+    class func existPendingOperation(_ key: String) -> Bool {
         return PendingOpDict[key] != nil
     }
 }
@@ -203,25 +203,25 @@ extension CSJSTNetworkManager{
         static var OAuthToken: String?
         
         //    case LoginMima(String, String, String)
-        case LoginMima([String: AnyObject])
-        case UpdateChannel([String: AnyObject])
+        case loginMima([String: AnyObject])
+        case updateChannel([String: AnyObject])
         
-        var method: Alamofire.Method {
+        var method: HTTPMethod {
             switch self {
-            case .LoginMima:
-                return .POST
-            case .UpdateChannel:
-                return .POST
+            case .loginMima:
+                return .post
+            case .updateChannel:
+                return .post
             
             }
         }
         
         var path: String {
             switch self {
-            case .LoginMima:
+            case .loginMima:
                 return "/user/login"
             
-            case .UpdateChannel:
+            case .updateChannel:
             return "/api-front/payment/update-channel"
             }
         }
@@ -229,8 +229,8 @@ extension CSJSTNetworkManager{
         // MARK: URLRequestConvertible
         var URLRequest: NSMutableURLRequest {
 //            (inout parameters: [String: AnyObject]) in
-            let URL = NSURL(string: Router.baseURLString)!
-            let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path))
+            let URL = Foundation.URL(string: Router.baseURLString)!
+            let mutableURLRequest = NSMutableURLRequest(url: URL.appendingPathComponent(path))
             mutableURLRequest.HTTPMethod = method.rawValue
             
             if let token = Router.OAuthToken {
@@ -238,9 +238,9 @@ extension CSJSTNetworkManager{
             }
             
             switch self {
-            case .LoginMima(let parameters):
+            case .loginMima(let parameters):
                 return ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
-            case .UpdateChannel(let parameters):
+            case .updateChannel(let parameters):
                 return ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
                 /*
                  case .CreateUser(let parameters):
@@ -259,7 +259,7 @@ extension CSJSTNetworkManager{
     /**
      发起一个POST请求，Body是JSON形式的
      */
-    func loginMima(let parameters: [String : AnyObject],callback : NetworkCallbackBlock){
+    func loginMima(_ parameters: [String : AnyObject],callback : NetworkCallbackBlock){
         guard !CSJSTNetworkManager.existPendingOperation(Constants.LoginMima) else {
             return
         }
@@ -271,7 +271,7 @@ extension CSJSTNetworkManager{
     /**
      发起一个POST请求，Body是Form URL-Encoded形式的
      */
-    func sendRequest2(let body:[String : AnyObject], callback : NetworkCallbackBlock) {
+    func sendRequest2(_ body:[String : AnyObject], callback : NetworkCallbackBlock) {
         guard !CSJSTNetworkManager.existPendingOperation(Constants.UpdateChannel) else {
             return
         }
@@ -294,14 +294,15 @@ extension CSJSTNetworkManager{
 
     
     
-    func sendRequest_JSON(let body:[String : AnyObject], callback : NetworkCallbackBlock) {
+    func sendRequest_JSON(_ body:[String : AnyObject], callback : NetworkCallbackBlock) {
         // Add Headers
         let headers = [
             "Content-Type":"application/json",
             ]
         // JSON Body
         // Fetch Request
-        Alamofire.request(.POST, "\(Router.baseURLString)/user/login", headers: headers, parameters: body, encoding: .JSON)
+        Alamofire.request("\(Router.baseURLString)/user/login", method: HTTPMethod.post, parameters: body, encoding: .json)
+//        Alamofire.request(.POST, "\(Router.baseURLString)/user/login", headers: headers, parameters: body, encoding: .JSON)
             .validate(statusCode: 200..<300)
             .responseJSON { response in
                 let (response, result, data) = (response.response, response.result, response.data)
@@ -318,7 +319,7 @@ extension CSJSTNetworkManager{
                 }
                 else {
                     if result.isFailure {
-                        error = NetworkErrorType.NetworkUnreachable("\(result.error)")
+                        error = NetworkErrorType.networkUnreachable("\(result.error)")
                     }
                     else if let value = result.value {
                         let message = JSON(value)["statusMessage"].string

@@ -22,7 +22,7 @@ class ThirdViewController: UIViewController, UITableViewDelegate {
     //RxDataSources类指定了我们的数据源包括哪些内容，SectionModel带有一个String作为section的名字，User类作为item的类型
     //TestUser,,TestUserModel
     let dataSource = RxTableViewSectionedReloadDataSource<SectionModel <String, TestUserModel>>()
-    let viewModel = ThirdViewModel()
+//    let viewModel = ThirdViewModel()
     let disposeBag = DisposeBag()// 是在控制器销毁后来控制释放资源的。
     
     
@@ -34,19 +34,20 @@ class ThirdViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.initCSJSTSetVC(.whiteColor(), bool: true, title: "RxSwift界面")
+        self.initCSJSTSetVC(UIColor.white, bool: true, title: "RxSwift界面")
         
         
+        /*
 //        tableView = UITableView()
         view.addSubview(self.tableView)
         self.tableView.snp_makeConstraints { (make) in
 //            make.left.top.equalTo(0)
 //            make.right.bottom.equalTo(0)
-            make.edges.equalTo(UIEdgeInsetsZero)
+            make.edges.equalTo(UIEdgeInsets.zero)
         }
         
 
-        tableView.registerClass(TableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
+        tableView.register(TableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
 //        tableView.deselectRowAtIndexPath(NSIndexPath, animated: true)
         tableView.rx_itemDeselected.subscribeNext { (indexPath) in
             print("indexPath = \(indexPath)")
@@ -60,30 +61,32 @@ class ThirdViewController: UIViewController, UITableViewDelegate {
         
         dataSource.configureCell = {
             _, tableView, indexPath, user in
-            let cell = tableView.dequeueReusableCellWithIdentifier(self.reuseIdentifier, forIndexPath: indexPath) as! TableViewCell
-            cell.tag = indexPath.row
+            let cell = tableView.dequeueReusableCell(withIdentifier: self.reuseIdentifier, for: indexPath) as! TableViewCell
+            cell.tag = (indexPath as NSIndexPath).row
             cell.user = user
             return cell
         }
         
         self.viewModel.getUsers().bindTo(self.tableView.rx_itemsWithDataSource(self.dataSource)).addDisposableTo(self.disposeBag)
         
-        /*
-        tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
-//            self.viewModel.getUsers().bindTo(self.tableView.rx_itemsWithDataSource(self.dataSource)).addDisposableTo(self.disposeBag)
-            self.tableView.mj_header.endRefreshing()
-        })
-        */
+
         
 //        tableView.mj_header.beginRefreshing()
         tableView
             .rx_setDelegate(self)
             .addDisposableTo(disposeBag)
-        
+         */
+        /*
+ tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
+ //            self.viewModel.getUsers().bindTo(self.tableView.rx_itemsWithDataSource(self.dataSource)).addDisposableTo(self.disposeBag)
+ self.tableView.mj_header.endRefreshing()
+ })
+ */
+ 
     }
-    
+ 
     func headerRereshing() {
-        viewModel.getUsers().bindTo(tableView.rx_itemsWithDataSource(dataSource)).addDisposableTo(disposeBag)
+//        viewModel.getUsers().bindTo(tableView.rx_itemsWithDataSource(dataSource)).addDisposableTo(disposeBag)
     }
     
 

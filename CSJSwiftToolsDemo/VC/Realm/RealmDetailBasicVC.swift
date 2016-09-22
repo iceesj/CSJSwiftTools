@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import RealmSwift
+//import RealmSwift
 
 
 class RealmDetailBasicVC: UIViewController {
@@ -20,8 +20,9 @@ class RealmDetailBasicVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.initCSJSTSetVC(.whiteColor(), bool: true, title: "Realm Basic")
+        self.initCSJSTSetVC(UIColor.white, bool: true, title: "Realm Basic")
         
+        /*
         let myDog = Dog()
         myDog.name = "大黄"
         myDog.age = 1
@@ -42,14 +43,14 @@ class RealmDetailBasicVC: UIViewController {
         
         print("puppies2 = \(puppies.count)")
         
-        dispatch_async(dispatch_queue_create("background", nil)) {
+        DispatchQueue(label: "background", attributes: []).async {
             let realm = try! Realm()
             let theDog = realm.objects(Dog).filter("age == 1").first
             try! realm.write({
                 theDog!.age = 3
             })
         }
-        
+        */
         
     }
     

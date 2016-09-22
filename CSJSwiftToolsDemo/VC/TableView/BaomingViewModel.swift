@@ -8,12 +8,12 @@
 
 import UIKit
 
-enum BaomingStatus : CustomStringConvertible, BooleanType {
-    case Login, noLogin
+enum BaomingStatus : CustomStringConvertible {
+    case login, noLogin
     
     var description: String {
         switch self {
-        case .Login:
+        case .login:
             return "注册"
         case .noLogin:
             return "没注册"
@@ -22,7 +22,7 @@ enum BaomingStatus : CustomStringConvertible, BooleanType {
     
     var boolValue: Bool {
         switch self {
-        case .Login:
+        case .login:
             return true
         case .noLogin:
             return false
@@ -32,7 +32,7 @@ enum BaomingStatus : CustomStringConvertible, BooleanType {
 
 class BaomingViewModel {
     let BaomingViewModel = [
-        BaomingStatus.Login: [
+        BaomingStatus.login: [
             (cellIdentifier: "Button Cell", placeHolder: "请输入手机号"),
             (cellIdentifier: "Text Two Cell", placeHolder: "请输入短信中的验证码"),
             (cellIdentifier: "Text Name Cell", placeHolder: "请输入姓名"),
@@ -48,7 +48,7 @@ class BaomingViewModel {
     ]
     
     let validators = [
-        BaomingStatus.Login: [
+        BaomingStatus.login: [
             (validator: String.isValidPhoneNumber, prompt: "请输入正确的手机号"),
 //            (validator: String.isSecureCode, prompt: "请输入正确的验证码")
             
@@ -60,7 +60,7 @@ class BaomingViewModel {
         ]
     ]
     
-    func validator(x: BaomingStatus, _ y: Int) -> (validator: String -> () -> Bool, prompt: String) {
+    func validator(_ x: BaomingStatus, _ y: Int) -> (validator: (String) -> () -> Bool, prompt: String) {
         guard y >= 0 && y < (validators[x]?.count ?? 0) else {return (validator: String.isNonEmpty, prompt: "Error")}
         return validators[x]![y]
     }

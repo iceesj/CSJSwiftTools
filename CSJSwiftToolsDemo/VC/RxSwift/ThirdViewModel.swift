@@ -7,10 +7,11 @@
 //
 
 import UIKit
+
 import RxSwift
 import RxDataSources
 import RxViewModel
-import Action
+//import Action
 
 class ThirdViewModel: RxViewModel {
 //class ThirdViewModel: NSObject {
@@ -18,7 +19,6 @@ class ThirdViewModel: RxViewModel {
 //    dynamic var dataSource : NSMutableArray!
     dynamic var dataSource = [TestUserModel]()
 //    dynamic var users1 = [TestUser]()
-    
     
     
     /*

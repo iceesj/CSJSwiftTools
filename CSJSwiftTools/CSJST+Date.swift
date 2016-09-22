@@ -9,12 +9,12 @@
 import UIKit
 
 //MARK:日期扩展
-public extension NSDate{
+public extension Date{
     /**
      是不是今天判断
      */
     public func CSJST_isToday() -> Bool{
-        let second = Int(NSDate().timeIntervalSince1970) - (Int(NSDate().timeIntervalSince1970) % Int(60*60*24))
+        let second = Int(Date().timeIntervalSince1970) - (Int(Date().timeIntervalSince1970) % Int(60*60*24))
         if Int(self.timeIntervalSince1970) > second{
             return true
         }

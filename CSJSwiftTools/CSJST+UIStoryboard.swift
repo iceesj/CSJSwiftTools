@@ -15,18 +15,18 @@ public extension UIStoryboard{
     /*
      storyboard简便标示跳转
      */
-    class func CSJST_initViewControllerWithIdentifier(identifier: String!) -> UIViewController? {
+    class func CSJST_initViewControllerWithIdentifier(_ identifier: String!) -> UIViewController? {
         guard let identifier = identifier else {return nil}
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        return storyboard.instantiateViewControllerWithIdentifier(identifier)
+        return storyboard.instantiateViewController(withIdentifier: identifier)
     }
     
     /**
      可填写storyboard名字的segue跳转
      */
-    class func CSJST_initViewControllerWithIdentifier2(storyboardString : String ,identifier: String!) -> UIViewController? {
+    class func CSJST_initViewControllerWithIdentifier2(_ storyboardString : String ,identifier: String!) -> UIViewController? {
         guard let identifier = identifier else {return nil}
         let storyboard = UIStoryboard(name: storyboardString, bundle: nil)
-        return storyboard.instantiateViewControllerWithIdentifier(identifier)
+        return storyboard.instantiateViewController(withIdentifier: identifier)
     }
 }

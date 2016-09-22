@@ -40,8 +40,8 @@ class POPDetailTableviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        edgesForExtendedLayout = .None
-        view.backgroundColor = .whiteColor()
+        edgesForExtendedLayout = UIRectEdge()
+        view.backgroundColor = UIColor.white
         self.navigationItem.title = panduanString
         print("panduanString = \(panduanString)")
         
@@ -56,17 +56,18 @@ class POPDetailTableviewViewController: UIViewController {
             print("LayerSize - kPOPLayerSize")
             
             self.springView = UIImageView()
-            self.springView.backgroundColor = .redColor()
-            self.springView.userInteractionEnabled = true
+            self.springView.backgroundColor = UIColor.red
+            self.springView.isUserInteractionEnabled = true
             self.view.addSubview(self.springView)
             
-            self.springView.snp_makeConstraints(closure: { (make) in
+            self.springView.snp.makeConstraints({ (make) in
+//            self.springView.snp_makeConstraints(closure: { (make) in
                 make.top.equalTo(200)
 //                make.right.equalTo(-10)
 //                make.height.equalTo(100)
-                make.size.equalTo(CGSizeMake(100.0, 100.0))
+//                make.size.equalTo(CGSizeMake(100.0, 100.0))
 //                make.center.equalTo(view)
-                make.centerX.equalTo(view.snp_centerX)
+                make.centerX.equalTo(view.snp.centerX)
 //                make.centerY.equalTo(view.snp_centerY)
             })
             
@@ -78,11 +79,12 @@ class POPDetailTableviewViewController: UIViewController {
             print("LayerSize - kPOPLayerPosition")
 
             self.layerPositionView = UIView()
-            self.layerPositionView.backgroundColor = UIColor.blueColor()
-            self.layerPositionView.userInteractionEnabled = true
+            self.layerPositionView.backgroundColor = UIColor.blue
+            self.layerPositionView.isUserInteractionEnabled = true
             self.view.addSubview(self.layerPositionView)
             
-            self.layerPositionView.snp_makeConstraints(closure: { (make) in
+            self.layerPositionView.snp.makeConstraints({ (make) in
+//            self.layerPositionView.snp_makeConstraints(closure: { (make) in
                 make.top.equalTo(-230)
                 make.left.equalTo(20)
                 
@@ -101,11 +103,12 @@ class POPDetailTableviewViewController: UIViewController {
             print("LayerSize - kPOPViewFrame")
             
             self.viewFrameIMGView = UIImageView()
-            self.viewFrameIMGView.backgroundColor = UIColor.grayColor()
-            self.viewFrameIMGView.userInteractionEnabled = true
+            self.viewFrameIMGView.backgroundColor = UIColor.gray
+            self.viewFrameIMGView.isUserInteractionEnabled = true
             self.view.addSubview(self.viewFrameIMGView)
             
-            self.viewFrameIMGView.snp_makeConstraints(closure: { (make) in
+            self.viewFrameIMGView.snp.makeConstraints({ (make) in
+//            self.viewFrameIMGView.snp_makeConstraints(closure: { (make) in
                 make.top.equalTo(50)
                 make.left.equalTo(50)
                 
@@ -124,16 +127,17 @@ class POPDetailTableviewViewController: UIViewController {
             print("LayerSize - kPOPViewAlpha")
             
             self.basicView = UIImageView()
-            self.basicView.backgroundColor = UIColor.blueColor()
-            self.basicView.userInteractionEnabled = true
+            self.basicView.backgroundColor = UIColor.blue
+            self.basicView.isUserInteractionEnabled = true
             self.view.addSubview(self.basicView)
             
-            self.basicView.snp_makeConstraints(closure: { (make) in
+            self.basicView.snp.makeConstraints({ (make) in
+//            self.basicView.snp_makeConstraints(closure: { (make) in
                 make.top.equalTo(50)
                 
                 make.width.equalTo(100)
                 make.height.equalTo(100)
-                make.centerX.equalTo(view.snp_centerX)
+                make.centerX.equalTo(view.snp.centerX)
             })
             
             let gestureForSpring = UITapGestureRecognizer()
@@ -144,15 +148,15 @@ class POPDetailTableviewViewController: UIViewController {
             isOpened = false
             
             //popbox
-            self.showPosition = CGRectMake(SCREEN_WIDTH_CSJST-155, 5, 150, 160)
-            self.hidePosition = CGRectMake(SCREEN_WIDTH_CSJST, 5, 0, 0)
+            self.showPosition = CGRect(x: SCREEN_WIDTH_CSJST-155, y: 5, width: 150, height: 160)
+            self.hidePosition = CGRect(x: SCREEN_WIDTH_CSJST, y: 5, width: 0, height: 0)
             
             self.popView = UIImageView()
             self.popView.frame = self.hidePosition
-            self.popView.backgroundColor = UIColor.blueColor()
+            self.popView.backgroundColor = UIColor.blue
             self.view.addSubview(self.popView)
             
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem (title: "+", style: UIBarButtonItemStyle.Done, target: self, action: #selector(POPDetailTableviewViewController.showPop))
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem (title: "+", style: UIBarButtonItemStyle.done, target: self, action: #selector(POPDetailTableviewViewController.showPop))
             
             
         }
@@ -161,14 +165,14 @@ class POPDetailTableviewViewController: UIViewController {
     /*************************************************************************************************************/
     
     //MAKR:kPOPLayerSize
-    func changeSize(tap :UITapGestureRecognizer) {
+    func changeSize(_ tap :UITapGestureRecognizer) {
         let springAnimation : POPSpringAnimation = POPSpringAnimation(propertyNamed:kPOPLayerSize)
         let rect : CGRect = self.springView.frame
         if rect.size.width == 100 {
-            springAnimation.toValue = NSValue(CGSize: CGSizeMake(300, 300))
+            springAnimation.toValue = NSValue(cgSize: CGSize(width: 300, height: 300))
         }
         else{
-            springAnimation.toValue = NSValue(CGSize: CGSizeMake(100, 100))
+            springAnimation.toValue = NSValue(cgSize: CGSize(width: 100, height: 100))
         }
         
         //弹性值
@@ -176,58 +180,58 @@ class POPDetailTableviewViewController: UIViewController {
         //弹性速度
         springAnimation.springSpeed = 20.0
         
-        self.springView.layer .pop_addAnimation(springAnimation, forKey: "changesize")
+        self.springView.layer .pop_add(springAnimation, forKey: "changesize")
         
     }
     
     
-    func changeSize_kPOPLayerPosition(tap :UITapGestureRecognizer) {
+    func changeSize_kPOPLayerPosition(_ tap :UITapGestureRecognizer) {
         let springAnimation = POPSpringAnimation (propertyNamed: kPOPLayerPosition)
         let point = self.layerPositionView.center
         if point.y == 240 {
-            springAnimation.toValue = NSValue (CGPoint: CGPointMake(point.x, -130))
+            springAnimation?.toValue = NSValue (cgPoint: CGPoint(x: point.x, y: -130))
         }
         else{
-            springAnimation.toValue = NSValue (CGPoint: CGPointMake(point.x, 240))
+            springAnimation?.toValue = NSValue (cgPoint: CGPoint(x: point.x, y: 240))
         }
         //弹性值
-        springAnimation.springBounciness = 20.0
+        springAnimation?.springBounciness = 20.0
         //弹性速度
-        springAnimation.springSpeed = 20.0
+        springAnimation?.springSpeed = 20.0
         
-        self.layerPositionView .pop_addAnimation(springAnimation, forKey: "changeposition")
+        self.layerPositionView .pop_add(springAnimation, forKey: "changeposition")
         
     }
     
     
     //MARK:kPOPViewFrame
-    func changeSize_kPOPViewFrame(tap: UITapGestureRecognizer){
+    func changeSize_kPOPViewFrame(_ tap: UITapGestureRecognizer){
         let springAnimation = POPSpringAnimation (propertyNamed: kPOPViewFrame)
-        let point : CGPoint = tap.locationInView(self.view)
-        springAnimation.toValue = NSValue (CGRect: CGRectMake(0, 0, point.x, point.y))
+        let point : CGPoint = tap.location(in: self.view)
+        springAnimation?.toValue = NSValue (cgRect: CGRect(x: 0, y: 0, width: point.x, height: point.y))
         //弹性值
-        springAnimation.springBounciness = 20.0
+        springAnimation?.springBounciness = 20.0
         //弹性速度
-        springAnimation.springSpeed = 20.0
+        springAnimation?.springSpeed = 20.0
         
-        self.viewFrameIMGView .pop_addAnimation(springAnimation, forKey: "changeframe")
+        self.viewFrameIMGView .pop_add(springAnimation, forKey: "changeframe")
         
     }
     
     /*************************************************************************************************************/
     
     //MARK:kPOPViewAlpha
-    func changeSize_kPOPViewAlpha(tap: UITapGestureRecognizer){
+    func changeSize_kPOPViewAlpha(_ tap: UITapGestureRecognizer){
         let anim = POPBasicAnimation (propertyNamed: kPOPViewAlpha)
-        anim.timingFunction = CAMediaTimingFunction (name: kCAMediaTimingFunctionEaseInEaseOut)
+        anim?.timingFunction = CAMediaTimingFunction (name: kCAMediaTimingFunctionEaseInEaseOut)
         let alpha = self.basicView.alpha
         if alpha == 1.0 {
-            anim.toValue = 0.0
+            anim?.toValue = 0.0
         }else{
-            anim.toValue = 1.0
+            anim?.toValue = 1.0
         }
         
-        self.basicView .pop_addAnimation(anim, forKey: "alpha")
+        self.basicView .pop_add(anim, forKey: "alpha")
         
     }
     
@@ -242,19 +246,19 @@ class POPDetailTableviewViewController: UIViewController {
         isOpened = true
         
         let positionAnimation = POPSpringAnimation (propertyNamed: kPOPViewFrame)
-        positionAnimation.fromValue = NSValue (CGRect: self.hidePosition)
-        positionAnimation.toValue = NSValue (CGRect: self.showPosition)
-        positionAnimation.springBounciness = 15.0
-        positionAnimation.springSpeed = 20.0
-        self.popView.pop_addAnimation(positionAnimation, forKey: "frameAnimation")
+        positionAnimation?.fromValue = NSValue (cgRect: self.hidePosition)
+        positionAnimation?.toValue = NSValue (cgRect: self.showPosition)
+        positionAnimation?.springBounciness = 15.0
+        positionAnimation?.springSpeed = 20.0
+        self.popView.pop_add(positionAnimation, forKey: "frameAnimation")
         
     }
     
     func hidePop() {
         let positionAnimation = POPSpringAnimation (propertyNamed: kPOPViewFrame)
-        positionAnimation.fromValue = NSValue (CGRect: showPosition)
-        positionAnimation.toValue = NSValue (CGRect: hidePosition)
-        self.popView.pop_addAnimation(positionAnimation, forKey: "frameAnimation")
+        positionAnimation?.fromValue = NSValue (cgRect: showPosition)
+        positionAnimation?.toValue = NSValue (cgRect: hidePosition)
+        self.popView.pop_add(positionAnimation, forKey: "frameAnimation")
         
         isOpened = false
     }

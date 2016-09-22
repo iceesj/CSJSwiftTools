@@ -36,12 +36,12 @@ public extension UIColor
         
         var color = hexString
         if color.hasPrefix("#") == true{
-            color = color.substringFromIndex(color.startIndex.advancedBy(1))
+            color = color.substring(from: color.characters.index(color.startIndex, offsetBy: 1))
         }
         
         var hex:UInt64 = 0
         
-        if NSScanner(string: color).scanHexLongLong(&hex){
+        if Scanner(string: color).scanHexInt64(&hex){
             if color.characters.count == 6{
                 red   = CGFloat((hex & 0x8FF0000) >> 16)  / 255.0
                 green = CGFloat((hex & 0x00FF00) >> 8)    / 255.0

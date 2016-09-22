@@ -14,11 +14,11 @@ public extension NSDictionary
      返回String
      */
     public func CSJST_JSONString()->String?{
-        let data = try? NSJSONSerialization.dataWithJSONObject(self, options: NSJSONWritingOptions.PrettyPrinted)
+        let data = try? JSONSerialization.data(withJSONObject: self, options: JSONSerialization.WritingOptions.prettyPrinted)
         if data == nil{
             return nil
         }
-        let strJson = NSString(data: data!, encoding: NSUTF8StringEncoding)
+        let strJson = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
         return strJson as? String
     }
     

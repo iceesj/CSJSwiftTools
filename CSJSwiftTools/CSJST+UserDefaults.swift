@@ -8,18 +8,18 @@
 
 import UIKit
 
-public extension NSUserDefaults
+public extension UserDefaults
 {
     public subscript(key : String) -> AnyObject?
         {
         get
         {
-            return NSUserDefaults.standardUserDefaults().objectForKey(key)
+            return UserDefaults.standard.object(forKey: key) as AnyObject?
         }
         set(newValue)
         {
-            NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: key)
-            NSUserDefaults.standardUserDefaults().synchronize()
+            UserDefaults.standard.set(newValue, forKey: key)
+            UserDefaults.standard.synchronize()
         }
     }
 }

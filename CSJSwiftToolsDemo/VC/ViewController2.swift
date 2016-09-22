@@ -20,16 +20,16 @@ class ViewController2: UIViewController {
 //    override var show_csjst_nav右键文字: Bool { get { return true } }
 //    override var show_csjst_nav左键文字: Bool { get { return false } }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.view.backgroundColor = .whiteColor()
-        edgesForExtendedLayout = .None
+        self.view.backgroundColor = UIColor.white
+        edgesForExtendedLayout = UIRectEdge()
         self.navigationItem.title = "VC2"
         
 //        self.initCSJSTSetVC(.redColor(), bool: true, title: "VC2")
 //        self.csjst_nav右键图片("Enhance")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Enhance")?.imageWithRenderingMode(.AlwaysOriginal), style: .Plain, target: self, action: #selector(self.csjst_右键图片(_:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Enhance")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(self.csjst_右键图片(_:)))
 
         
         self.setupLeftBarButton()
@@ -43,7 +43,7 @@ class ViewController2: UIViewController {
     }
     
     
-    override func csjst_右键图片(sender: UIBarButtonItem) {
+    override func csjst_右键图片(_ sender: UIBarButtonItem) {
         print("图片点击")
         
     }
