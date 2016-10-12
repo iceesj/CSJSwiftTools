@@ -238,7 +238,7 @@ class ViewController: UIViewController {
         //POST 有参数
         let URLParams = [
             "phoneNumber": "18621282315",
-            "password": "123456a",
+            "password": "1",
             "sessionId": "9ffc6613-344a-436a-bfa8-6a6fa603b303",
             "version": "1.0.0",
             "device": "pc",
