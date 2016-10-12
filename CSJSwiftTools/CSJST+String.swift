@@ -23,9 +23,14 @@ public extension String
     
     ///*
     func matchRegex(_ pattern: String) -> Bool {
-//        guard let searchResults = range(of: pattern, options: .regularExpression) else {return false}
-//        return searchResults.lowerBound == startIndex && searchResults.count == characters.count
-        return false
+        /*
+        guard let searchResults = range(of: pattern, options: .regularExpression) else {return false}
+        return searchResults.lowerBound == startIndex && searchResults.count == characters.count
+        */
+        guard let searchResults = range(of: pattern, options: .regularExpression) else {
+            return false
+        }
+        return searchResults.lowerBound == startIndex && searchResults.description.characters.count == characters.count
     }
     
     func isValidPhoneNumber() -> Bool {

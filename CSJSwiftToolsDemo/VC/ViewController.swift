@@ -10,6 +10,7 @@ import UIKit
 import SwiftyJSON
 import MJExtension
 import Alamofire
+import SVProgressHUD
 
 import RxCocoa
 import RxSwift
@@ -49,8 +50,6 @@ class ViewController: UIViewController {
         let shijian13 = CSJSwiftToolsDirector.shijianChuo_13Num()
         print("13位时间戳 = \(shijian13)")
         
-        
-        
         //MARK:时间截取转换
         let lastTimeValueName_Two : String = CSJSwiftToolsDirector.sharedInstance.fengeTime("17:30-18:00").string2!
         let lastTimeValueNameTwoInt : Int = CSJSwiftToolsDirector.sharedInstance.zhuanhuanShiduanInt(lastTimeValueName_Two)
@@ -83,9 +82,11 @@ class ViewController: UIViewController {
         headerIMG.addGestureRecognizer(thisViewTap)
         
         
-        self.requestOne()
+        self.postJSON()
         
-//        self.requestFromData()
+        self.getFormdata()
+        
+        self.postFromData()
         
 //        self.requestJSON()
         
@@ -132,7 +133,40 @@ class ViewController: UIViewController {
     /**
      POST JSON，Back JSON
      */
-    func requestOne() {
+    func postJSON() {
+        let sessionConfig = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+        //上线修改
+        let urlString = "\(CSJSTNetworkManager.baseURLString)/api-front/application/current-front-ios-version"
+        guard let URL = URL(string: urlString) else {return}
+        var request = URLRequest(url: URL)
+        request.httpMethod = "GET"
+        // Headers
+        request.addValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        request.httpBody = nil
+        /* Start a new Task */
+        let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
+            if (error == nil) {
+                // Success
+                let statusCode = (response as! HTTPURLResponse).statusCode
+                print("URL Session Task Succeeded: HTTP \(statusCode)")
+                
+                let swiftyJsonVar = JSON(data: data!)
+                print("swiftyJsonVar = \(swiftyJsonVar)")
+                let resultDic = swiftyJsonVar["result"].dictionaryValue
+                print("resultDic = \(resultDic)")
+                
+            }
+            else {
+                // Failure
+                print("URL Session Task Failed: %@", error!.localizedDescription);
+                //SVProgressHUD.showError(withStatus: error!.localizedDescription);
+            }
+        })
+        task.resume()
+        //无效的会话,允许任何出色的完成任务。
+        session.finishTasksAndInvalidate()
+        
         /*
         let parameters = ["phone":"13611111111","messageNumber":"123456"]
         
@@ -150,9 +184,77 @@ class ViewController: UIViewController {
     }
     
     /**
+     GET Form-data， Back JSON, has Params
+    **/
+    
+    func getFormdata() {
+        let body =  [
+            "sessionId": "569b773b-5c5e-42a1-bbcd-8ed36bd301f3",
+            "version": "1.0.0",
+            "device": "pc",
+            ]
+        
+        CSJSTNetworkManager.sharedInstance.getURLParams("/api-front/session/get-user-info", body)
+        { (swiftyJsonVar, error) in
+            print("string = \(error), 返回的json = \(swiftyJsonVar)")
+            //返回的Dict
+            let status = swiftyJsonVar["status"].stringValue
+            
+            //弹出错误
+            guard status != "ERROR" else{
+                print("是错误")
+                SVProgressHUD.showError(withStatus: "\(swiftyJsonVar["message"].stringValue)")
+                return
+            }
+            
+            let resultDic = swiftyJsonVar["result"].dictionaryValue
+            print("resultDic = \(resultDic)")
+            
+        }
+        
+        
+    }
+    
+    
+    /**
      POST Form-data， Back JSON
      */
-    func requestFromData() {
+    func postFromData() {
+        //POST 无参数
+        let body = ["123":123]
+        CSJSTNetworkManager.sharedInstance.postURLParamsOnly("/api-front/session/create", body) { (swiftyJsonVar, error) in
+            let status = swiftyJsonVar["status"].stringValue
+            guard status != "ERROR" else{
+                print("是错误")
+                SVProgressHUD.showError(withStatus: "\(swiftyJsonVar["message"].stringValue)")
+                return
+            }
+            let resultDic = swiftyJsonVar["result"].stringValue
+            print("resultDic = \(resultDic)")
+            
+        }
+        
+        
+        //POST 有参数
+        let URLParams = [
+            "phoneNumber": "18621282315",
+            "password": "123456a",
+            "sessionId": "9ffc6613-344a-436a-bfa8-6a6fa603b303",
+            "version": "1.0.0",
+            "device": "pc",
+            ]
+        CSJSTNetworkManager.sharedInstance.postURLParams("/api-front/session/login-with-password", URLParams) { (swiftyJsonVar, error) in
+            let status = swiftyJsonVar["status"].stringValue
+            guard status != "ERROR" else{
+                print("是错误")
+                SVProgressHUD.showError(withStatus: "\(swiftyJsonVar["message"].stringValue)")
+                return
+            }
+            let resultDic = swiftyJsonVar["result"].dictionaryValue
+            print("resultDic = \(resultDic)")
+            
+        }
+        
         /*
         let body = [
             "tradeId":"20160623142414796650971207862444",
@@ -220,6 +322,22 @@ class ViewController: UIViewController {
     单例一个 傻瓜式的Alamofire请求返回
      */
     func requestJSON() {
+        
+        
+        /*
+        Alamofire.request("", withMethod: .post ,parameters: nil, encoding: .json, headers: nil)
+            .responseJSON { response in
+            if (response.result.error == nil) {
+                
+            }
+            else {
+                debugPrint("HTTP Request failed: \(response.result.error)")
+                print("\(response.response?.statusCode)")
+                
+            }
+        }
+        */
+        
         /*
         let body = [
             "phone": "13611111111",

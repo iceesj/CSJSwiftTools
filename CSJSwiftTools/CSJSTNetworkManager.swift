@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 typealias NetworkCallbackBlock = (JSON?, NetworkErrorType?) -> Void
+typealias URLSessionCallbackBlock = (JSON, String) -> Void
 
 enum NetworkErrorType: Error, CustomStringConvertible {
     
@@ -54,13 +55,206 @@ enum NetworkErrorType: Error, CustomStringConvertible {
     }
 }
 
+//MARK: NSURLSession
+class CSJSTNetworkManager : NSObject{
+    static let sharedInstance = CSJSTNetworkManager()
+    //正式
+    static let baseURLString = "https://front.bestfood520.com"
+    
+    
+    //MARK：URL Params
+    //MARK: Get 有参数
+    func getURLParams(_ string: String, _ body:[String : Any], callback : @escaping URLSessionCallbackBlock) {
+        let sessionConfig = URLSessionConfiguration.default
+        /* Create session, and optionally set a NSURLSessionDelegate. */
+        let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+//        let urlString = "\(CSJSTNetworkManager.baseURLString)/api-front/session/get-user-info"
+        
+        ///*
+        let urlString = "\(CSJSTNetworkManager.baseURLString)\(string)"
+        print("urlstring = \(urlString)")
+        guard var URL = URL(string: urlString) else {return}
+        URL = URL.URLByAppendingQueryParameters(body) as URL
+        var request = URLRequest(url: URL)
+        request.httpMethod = "GET"
+        //*/
+        /*
+        guard let URL = URL(string: urlString) else {return}
+        var request = URLRequest(url: URL)
+        request.httpMethod = "GET"
+        let bodyString = body.queryParameters
+        request.httpBody = bodyString.data(using: String.Encoding.utf8, allowLossyConversion: true)
+        */
+        /* Start a new Task */
+        var swiftyJsonVar: JSON!
+//        var errorInt = ""
+        let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
+
+            if (error == nil) {
+                // Success
+                let statusCode = (response as! HTTPURLResponse).statusCode
+                print("URL Session Task Succeeded: HTTP \(statusCode)")
+                swiftyJsonVar = JSON(data: data!)
+//                print("swiftyJsonVar = \(swiftyJsonVar)")
+                callback(swiftyJsonVar, "")
+            }else{
+//                print("error.debugDescription = \(error.debugDescription)")
+                let (domain, code, errorString) = (error!._domain, error!._code, error!.localizedDescription)
+                print("domain = \(domain) , errorCode = \(code), URL Session Task Failed: \(errorString)")
+                callback("", errorString)
+            }
+        })
+        task.resume()
+        session.finishTasksAndInvalidate()
+    }
+    
+    //MARK: GET 无参数
+    func getURLParamsOnly(_ urlString: String, _ body:[String : Any], callback : @escaping URLSessionCallbackBlock) {
+        
+    }
+    
+    //MARK: POST
+    //MARK: POST 无参数
+    func postURLParamsOnly(_ string: String, _ body:[String : Any], callback : @escaping URLSessionCallbackBlock) {
+        let sessionConfig = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+        
+        let urlString = "\(CSJSTNetworkManager.baseURLString)\(string)"
+        print("urlstring = \(urlString)")
+        guard let URL = URL(string: urlString) else {return}
+        var request = URLRequest(url: URL)
+        request.httpMethod = "POST"
+        
+        /* Start a new Task */
+        var swiftyJsonVar: JSON!
+        let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
+            if (error == nil) {
+                // Success
+                let statusCode = (response as! HTTPURLResponse).statusCode
+                print("URL Session Task Succeeded: HTTP \(statusCode)")
+                swiftyJsonVar = JSON(data: data!)
+                callback(swiftyJsonVar, "")
+            }
+            else {
+                // Failure
+                let (domain, code, errorString) = (error!._domain, error!._code, error!.localizedDescription)
+                print("domain = \(domain) , errorCode = \(code), URL Session Task Failed: \(errorString)")
+                callback("", errorString)
+            }
+        })
+        task.resume()
+        session.finishTasksAndInvalidate()
+    }
+    
+    
+    //MARK: POST 有参数
+    func postURLParams(_ string: String, _ body:[String : Any], callback : @escaping URLSessionCallbackBlock) {
+        let sessionConfig = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+        let urlString = "\(CSJSTNetworkManager.baseURLString)\(string)"
+        
+        guard var URL = URL(string: urlString) else {return}
+        URL = URL.URLByAppendingQueryParameters(body) as URL
+        var request = URLRequest(url: URL)
+        request.httpMethod = "POST"
+        // Headers
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        /* Start a new Task */
+        var swiftyJsonVar: JSON!
+        let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
+            if (error == nil) {
+                // Success
+                let statusCode = (response as! HTTPURLResponse).statusCode
+                print("URL Session Task Succeeded: HTTP \(statusCode)")
+                swiftyJsonVar = JSON(data: data!)
+                callback(swiftyJsonVar, "")
+            }
+            else {
+                // Failure
+                let (domain, code, errorString) = (error!._domain, error!._code, error!.localizedDescription)
+                print("domain = \(domain) , errorCode = \(code), URL Session Task Failed: \(errorString)")
+                callback("", errorString)
+            }
+        })
+        task.resume()
+        session.finishTasksAndInvalidate()
+        
+        
+    }
+    
+    
+}
+
+protocol URLQueryParameterStringConvertible {
+    var queryParameters: String {get}
+}
+
+extension Dictionary : URLQueryParameterStringConvertible {
+    /**
+     This computed property returns a query parameters string from the given NSDictionary. For
+     example, if the input is @{@"day":@"Tuesday", @"month":@"January"}, the output
+     string will be @"day=Tuesday&month=January".
+     @return The computed parameters string.
+     */
+    var queryParameters: String {
+        var parts: [String] = []
+        //stringByAddingPercentEncodingWithAllowedCharacters，，URLQueryAllowedCharacterSet
+        for (key, value) in self {
+            let part = NSString(format: "%@=%@",
+                                String(describing: key).addingPercentEncoding(withAllowedCharacters:(NSCharacterSet.urlQueryAllowed))!,
+                                String(describing: value).addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!)
+            parts.append(part as String)
+        }
+        return parts.joined(separator: "&")
+    }
+    
+}
+
+extension URL {
+    /**
+     Creates a new URL by adding the given query parameters.创建一个新的URL添加给定的查询参数
+     @param parametersDictionary The query parameter dictionary to add. 字典添加查询参数
+     @return A new NSURL. 返回一个NSURL
+     */
+    func URLByAppendingQueryParameters(_ parametersDictionary : Dictionary<String, Any>) -> NSURL {
+        let URLString : NSString = NSString(format: "%@?%@", self.absoluteString, parametersDictionary.queryParameters)
+        return NSURL(string: URLString as String)!
+    }
+}
+
+
+
+
+
+
+/********************************** Alamofire **********************************/
+/********************************** Alamofire **********************************/
+/********************************** Alamofire **********************************/
+
+
+
+
+//MARK: Alamofire 4
+class CSJAlamofire: NSObject {
+    static let sharedInstance = CSJAlamofire()
+    
+    
+    
+}
+
+
+//MARK: Alamofire 3
+
+
+/*
 class CSJSTNetworkManager: NSObject {
     
     static let sharedInstance = CSJSTNetworkManager()
     
     //csj第一步 =。=
     fileprivate struct Constants {
-        static let LoginMima              = "LoginMima"
+        static let LoginMima     = "LoginMima"
         static let UpdateChannel = "Update Channel"
     }
     
@@ -73,12 +267,12 @@ class CSJSTNetworkManager: NSObject {
      - parameter request:  request (or value) in caching dictionary
      - parameter callback: a block executed when network request finished
      */
-    fileprivate class func executeRequestWithKey(_ key: String, request: Request, callback: NetworkCallbackBlock) {
+    fileprivate class func executeRequestWithKey(_ key: String, request: Request, callback: @escaping NetworkCallbackBlock) {
         print("网络请求 = \(key)")
         // Add a new item in the caching dictionary
         PendingOpDict[key] = (request, Date())
         // Executing request
-        request.responseJSON { (response) in
+        .responseJSON { (response) in
             let (response, result) = (response.response, response.result)
             let statusCode = response?.statusCode ?? 404
             
@@ -134,10 +328,12 @@ class CSJSTNetworkManager: NSObject {
         print("网络请求 = \(key)")
         // Add a new item in the caching dictionary
 //        PendingOpDict[key] = (request, NSDate())
-        
-        request.validate(statusCode: 200..<300)
+            
+//        request.validate(statusCode: 200..<300)
         // Executing request
-        request.responseJSON { (response) in
+        
+        .responseJSON{(response) in
+//        request.responseJSON { (response) in
             let (response, result) = (response.response, response.result)
             var json: JSON?
             var error: NetworkErrorType?
@@ -183,8 +379,9 @@ class CSJSTNetworkManager: NSObject {
         return PendingOpDict[key] != nil
     }
 }
+*/
 
-
+/*
 extension CSJSTNetworkManager{
     enum Router: URLRequestConvertible {
 //        static let baseURLString = ""
@@ -197,8 +394,6 @@ extension CSJSTNetworkManager{
         
         //开发
         static let baseURLString = ""
-        
-        
         
         static var OAuthToken: String?
         
@@ -225,13 +420,36 @@ extension CSJSTNetworkManager{
             return "/api-front/payment/update-channel"
             }
         }
+        
+        func asURLRequest() throws -> URLRequest {
+            let url = try Router.baseURLString.asURL()
+            
+            var urlRequest = URLRequest(url: url.appendPathComponent(path))
+            urlRequest.httpMethod = method.rawValue
+            
+            
+            switch self {
+            case .updateDeviceToken(_,let device):
+                urlRequest =  try ParameterEncoding.encode(urlRequest as URLRequestConvertible, with: device)
+            //urlRequest = try  JSONEncoding.default.encode(urlRequest, with: device)
+            case .addUser(_, let user):
+                urlRequest = try URLEncoding.default.encode(urlRequest, with: user)
+            case .updateUser(_,_,let user):
+                urlRequest = try URLEncoding.default.encode(urlRequest, with: user)
+            case .lockUser(_,_,let user):
+                urlRequest = try URLEncoding.default.encode(urlRequest, with: user)
+            default:
+                break
+            }
+            return urlRequest
+        }
     
         // MARK: URLRequestConvertible
         var URLRequest: NSMutableURLRequest {
 //            (inout parameters: [String: AnyObject]) in
             let URL = Foundation.URL(string: Router.baseURLString)!
             let mutableURLRequest = NSMutableURLRequest(url: URL.appendingPathComponent(path))
-            mutableURLRequest.HTTPMethod = method.rawValue
+            mutableURLRequest.httpMethod = method.rawValue
             
             if let token = Router.OAuthToken {
                 mutableURLRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
@@ -280,28 +498,22 @@ extension CSJSTNetworkManager{
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
     /************************** 我是分割线 ****************************/
     /************************** 下面方法放弃 ****************************/
 
     
     
-    func sendRequest_JSON(_ body:[String : AnyObject], callback : NetworkCallbackBlock) {
+    func sendRequest_JSON(_ body:[String : AnyObject], callback : @escaping NetworkCallbackBlock) {
         // Add Headers
         let headers = [
             "Content-Type":"application/json",
             ]
         // JSON Body
         // Fetch Request
-        Alamofire.request("\(Router.baseURLString)/user/login", method: HTTPMethod.post, parameters: body, encoding: .json)
+        
+        Alamofire.request("\(Router.baseURLString)/user/login", withMethod: .post ,parameters: body, encoding: .json, headers: headers)
+//        Alamofire.request("\(Router.baseURLString)/user/login", method: HTTPMethod.post, parameters: body, encoding: .json)
+//        Alamofire.request("\(Router.baseURLString)/user/login", method: HTTPMethod.post, parameters: body, encoding: .json)
 //        Alamofire.request(.POST, "\(Router.baseURLString)/user/login", headers: headers, parameters: body, encoding: .JSON)
             .validate(statusCode: 200..<300)
             .responseJSON { response in
@@ -344,7 +556,7 @@ extension CSJSTNetworkManager{
     }
     
 }
-
+*/
 
 
 
