@@ -63,7 +63,7 @@ class CSJSTNetworkManager : NSObject{
     
     
     //MARK：URL Params
-    //MARK: Get 有参数
+    //MARK: Get URL Params 有参数
     func getURLParams(_ string: String, _ body:[String : Any], callback : @escaping URLSessionCallbackBlock) {
         let sessionConfig = URLSessionConfiguration.default
         /* Create session, and optionally set a NSURLSessionDelegate. */
@@ -108,13 +108,13 @@ class CSJSTNetworkManager : NSObject{
         session.finishTasksAndInvalidate()
     }
     
-    //MARK: GET 无参数
+    //MARK: GET URL Params 无参数
     func getURLParamsOnly(_ urlString: String, _ body:[String : Any], callback : @escaping URLSessionCallbackBlock) {
         
     }
     
     //MARK: POST
-    //MARK: POST 无参数
+    //MARK: POST URL Params 无参数
     func postURLParamsOnly(_ string: String, _ body:[String : Any], callback : @escaping URLSessionCallbackBlock) {
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
@@ -147,7 +147,7 @@ class CSJSTNetworkManager : NSObject{
     }
     
     
-    //MARK: POST 有参数
+    //MARK: POST URL Params 有参数
     func postURLParams(_ string: String, _ body:[String : Any], callback : @escaping URLSessionCallbackBlock) {
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
@@ -179,7 +179,6 @@ class CSJSTNetworkManager : NSObject{
         })
         task.resume()
         session.finishTasksAndInvalidate()
-        
         
     }
     

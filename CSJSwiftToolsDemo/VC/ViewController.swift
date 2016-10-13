@@ -131,7 +131,7 @@ class ViewController: UIViewController {
     
     
     /**
-     POST JSON，Back JSON
+     POST JSON，Back JS、ON
      */
     func postJSON() {
         let sessionConfig = URLSessionConfiguration.default

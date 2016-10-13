@@ -42,12 +42,12 @@ public extension String
     }
     
     func isNonEmpty() -> Bool {
-//        return !String(characters.filter({!$0.isEmoji()})).isEmpty
+        return !String(characters.filter({!$0.isEmoji()})).isEmpty
         return false
     }
     
     func isUserName() -> Bool {
-//        return String(characters.filter({$0.isEmoji()})).characters.count <= 0 && characters.count <= 20
+        return String(characters.filter({$0.isEmoji()})).characters.count <= 0 && characters.count <= 20
         return false
     }
     
