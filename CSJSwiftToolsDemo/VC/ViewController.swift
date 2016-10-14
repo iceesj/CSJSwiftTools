@@ -12,8 +12,8 @@ import SwiftyJSON
 import MJExtension
 import SVProgressHUD
 
-import RxCocoa
-import RxSwift
+//import RxCocoa
+//import RxSwift
 
 //import Alamofire
 
@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var label2 : UILabel!
     
-    var disposeBag = DisposeBag()
+//    var disposeBag = DisposeBag()
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

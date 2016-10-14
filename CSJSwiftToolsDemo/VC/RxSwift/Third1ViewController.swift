@@ -7,10 +7,10 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
+//import RxSwift
+//import RxCocoa
 import SnapKit
-import RxDataSources
+//import RxDataSources
 
 
 class Table1ViewCell: UITableViewCell {
@@ -46,6 +46,7 @@ class Table1ViewCell: UITableViewCell {
 //总
 class Third1ViewController: UIViewController, UITableViewDelegate {
     
+    /*
     var tableView = UITableView()
     var disposeBag = DisposeBag()
     let reuseIdentifier = "\(Table1ViewCell.self)"
@@ -87,29 +88,26 @@ class Third1ViewController: UIViewController, UITableViewDelegate {
         
         items.bindTo(tableView.rx.items(dataSource: dataSource)).addDisposableTo(disposeBag)
         
-        /*
-        tableView
-            .rx.itemSelected
-            .map { indexPath in
-                return (indexPath, self.dataSource.itemAtIndexPath(indexPath))
-            }
-            .subscribeNext { indexPath, model in
-                print("Tapped `\(model)` @ \((indexPath as NSIndexPath).row)")
-                if (indexPath as NSIndexPath).row == 0 {
-                    let vc2 = UIStoryboard.CSJST_initViewControllerWithIdentifier("ThirdViewController") as! ThirdViewController
-                    self.navigationController?.pushViewController(vc2, animated: true)
-                }
-            }
-            .addDisposableTo(disposeBag)
-        */
         
-        /*
-        items
-            .bindTo(tableView.rx_itemsWithCellIdentifier("Cell", cellType: UITableViewCell.self)) { (row, element, cell) in
-                cell.textLabel?.text = "\(element) @ row \(row)"
-            }
-            .addDisposableTo(disposeBag)
-        */
+//        tableView
+//            .rx.itemSelected
+//            .map { indexPath in
+//                return (indexPath, self.dataSource.itemAtIndexPath(indexPath))
+//            }
+//            .subscribeNext { indexPath, model in
+//                print("Tapped `\(model)` @ \((indexPath as NSIndexPath).row)")
+//                if (indexPath as NSIndexPath).row == 0 {
+//                    let vc2 = UIStoryboard.CSJST_initViewControllerWithIdentifier("ThirdViewController") as! ThirdViewController
+//                    self.navigationController?.pushViewController(vc2, animated: true)
+//                }
+//            }
+//            .addDisposableTo(disposeBag)
+//
+//        items
+//            .bindTo(tableView.rx_itemsWithCellIdentifier("Cell", cellType: UITableViewCell.self)) { (row, element, cell) in
+//                cell.textLabel?.text = "\(element) @ row \(row)"
+//            }
+//            .addDisposableTo(disposeBag)
         
         
     }
@@ -127,5 +125,6 @@ class Third1ViewController: UIViewController, UITableViewDelegate {
         label.text = self.dataSource.sectionAtIndex(section).model 
         return label
     }
+    */
 
 }

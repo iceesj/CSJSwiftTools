@@ -27,6 +27,7 @@
 		7B285F9D1DACE8DD00AC7A03 /* CSJSTNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B285F9C1DACE8DC00AC7A03 /* CSJSTNetworkManager.swift */; };
 		7B285FC31DADED8600AC7A03 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B285FC21DADED8600AC7A03 /* CoreGraphics.framework */; };
 		7B285FC51DAF203200AC7A03 /* CSJST+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B285FC41DAF203200AC7A03 /* CSJST+Array.swift */; };
+		7B2D40401DB0C61400A32C19 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B2D403C1DB0C60600A32C19 /* SnapKit.framework */; };
 		7B37D3461D48627D008E266F /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B37D3451D48627D008E266F /* FourthViewController.swift */; };
 		7B37D34E1D486483008E266F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B37D3481D486483008E266F /* TableViewCell.swift */; };
 		7B37D34F1D486483008E266F /* TestUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B37D3491D486483008E266F /* TestUser.swift */; };
@@ -50,6 +51,10 @@
 		7B4F75F11D93728D003A7F81 /* IQToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F75DF1D93728D003A7F81 /* IQToolbar.swift */; };
 		7B4F75F21D93728D003A7F81 /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F75E01D93728D003A7F81 /* IQUIView+IQKeyboardToolbar.swift */; };
 		7B4F75F31D93728D003A7F81 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7B4F75E21D93728D003A7F81 /* IQKeyboardManager.bundle */; };
+		7B88A1091DB0CA03008F51C8 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B88A1071DB0CA03008F51C8 /* SnapKit.framework */; };
+		7B88A10A1DB0CA03008F51C8 /* SnapKit.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 7B88A1081DB0CA03008F51C8 /* SnapKit.framework.dSYM */; };
+		7B88A14A1DB0CA6F008F51C8 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B88A1071DB0CA03008F51C8 /* SnapKit.framework */; };
+		7B88A14B1DB0CA6F008F51C8 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B88A1071DB0CA03008F51C8 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7B9EFB311D3737EF00707C7C /* CSJSTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EFB301D3737EF00707C7C /* CSJSTViewController.swift */; };
 		7B9EFB331D37754E00707C7C /* CSJSTNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EFB321D37754E00707C7C /* CSJSTNavViewController.swift */; };
 		7BAB8F531D2F840D00A767C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAB8F521D2F840D00A767C8 /* AppDelegate.swift */; };
@@ -72,20 +77,18 @@
 		7BAB8FA11D333CEC00A767C8 /* CSJST+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAB8FA01D333CEC00A767C8 /* CSJST+UIView.swift */; };
 		7BAB8FA31D33472500A767C8 /* CSJST+UIWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAB8FA21D33472500A767C8 /* CSJST+UIWebView.swift */; };
 		7BAB8FA51D334ADC00A767C8 /* CSJSTLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAB8FA41D334ADC00A767C8 /* CSJSTLocationManager.swift */; };
-		7BC4DAD51D925F530025A73B /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC4DAC61D925DB30025A73B /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		7BC4DB361D92780D0025A73B /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC4DB321D9278050025A73B /* RxDataSources.framework */; };
 		7BD3F1B01D4A0E5D004BCA77 /* DDNNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD3F1AF1D4A0E5D004BCA77 /* DDNNewsCell.swift */; };
 		F869E245A71850C0772FA60A /* Pods_CSJSwiftToolsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8487D0491093B0247CD801CF /* Pods_CSJSwiftToolsDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		7B035DC21D6AFAF4003F88ED /* Embed Frameworks */ = {
+		7B2D40421DB0C61400A32C19 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7BC4DAD51D925F530025A73B /* SnapKit.framework in Embed Frameworks */,
+				7B88A14B1DB0CA6F008F51C8 /* SnapKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,6 +117,7 @@
 		7B285F9C1DACE8DC00AC7A03 /* CSJSTNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSJSTNetworkManager.swift; sourceTree = "<group>"; };
 		7B285FC21DADED8600AC7A03 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		7B285FC41DAF203200AC7A03 /* CSJST+Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CSJST+Array.swift"; sourceTree = "<group>"; };
+		7B2D403C1DB0C60600A32C19 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = /Users/xs1h2/Desktop/CSJSwiftTools/Carthage/Build/iOS/SnapKit.framework; sourceTree = "<absolute>"; };
 		7B37D3451D48627D008E266F /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 		7B37D3481D486483008E266F /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		7B37D3491D486483008E266F /* TestUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUser.swift; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 		7B4F75DF1D93728D003A7F81 /* IQToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQToolbar.swift; sourceTree = "<group>"; };
 		7B4F75E01D93728D003A7F81 /* IQUIView+IQKeyboardToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIView+IQKeyboardToolbar.swift"; sourceTree = "<group>"; };
 		7B4F75E21D93728D003A7F81 /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		7B88A1071DB0CA03008F51C8 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		7B88A1081DB0CA03008F51C8 /* SnapKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SnapKit.framework.dSYM; path = Carthage/Build/iOS/SnapKit.framework.dSYM; sourceTree = "<group>"; };
 		7B9EFB301D3737EF00707C7C /* CSJSTViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSJSTViewController.swift; sourceTree = "<group>"; };
 		7B9EFB321D37754E00707C7C /* CSJSTNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSJSTNavViewController.swift; sourceTree = "<group>"; };
 		7BAB8F4F1D2F840D00A767C8 /* CSJSwiftToolsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSJSwiftToolsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,8 +172,6 @@
 		7BAB8FA01D333CEC00A767C8 /* CSJST+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CSJST+UIView.swift"; sourceTree = "<group>"; };
 		7BAB8FA21D33472500A767C8 /* CSJST+UIWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CSJST+UIWebView.swift"; sourceTree = "<group>"; };
 		7BAB8FA41D334ADC00A767C8 /* CSJSTLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSJSTLocationManager.swift; sourceTree = "<group>"; };
-		7BC4DAC61D925DB30025A73B /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = /Users/xs1h2/Desktop/CSJSwiftTools/Carthage/Build/iOS/SnapKit.framework; sourceTree = "<absolute>"; };
-		7BC4DB321D9278050025A73B /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = /Users/xs1h2/Desktop/CSJSwiftTools/Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<absolute>"; };
 		7BD3F1AD1D49ED49004BCA77 /* CSJSwiftToolsDemo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CSJSwiftToolsDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		7BD3F1AF1D4A0E5D004BCA77 /* DDNNewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDNNewsCell.swift; sourceTree = "<group>"; };
 		8487D0491093B0247CD801CF /* Pods_CSJSwiftToolsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CSJSwiftToolsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,7 +185,9 @@
 			files = (
 				7B285FC31DADED8600AC7A03 /* CoreGraphics.framework in Frameworks */,
 				7B035DC61D6BFD78003F88ED /* libc++.tbd in Frameworks */,
-				7BC4DB361D92780D0025A73B /* RxDataSources.framework in Frameworks */,
+				7B88A14A1DB0CA6F008F51C8 /* SnapKit.framework in Frameworks */,
+				7B88A1091DB0CA03008F51C8 /* SnapKit.framework in Frameworks */,
+				7B2D40401DB0C61400A32C19 /* SnapKit.framework in Frameworks */,
 				F869E245A71850C0772FA60A /* Pods_CSJSwiftToolsDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,6 +389,8 @@
 		7BAB8F461D2F840D00A767C8 = {
 			isa = PBXGroup;
 			children = (
+				7B88A1071DB0CA03008F51C8 /* SnapKit.framework */,
+				7B88A1081DB0CA03008F51C8 /* SnapKit.framework.dSYM */,
 				316E222026819C7F540250D4 /* Frameworks */,
 				7BAB8F811D2F88EE00A767C8 /* CSJSwiftTools */,
 				7BAB8F511D2F840D00A767C8 /* CSJSwiftToolsDemo */,
@@ -501,9 +509,9 @@
 				7BAB8F4D1D2F840D00A767C8 /* Resources */,
 				28A5EF14B97B2CC8341C665A /* [CP] Embed Pods Frameworks */,
 				A1308398B41812C04C7BA9E9 /* [CP] Copy Pods Resources */,
-				7B035DC21D6AFAF4003F88ED /* Embed Frameworks */,
 				7B035DC81D6BFDB7003F88ED /* Strip Framework Architectures */,
 				7BC4DAD11D925DF60025A73B /* ShellScript */,
+				7B2D40421DB0C61400A32C19 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -555,6 +563,7 @@
 			files = (
 				7BAB8F5D1D2F840D00A767C8 /* LaunchScreen.storyboard in Resources */,
 				7BAB8F5A1D2F840D00A767C8 /* Assets.xcassets in Resources */,
+				7B88A10A1DB0CA03008F51C8 /* SnapKit.framework.dSYM in Resources */,
 				7BAB8F581D2F840D00A767C8 /* Main.storyboard in Resources */,
 				7B4F75F31D93728D003A7F81 /* IQKeyboardManager.bundle in Resources */,
 			);
@@ -599,6 +608,7 @@
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 			);
 			outputPaths = (
 			);
@@ -815,7 +825,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 375F2ACE2794B81F5FFA8511 /* Pods-CSJSwiftToolsDemo.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -837,7 +846,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A2D9DDD03C639714D26EF463 /* Pods-CSJSwiftToolsDemo.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (

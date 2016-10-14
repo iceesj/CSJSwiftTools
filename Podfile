@@ -27,7 +27,7 @@ pod 'Reachability'
 #pod 'KeychainAccess'
 #pod 'Siren', '~> 0.6'
 pod 'JLRoutes'
-pod 'SnapKit', :git => 'https://github.com/SnapKit/SnapKit.git'
+#pod 'SnapKit', :git => 'https://github.com/SnapKit/SnapKit.git'
 pod 'pop'
 
 
@@ -41,8 +41,6 @@ pod 'pop'
 # Rx
 #pod 'RxSwift', '~> 3.0.0-beta.1'
 #pod 'RxCocoa', '~> 3.0.0-beta.1'
-#pod 'RxSwift', :git => 'https://github.com/ReactiveX/RxSwift.git'
-#pod 'RxCocoa', :git => 'https://github.com/ReactiveX/RxSwift.git'
 #pod 'RxDataSources'
 #pod 'RxViewModel'
 #pod 'Action'
@@ -50,8 +48,9 @@ pod 'pop'
 #pod 'Realm', :git => 'https://github.com/realm/realm-cocoa.git'
 pod 'Realm'
 
-pod 'RxSwift',    '3.0.0-beta.2'
-pod 'RxCocoa',    '3.0.0-beta.2'
+#pod 'RxSwift', :git => 'https://github.com/ReactiveX/RxSwift.git'
+#pod 'RxSwift'
+#pod 'RxCocoa'
 
 
 

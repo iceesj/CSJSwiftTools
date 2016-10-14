@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import RxCocoa
-import RxSwift
-import RxDataSources
+//import RxCocoa
+//import RxSwift
+//import RxDataSources
 import MJRefresh
 import SnapKit
 
@@ -21,9 +21,9 @@ class ThirdViewController: UIViewController, UITableViewDelegate {
     let reuseIdentifier = "\(TableViewCell.self)"
     //RxDataSources类指定了我们的数据源包括哪些内容，SectionModel带有一个String作为section的名字，User类作为item的类型
     //TestUser,,TestUserModel
-    let dataSource = RxTableViewSectionedReloadDataSource<SectionModel <String, TestUserModel>>()
+//    let dataSource = RxTableViewSectionedReloadDataSource<SectionModel <String, TestUserModel>>()
 //    let viewModel = ThirdViewModel()
-    let disposeBag = DisposeBag()// 是在控制器销毁后来控制释放资源的。
+//    let disposeBag = DisposeBag()// 是在控制器销毁后来控制释放资源的。
     
     
     override func didReceiveMemoryWarning() {
