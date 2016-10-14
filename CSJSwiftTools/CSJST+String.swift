@@ -54,5 +54,30 @@ public extension String
     func isSecureCode() -> Bool {
         return matchRegex("\\d{6}")
     }
+    
+//    func isEmoji() -> Bool {
+    public var containEmoji:Bool {
+        // http://stackoverflow.com/questions/30757193/find-out-if-character-in-string-is-emoji
+        for scalar in unicodeScalars {
+            switch scalar.value {
+            case 0x3030, 0x00AE, 0x00A9, // Special Characters
+            0x1D000...0x1F77F, // Emoticons
+            0x2100...0x27BF, // Misc symbols and Dingbats
+            0xFE00...0xFE0F, // Variation Selectors
+            0x1F900...0x1F9FF: // Supplemental Symbols and Pictographs
+                return true
+            default:
+                continue
+            }
+        }
+        return false
+    }
+    
+    public var isEmail: Bool {
+        // http://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: self)
+    }
     //*/
 }

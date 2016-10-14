@@ -201,6 +201,7 @@ class CSJSwiftToolsDirector: NSObject {
         
     }
     
+    //错误 删除
     class func shijianChuo_13Num() -> NSString {
         let dat : Date = Date.init(timeIntervalSinceNow: 0)
         print("dat = \(dat)")
@@ -219,7 +220,50 @@ class CSJSwiftToolsDirector: NSObject {
         return timeString
     }
     
+    
+    //替换 ？替换成 /
+    func stringTihuan(_ fullString : String, _ firstString : String, _ secondString : String) -> String {
+//        var filtered = fullString.stringByReplacingOccurrencesOfString("?", withString: "/", options: NSString.CompareOptions.LiteralSearch, range: nil)
+        let filtere = fullString.replacingOccurrences(of: firstString, with: secondString, options: String.CompareOptions.literal, range: nil)
+        return filtere
+    }
+    
+    //过滤
+    func stringGuolv(_ fullString : String, _ needReplace : String) -> String {
+        let filtere = fullString.replacingOccurrences(of: needReplace, with: "", options: String.CompareOptions.literal, range: nil)
+        return filtere
+    }
+    
+    //切割
+    func stringQiege(_ fullString: String,_ qiegeString: String) -> [String]{
+        //swift 2
+//        let fullNameArr = fullName.characters.split{$0 == " "}.map(String.init)
+//        let fullNameArr = fullString.characters.split{" "}.map(String.init)
+        //swift 3
+        let fullNameArr : [String] = fullString.components(separatedBy: qiegeString)
+        return fullNameArr
+    }
+    
+    //拼接
+    func arrayChangeString(_ array: [String]) -> String {
+        let result = array.joined(separator: "/")
+        return result
+    }
+    
+    
+    
 }
+
+
+
+
+
+
+
+
+
+
+
 
 //MARK: Swift全局共有类
 struct CSJST_GlobalConstants {

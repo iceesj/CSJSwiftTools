@@ -6,21 +6,27 @@
 //  Copyright © 2016年 caoshengjie. All rights reserved.
 //
 
-import UIKit
+//import Foundation
+//import UIKit
 import SwiftyJSON
 import MJExtension
-import Alamofire
 import SVProgressHUD
 
 import RxCocoa
 import RxSwift
 
+//import Alamofire
+
 //主页
 class ViewController: UIViewController {
     
     @IBOutlet weak var textfield1 : UITextField!
+    
     @IBOutlet weak var label1 : UILabel!
-    let disposeBag = DisposeBag()
+    
+    @IBOutlet weak var label2 : UILabel!
+    
+    var disposeBag = DisposeBag()
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -47,8 +53,8 @@ class ViewController: UIViewController {
         //MARK:时间戳
         let shijian = CSJSwiftToolsDirector.shijianChuo_10Num()
         print("10位时间戳 = \(shijian)")
-        let shijian13 = CSJSwiftToolsDirector.shijianChuo_13Num()
-        print("13位时间戳 = \(shijian13)")
+//        let shijian13 = CSJSwiftToolsDirector.shijianChuo_13Num()
+//        print("13位时间戳 = \(shijian13)")
         
         //MARK:时间截取转换
         let lastTimeValueName_Two : String = CSJSwiftToolsDirector.sharedInstance.fengeTime("17:30-18:00").string2!
@@ -82,11 +88,13 @@ class ViewController: UIViewController {
         headerIMG.addGestureRecognizer(thisViewTap)
         
         
+//        self.alamofireiOS9Test()
+        
         self.postJSON()
         
-        self.getFormdata()
+//        self.getFormdata()
         
-        self.postFromData()
+//        self.postFromData()
         
 //        self.requestJSON()
         
@@ -100,7 +108,47 @@ class ViewController: UIViewController {
         label1.backgroundColor = UIColor.black
         textfield1.textColor = UIColor.white
         label1.textColor = UIColor.white
-//        textfield1.rx_text.bindTo(label1.rx_text).addDisposableTo(disposeBag)
+//        textfield1.rx.text.bindTo(label1.rx.text).addDisposableTo(disposeBag)
+        
+        
+        //替换
+        let tihuan = "?? nihao //"
+        let tihuanChangeString = CSJSwiftToolsDirector.sharedInstance.stringTihuan(tihuan, "?", "/")
+        print("替换测试 = \(tihuanChangeString)")
+        
+        //过滤
+        let guolv = "?? nihao //"
+        let guolvChangeString = CSJSwiftToolsDirector.sharedInstance.stringGuolv(guolv, "??")
+        print("过滤测试 = \(guolvChangeString)")
+        
+        //切割
+        let qiege = "ni/hao/zai/jian"
+        let qiegeArray = CSJSwiftToolsDirector.sharedInstance.stringQiege(qiege, "/")
+        let qiege_one = qiegeArray[0]
+        print("nihao_one = \(qiege_one)")
+        
+        //拼接
+        let pingjie = ["1","2","3"]
+        let pingjieString = CSJSwiftToolsDirector.sharedInstance.arrayChangeString(pingjie)
+        print("pingjieString = \(pingjieString)")
+        
+        
+        //判断表情
+        let textString = "🆚"
+        if textString.containEmoji == true {
+            print("是表情")
+        }else{
+            print("不是表情")
+        }
+        
+        //判断Email
+        let emailString = "123@163.com"
+        if emailString.isEmail == true {
+            print("是Email")
+        }else{
+            print("不是Email")
+        }
+        
         
     }
     
@@ -130,58 +178,46 @@ class ViewController: UIViewController {
     }
     
     
+    //alamofire
+    /*
+    func alamofireiOS9Test() {
+        CSJAlamofire.sharedInstance.postJSON("https://front.bestfood520.com/api-front/", .post, [:]) { (json, error) in
+            if error == nil, let json = json {
+                print("alamofire json = \(json)")
+                
+            }else{
+                print("error = ")
+            }
+        }
+    }
+    */
+    
     /**
      POST JSON，Back JS、ON
      */
     func postJSON() {
-        let sessionConfig = URLSessionConfiguration.default
-        let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
-        //上线修改
-        let urlString = "\(CSJSTNetworkManager.baseURLString)/api-front/application/current-front-ios-version"
-        guard let URL = URL(string: urlString) else {return}
-        var request = URLRequest(url: URL)
-        request.httpMethod = "GET"
-        // Headers
-        request.addValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
-        request.httpBody = nil
-        /* Start a new Task */
-        let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
-            if (error == nil) {
-                // Success
-                let statusCode = (response as! HTTPURLResponse).statusCode
-                print("URL Session Task Succeeded: HTTP \(statusCode)")
-                
-                let swiftyJsonVar = JSON(data: data!)
-                print("swiftyJsonVar = \(swiftyJsonVar)")
-                let resultDic = swiftyJsonVar["result"].dictionaryValue
-                print("resultDic = \(resultDic)")
-                
+        CSJSTNetworkManager.sharedInstance.getURLParams("/api-front/application/current-front-ios-version", [:]) { (swiftyJsonVar, error) in
+            print("string = \(error), 返回的json = \(swiftyJsonVar)")
+            //返回的Dict
+            let status = swiftyJsonVar["status"].stringValue
+            print("error = \(error)")
+            //弹出错误
+            guard error == nil else{
+                SVProgressHUD.showError(withStatus: "网络有点问题，请稍后再尝试")
+                return
             }
-            else {
-                // Failure
-                print("URL Session Task Failed: %@", error!.localizedDescription);
-                //SVProgressHUD.showError(withStatus: error!.localizedDescription);
+            guard status != "ERROR" else{
+                print("是错误")
+                SVProgressHUD.showError(withStatus: "\(swiftyJsonVar["message"].stringValue)")
+                return
             }
-        })
-        task.resume()
-        //无效的会话,允许任何出色的完成任务。
-        session.finishTasksAndInvalidate()
-        
-        /*
-        let parameters = ["phone":"13611111111","messageNumber":"123456"]
-        
-        CSJSTNetworkManager.sharedInstance.loginMima(parameters) { (json, error) in
-            DispatchQueue.main.async {
-                if error == nil, let json = json {
-                    print("json = \(json)")
-                }
-                else{
-                    print("Login failed: \(json) \(error)")
-                }
-            }
+            
+            let resultDic = swiftyJsonVar["result"].dictionaryValue
+            print("resultDic = \(resultDic)")
         }
-        */
+        
     }
+    
     
     /**
      GET Form-data， Back JSON, has Params
@@ -322,8 +358,27 @@ class ViewController: UIViewController {
     单例一个 傻瓜式的Alamofire请求返回
      */
     func requestJSON() {
+        //Alamofire 4
+        /*
+        Alamofire.request("", method: .post, parameters: [:], encoding: JSONEncoding.default)
+            .responseJSON { response in
+                let (response, result) = (response.response, response.result)
+                let statusCode = response?.statusCode ?? 404
+//                if (response.result.error == nil) {
+//                }
+                if case (200..<300) = statusCode {
+                    print("alamofire 成功请求Code = \(statusCode)")
+                    let value = result.value ?? Data()
+                    let json = JSON(value)
+                    print("swiftyJsonVar = \(json)")
+                } else {
+                    print("statusCode = \(statusCode)")
+                    
+                }
+        }
+        */
         
-        
+        //Alamofire 3
         /*
         Alamofire.request("", withMethod: .post ,parameters: nil, encoding: .json, headers: nil)
             .responseJSON { response in
@@ -338,24 +393,6 @@ class ViewController: UIViewController {
         }
         */
         
-        /*
-        let body = [
-            "phone": "13611111111",
-            "messageNumber": "123456"
-        ]
-        
-         
-        CSJSTNetworkManager.sharedInstance.sendRequest_JSON(body) { (json, error) in
-            DispatchQueue.main.async {
-                if error == nil, let json = json {
-                    print("json = \(json)")
-                }
-                else{
-                    print("Login failed: \(json) \(error)")
-                }
-            }
-        }
-        */
     }
     
     

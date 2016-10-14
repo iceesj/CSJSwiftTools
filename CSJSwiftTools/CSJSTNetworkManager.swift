@@ -7,8 +7,9 @@
 //
 
 import UIKit
-import Alamofire
+//import Alamofire
 import SwiftyJSON
+
 
 typealias NetworkCallbackBlock = (JSON?, NetworkErrorType?) -> Void
 typealias URLSessionCallbackBlock = (JSON, String) -> Void
@@ -64,7 +65,7 @@ class CSJSTNetworkManager : NSObject{
     
     //MARK：URL Params
     //MARK: Get URL Params 有参数
-    func getURLParams(_ string: String, _ body:[String : Any], callback : @escaping URLSessionCallbackBlock) {
+    func getURLParams(_ string: String, _ body:[String : Any], callback : @escaping (JSON, Error?) -> Void) {
         let sessionConfig = URLSessionConfiguration.default
         /* Create session, and optionally set a NSURLSessionDelegate. */
         let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
@@ -89,19 +90,19 @@ class CSJSTNetworkManager : NSObject{
         var swiftyJsonVar: JSON!
 //        var errorInt = ""
         let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
-
+            
             if (error == nil) {
                 // Success
                 let statusCode = (response as! HTTPURLResponse).statusCode
                 print("URL Session Task Succeeded: HTTP \(statusCode)")
                 swiftyJsonVar = JSON(data: data!)
 //                print("swiftyJsonVar = \(swiftyJsonVar)")
-                callback(swiftyJsonVar, "")
+                callback(swiftyJsonVar, nil)
             }else{
 //                print("error.debugDescription = \(error.debugDescription)")
                 let (domain, code, errorString) = (error!._domain, error!._code, error!.localizedDescription)
                 print("domain = \(domain) , errorCode = \(code), URL Session Task Failed: \(errorString)")
-                callback("", errorString)
+                callback("", error!)
             }
         })
         task.resume()
@@ -183,6 +184,47 @@ class CSJSTNetworkManager : NSObject{
     }
     
     
+    //MARK: JSON
+    //MARK: GET JSON 有body 有header
+    func getJSONParams(_ string : String, _ body : [String : Any], callback : @escaping URLSessionCallbackBlock) {
+        let sessionConfig = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+        let urlString = "\(CSJSTNetworkManager.baseURLString)\(string)"
+        
+        guard let URL = URL(string: urlString) else {return}
+        var request = URLRequest(url: URL)
+        request.httpMethod = "GET"
+        // Headers
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("0a9aacfe-5327-462a-9852-d09210a8c2b9", forHTTPHeaderField: "token")
+        // JSON Body
+        let bodyObject = body
+        request.httpBody = try! JSONSerialization.data(withJSONObject: bodyObject, options: [])
+        
+        /* Start a new Task */
+        var swiftyJsonVar: JSON!
+        let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
+            if (error == nil) {
+                // Success
+                let statusCode = (response as! HTTPURLResponse).statusCode
+                print("URL Session Task Succeeded: HTTP \(statusCode)")
+                swiftyJsonVar = JSON(data: data!)
+                callback(swiftyJsonVar, "")
+            }
+            else {
+                // Failure
+                let (domain, code, errorString) = (error!._domain, error!._code, error!.localizedDescription)
+                print("domain = \(domain) , errorCode = \(code), URL Session Task Failed: \(errorString)")
+                callback("", errorString)
+            }
+        })
+        task.resume()
+        session.finishTasksAndInvalidate()
+        
+    }
+    
+    
+    
 }
 
 protocol URLQueryParameterStringConvertible {
@@ -224,9 +266,6 @@ extension URL {
 
 
 
-
-
-
 /********************************** Alamofire **********************************/
 /********************************** Alamofire **********************************/
 /********************************** Alamofire **********************************/
@@ -238,8 +277,49 @@ extension URL {
 class CSJAlamofire: NSObject {
     static let sharedInstance = CSJAlamofire()
     
-    
-    
+    /*
+    func postJSON(_ string : String,_ methodString: Alamofire.HTTPMethod,_ body: [String : Any], callback : @escaping NetworkCallbackBlock){
+//        let headers = ["Content-Type":"application/x-www-form-urlencoded; charset=utf-8",]
+        print("body2 = \(body)")
+        
+        print("methodString = \(methodString)")
+        
+        Alamofire.request(string, method: .post, parameters: body, encoding: JSONEncoding.default)
+//        Alamofire.request("\(CSJSTNetworkManager.baseURLString)\(string)", method: .post, parameters: body, encoding: .url, headers: headers)
+//            .validate(statusCode: 200..<300)
+            .responseJSON { response in
+                let (response, result) = (response.response, response.result)
+                let statusCode = response?.statusCode ?? 404
+                var json: JSON?
+                var error: NetworkErrorType?
+//                if (response.result.error == nil) {
+//                }
+                if case (200..<300) = statusCode {
+                    print("alamofire 成功请求Code = \(statusCode)")
+                    let value = result.value ?? Data()
+                    json = JSON(value)
+//                    print("swiftyJsonVar = \(json)")
+                } else {
+                    if result.isFailure {
+                        error = NetworkErrorType.networkUnreachable("\(result.error)")
+                    } else if let value = result.value {
+                        let message = JSON(value)["statusMessage"].string
+                        if statusCode == 403 || statusCode == 401 {
+                            error = NetworkErrorType.networkUnauthenticated(message ?? "Unauthenticated access \(statusCode)")
+                        } else if statusCode == 400 || statusCode == 404 {
+                            error = NetworkErrorType.networkForbiddenAccess(message ?? "Bad request \(statusCode)")
+                        } else if case(400..<500) = statusCode {
+                            error = NetworkErrorType.networkWrongParameter(message ?? "Wrong parameters \(statusCode)")
+                        } else if case(500...505) = statusCode {
+//                        error = NetworkErrorType.NetworkServerError(message ?? "Server error \(statusCode)")
+                            error = NetworkErrorType.networkServerError("网络连接失败")
+                        }
+                    }
+                }
+                callback(json,error)
+        }
+    }
+    */
 }
 
 

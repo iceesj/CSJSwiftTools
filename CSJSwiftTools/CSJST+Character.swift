@@ -40,4 +40,19 @@ extension Character {
             return false
         }
     }
+    
+    public var isNumber: Bool {
+        return Int(String(self)) != nil
+    }
+    
+    public var toInt_csj: Int? {
+        return Int(String(self))
+    }
+    
+    
+    public var toString_csj: String {
+        return String(self)
+    }
+    
+    
 }
