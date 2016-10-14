@@ -41,17 +41,18 @@ pod 'pop'
 # Rx
 #pod 'RxSwift', '~> 3.0.0-beta.2'
 #pod 'RxCocoa', '~> 3.0.0-beta.2'
+
 #pod 'RxDataSources'
 #pod 'RxViewModel'
 #pod 'Action'
 
 #pod 'Realm', :git => 'https://github.com/realm/realm-cocoa.git'
-pod 'Realm'
+#pod 'Realm'
 
 #pod 'RxSwift', :git => 'https://github.com/ReactiveX/RxSwift.git'
 #pod 'RxSwift'
 #pod 'RxCocoa'
 
-
+#pod 'RxDataSources', '~> 1.0.0-beta.3'
 
 end

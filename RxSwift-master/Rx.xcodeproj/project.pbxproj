@@ -1744,6 +1744,7 @@
 		C8C3DA111B93A3EA004D233E /* AnonymousObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AnonymousObservable.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C8D132431C42D15E00B59FFF /* SectionedViewDataSourceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionedViewDataSourceType.swift; sourceTree = "<group>"; };
 		C8D132521C42DA7F00B59FFF /* SectionedViewDataSourceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionedViewDataSourceMock.swift; sourceTree = "<group>"; };
+		C8D2C1501D4F3CD6006E2431 /* Rx.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Rx.playground; sourceTree = "<group>"; };
 		C8E9E42A1D43B26C0049644E /* Observable+DebugTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+DebugTest.swift"; sourceTree = "<group>"; };
 		C8F0C0021BBBFB8B001B112F /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8F0C04B1BBBFBB9001B112F /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2554,6 +2555,7 @@
 		C8A56ACD1AD7424700B4673B = {
 			isa = PBXGroup;
 			children = (
+				C8D2C1501D4F3CD6006E2431 /* Rx.playground */,
 				C8093C471B8A72BE0088E94D /* RxSwift */,
 				C8093F571B8A73A20088E94D /* RxBlocking */,
 				C8093E801B8A732E0088E94D /* RxCocoa */,
