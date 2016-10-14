@@ -12,8 +12,8 @@ import SwiftyJSON
 import MJExtension
 import SVProgressHUD
 
-//import RxCocoa
-//import RxSwift
+import RxCocoa
+import RxSwift
 
 //import Alamofire
 
@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var label2 : UILabel!
     
-//    var disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -105,10 +105,10 @@ class ViewController: UIViewController {
         
         
         textfield1.backgroundColor = UIColor.black
-        label1.backgroundColor = UIColor.black
+        label1.backgroundColor = UIColor.blue
         textfield1.textColor = UIColor.white
-        label1.textColor = UIColor.white
-//        textfield1.rx.text.bindTo(label1.rx.text).addDisposableTo(disposeBag)
+        label1.textColor = UIColor.black
+        textfield1.rx.text.bindTo(label1.rx.text).addDisposableTo(disposeBag)
         
         
         //替换

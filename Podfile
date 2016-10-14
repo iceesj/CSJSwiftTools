@@ -39,8 +39,8 @@ pod 'pop'
 #pod 'ReactiveViewModel'
 
 # Rx
-#pod 'RxSwift', '~> 3.0.0-beta.1'
-#pod 'RxCocoa', '~> 3.0.0-beta.1'
+#pod 'RxSwift', '~> 3.0.0-beta.2'
+#pod 'RxCocoa', '~> 3.0.0-beta.2'
 #pod 'RxDataSources'
 #pod 'RxViewModel'
 #pod 'Action'
