@@ -94,7 +94,7 @@ class CSJSwiftToolsDirector: NSObject {
         let resultStringNew : NSString = resultString as NSString
         let subValue = resultStringNew.range(of: fengeString).location+fengeStringLength
         print("su bVlueInt = \(subValue)")
-        let subString1 = resultStringNew.substring(with: NSMakeRange(0, subValue)) as NSString
+        let subString1 = resultStringNew.substring(with: NSMakeRange(0, subValue-1)) as NSString
         let subString2 = resultStringNew.substring(with: NSMakeRange(subValue, strLength-subValue)) as NSString
         return (string1:subString1 as String,string2:subString2 as String)
     }
