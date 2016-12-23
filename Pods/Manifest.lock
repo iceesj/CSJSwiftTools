@@ -2,6 +2,14 @@ PODS:
   - ChameleonFramework (2.1.0):
     - ChameleonFramework/Default (= 2.1.0)
   - ChameleonFramework/Default (2.1.0)
+  - CocoaLumberjack (3.0.0):
+    - CocoaLumberjack/Default (= 3.0.0)
+    - CocoaLumberjack/Extensions (= 3.0.0)
+  - CocoaLumberjack/Core (3.0.0)
+  - CocoaLumberjack/Default (3.0.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (3.0.0):
+    - CocoaLumberjack/Default
   - DZNEmptyDataSet (1.8.1)
   - FDStackView (1.0)
   - JLRoutes (1.6.3)
@@ -25,6 +33,7 @@ PODS:
 
 DEPENDENCIES:
   - ChameleonFramework
+  - CocoaLumberjack
   - DZNEmptyDataSet
   - FDStackView
   - JLRoutes
@@ -52,6 +61,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  CocoaLumberjack: c823149bccc5519a9447aeb433be7b1212a7d6a5
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FDStackView: 3a4bbe0ce9c35e974246a585168b9da8c32213f1
   JLRoutes: 4acc62dfc96c8c9e95b234588e7bec1dfe08efd6
@@ -68,6 +78,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
   SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
-PODFILE CHECKSUM: 2a045aaee036aaeee970b01f4016567bdf1cf221
+PODFILE CHECKSUM: 15c123ed6aaabb1db2c5342560c510f77d42e8fe
 
 COCOAPODS: 1.0.1

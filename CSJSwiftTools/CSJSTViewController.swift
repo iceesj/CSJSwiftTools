@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CSJSTViewController: UIViewController , UIGestureRecognizerDelegate{
+class CSJSTViewController: UIViewController{
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

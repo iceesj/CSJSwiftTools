@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>CocoaLumberjack.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>DZNEmptyDataSet.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -92,22 +97,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>07E6173DB53551871A28E8EF914AF0CD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>16FB872D0D2D4BA0F378AB34D47CF95F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>19C0DF4E1691836C9627E3B0BB3144CE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>26F924EDF84293CEB35E163691AFD020</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,12 +117,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4BE63C33094CCF3358F3004D75081B0A</key>
+		<key>4E1263BFF45F6446CF3DE29AE234C893</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4E1263BFF45F6446CF3DE29AE234C893</key>
+		<key>6E0A114A063E87FB7E2FFE3BC07035ED</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>73B3DF707A1182ED591E14DD7D1A9E1E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>73FEBB351F26FBD169CAC51A7D0FC768</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,7 +147,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>81E31990EC45B3C2389B57A7960D2B24</key>
+		<key>7D9D0B1ACC4920C921EAD3D8D2B8BDF9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9341A4EA2E1211609736A33B1A69EBC7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -152,7 +162,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>C3752E0E56B0CE9AEC12C36BEC375293</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>D58D76EC529B4A92F3E5EDADE0A96661</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D947DA1B6AB1C1A0C7DEC47E2A1B665A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -162,17 +182,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EE7877BEAE80F47F5492B98C0AB2B87E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FC0A0C891F1A2C8C79ACBCF827288C16</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FFFB7BD122DAD1C013460BB2BD25F269</key>
+		<key>ED4FB3821D1667F67CF4A1350558D070</key>
 		<dict>
 			<key>primary</key>
 			<true/>

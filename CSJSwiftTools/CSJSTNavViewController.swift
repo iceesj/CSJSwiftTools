@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CSJSTNavViewController: UINavigationController , UIGestureRecognizerDelegate {
+class CSJSTNavViewController: UINavigationController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -91,6 +91,10 @@ public extension UIViewController {
         }
     }
     
+    func pop() {
+        let _ = navigationController?.popViewController(animated: true)
+    }
+    
     /*
      之前包含的页面
      */
@@ -112,7 +116,32 @@ public extension UIViewController {
         present(loginNavigationController, animated: true, completion: nil)
     }
     
+}
+
+extension UIViewController: UIGestureRecognizerDelegate {
+    func enableSwipeToBack_No() {
+        if let navigationController = navigationController {
+            navigationController.interactivePopGestureRecognizer?.isEnabled = false
+            navigationController.interactivePopGestureRecognizer?.delegate = nil
+        }
+    }
     
+    func enableSwipeToBack() {
+        //        if let navigationController = navigationController {
+        //            navigationController.interactivePopGestureRecognizer?.isEnabled = true
+        //            navigationController.interactivePopGestureRecognizer?.delegate = self
+        //        }
+    }
     
+    public func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
     
 }
+
+
+
+
+
+
+

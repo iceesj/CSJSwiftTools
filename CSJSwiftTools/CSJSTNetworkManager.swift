@@ -8,11 +8,21 @@
 
 import UIKit
 //import Alamofire
+import SVProgressHUD
+import MBProgressHUD
+//import SnapKit
+//import MJExtension
+import ObjectMapper
+import Alamofire
 import SwiftyJSON
+
+let ajmapp_downloadurl = "https://itunes.apple.com/us/app/"
 
 
 typealias NetworkCallbackBlock = (JSON?, NetworkErrorType?) -> Void
 typealias URLSessionCallbackBlock = (JSON, String) -> Void
+
+typealias ResponseBlock = (_ response:Any, _ success:Bool)->Void
 
 enum NetworkErrorType: Error, CustomStringConvertible {
     
@@ -60,8 +70,73 @@ enum NetworkErrorType: Error, CustomStringConvertible {
 class CSJSTNetworkManager : NSObject{
     static let sharedInstance = CSJSTNetworkManager()
     //正式
-    static let baseURLString = "https://front.bestfood520.com"
+    static let baseURLString = ""
+    //测试
+//    static let baseURLString = ""
+    //开发
+//    static let baseURLString = ""
     
+    /****** alamofire 4 *****/
+    //MARK: 创建session
+    func getSession(callback : @escaping ResponseBlock) {
+        //iOS 8
+        /*
+         CSJSTNetworkManager.sharedInstance.postURLParamsOnly("/api-store/session/create",[:]){
+         (swiftyJsonVar, error) in
+         let resultDic = swiftyJsonVar["result"].stringValue
+         print("resultDic = \(resultDic)")
+         
+         }
+         */
+        Alamofire.request("\(CSJSTNetworkManager.baseURLString)/api-store/session/create", method: .post)
+            .responseJSON { response in
+                if (response.result.error == nil) {
+                    let value = response.result.value ?? Data()
+                    let swiftyJsonVar = JSON(value)
+                    let resultDic = swiftyJsonVar["result"].stringValue
+                    //                    print("创建session resultDic = \(resultDic)")
+                    
+                    callback(resultDic, true)
+                }else{
+                    SVProgressHUD.dismiss()
+                    debugPrint("创建session HTTP Request failed: \(response.result.error)")
+                    print("创建session \(response.response?.statusCode)")
+                    callback(response.response?.statusCode ?? "", false)
+                }
+        }
+    }
+    
+    //MARK: 退出登录
+    func logout(vc:UIViewController, callback : @escaping ResponseBlock){
+        let URLParams = [
+            "sessionId": "",
+            "version": CSJSwiftToolsDirector.sharedInstance.versionNumber(),
+            "device": "",
+            ]
+        Alamofire.request("\(CSJSTNetworkManager.baseURLString)/api-store/session/logout", method: .post, parameters: URLParams)
+            .responseJSON { response in
+                if (response.result.error == nil) {
+                    let value = response.result.value ?? Data()
+                    let swiftyJsonVar = JSON(value)
+                    let status = swiftyJsonVar["status"].stringValue
+                    print("status = \(status)")
+                    if status == "OK"{
+                        vc.promptLoginViewController()
+//                        ContentManager.sharedInstance.clearConfidential()
+//                        ContentManager.sharedInstance.clearStoreInfo()
+                    }else{
+                        MBProgressHUD.showWithStatus("退出登录失败", onView:vc.view)
+                    }
+                    callback(status, true)
+                }else{
+                    SVProgressHUD.dismiss()
+//                    MBProgressHUD.showWithStatus(GlobalConstants.ajm_wangluowenti, onView:vc.view)
+                    debugPrint("创建session HTTP Request failed: \(response.result.error)")
+                    print("创建session \(response.response?.statusCode)")
+                    callback(response.response?.statusCode ?? "", false)
+                }
+        }
+    }
     
     //MARK：URL Params
     //MARK: Get URL Params 有参数

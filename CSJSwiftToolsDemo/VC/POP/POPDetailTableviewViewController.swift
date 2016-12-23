@@ -259,7 +259,6 @@ class POPDetailTableviewViewController: UIViewController {
         positionAnimation?.fromValue = NSValue (cgRect: showPosition)
         positionAnimation?.toValue = NSValue (cgRect: hidePosition)
         self.popView.pop_add(positionAnimation, forKey: "frameAnimation")
-        
         isOpened = false
     }
     

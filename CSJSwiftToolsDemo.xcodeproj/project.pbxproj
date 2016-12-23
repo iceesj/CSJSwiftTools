@@ -28,6 +28,7 @@
 		7B285FC31DADED8600AC7A03 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B285FC21DADED8600AC7A03 /* CoreGraphics.framework */; };
 		7B285FC51DAF203200AC7A03 /* CSJST+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B285FC41DAF203200AC7A03 /* CSJST+Array.swift */; };
 		7B2D40401DB0C61400A32C19 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B2D403C1DB0C60600A32C19 /* SnapKit.framework */; };
+		7B320D7E1E0CC81F00B1BB02 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B320D7D1E0CC81F00B1BB02 /* NSDate+Helper.m */; };
 		7B37D3461D48627D008E266F /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B37D3451D48627D008E266F /* FourthViewController.swift */; };
 		7B37D34E1D486483008E266F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B37D3481D486483008E266F /* TableViewCell.swift */; };
 		7B37D34F1D486483008E266F /* TestUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B37D3491D486483008E266F /* TestUser.swift */; };
@@ -124,6 +125,8 @@
 		7B285FC21DADED8600AC7A03 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		7B285FC41DAF203200AC7A03 /* CSJST+Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CSJST+Array.swift"; sourceTree = "<group>"; };
 		7B2D403C1DB0C60600A32C19 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = /Users/xs1h2/Desktop/CSJSwiftTools/Carthage/Build/iOS/SnapKit.framework; sourceTree = "<absolute>"; };
+		7B320D7C1E0CC81F00B1BB02 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
+		7B320D7D1E0CC81F00B1BB02 /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
 		7B37D3451D48627D008E266F /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 		7B37D3481D486483008E266F /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		7B37D3491D486483008E266F /* TestUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUser.swift; sourceTree = "<group>"; };
@@ -310,6 +313,15 @@
 			path = Wrappers;
 			sourceTree = "<group>";
 		};
+		7B320D7B1E0CC81F00B1BB02 /* DateHelper */ = {
+			isa = PBXGroup;
+			children = (
+				7B320D7C1E0CC81F00B1BB02 /* NSDate+Helper.h */,
+				7B320D7D1E0CC81F00B1BB02 /* NSDate+Helper.m */,
+			);
+			path = DateHelper;
+			sourceTree = "<group>";
+		};
 		7B37D3441D48626F008E266F /* RAC+MVVM */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,6 +347,7 @@
 		7B4A3F7D1D478B7600F7E60E /* ObjCCommon */ = {
 			isa = PBXGroup;
 			children = (
+				7B320D7B1E0CC81F00B1BB02 /* DateHelper */,
 				7BD3F1AD1D49ED49004BCA77 /* CSJSwiftToolsDemo-Bridging-Header.h */,
 			);
 			path = ObjCCommon;
@@ -731,6 +744,7 @@
 				7B11FC091D6C489100D74FC4 /* RealmDetailBasicVC.swift in Sources */,
 				7BAB8F8D1D2FA76100A767C8 /* CSJST+NSURL.swift in Sources */,
 				7B03C82A1D3F6B090026EFCC /* ViewController2.swift in Sources */,
+				7B320D7E1E0CC81F00B1BB02 /* NSDate+Helper.m in Sources */,
 				7B4F75E41D93728D003A7F81 /* IQUIScrollView+Additions.swift in Sources */,
 				7B035DB71D6ADBA7003F88ED /* CSJSnapKitDemoSecondViewController.swift in Sources */,
 				7B37D3501D486483008E266F /* TestUserModel.swift in Sources */,

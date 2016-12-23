@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import MBProgressHUD
 
 let SCREEN_WIDTH_CSJST = UIScreen.main.bounds.size.width
 let SCREEN_HEIGHT_CSJST = UIScreen.main.bounds.size.height
@@ -250,15 +251,92 @@ class CSJSwiftToolsDirector: NSObject {
         return result
     }
     
+    func Show(message:String = "Processing...",delegate:UIViewController){
+        var load : MBProgressHUD = MBProgressHUD()
+        load = MBProgressHUD.showAdded(to: delegate.view, animated: true)
+        load.mode = MBProgressHUDMode.indeterminate
+        if(message.characters.count > 0)
+        {
+            //            load.label.text = message
+            load.labelText = message
+        }
+        //        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
+    }
     
+    func Hide(delegate:UIViewController){
+        MBProgressHUD.hide(for: delegate.view, animated: true)
+        //        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+    
+    func versionNumber() -> String {
+        let versionNumber = (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String) ?? "1.0"
+        return versionNumber
+    }
+    
+    
+    class func timeStampToString(dateFormat:String ,timeStamp:String)->String {
+        let string = NSString(string: timeStamp)
+        let timeSta:TimeInterval = string.doubleValue
+        let dfmatter = DateFormatter()
+        //"HH:mm:ss"
+        dfmatter.dateFormat=dateFormat
+        let date = NSDate(timeIntervalSince1970: timeSta)
+        //        print(dfmatter.string(from: date as Date))
+        return dfmatter.string(from: date as Date)
+    }
+    
+    class func isToday(date: Date) -> Bool {
+        let nowTimeHHmm = (Date() as NSDate).string(withFormat: "yyyy-MM-dd")
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone.init(abbreviation: "UTC")
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let myDate = dateFormatter.date(from: "\(nowTimeHHmm!)")!
+        print("myDate = \(myDate)")
+        
+        if date == myDate{
+            return true
+        }else{
+            return false
+        }
+    }
+    
+    class func csj_isNull(any: String?) -> Bool{
+        guard any?.isEmpty == false else {
+            return true
+        }
+        guard any != nil else {
+            return true
+        }
+        guard any?.characters.count != 0 else {
+            return true
+        }
+        return false
+    }
+    
+    //分割每一个字符 中间加空格
+    class func insert(seperator: String, afterEveryXChars: Int, intoString: String) -> String {
+        var output = ""
+        intoString.characters.enumerated().forEach { index, c in
+            if index % afterEveryXChars == 0 && index > 0 {
+                output += seperator
+            }
+            output.append(c)
+        }
+        return output
+    }
+    
+    class func isNumber(string : String) -> Bool {
+        for temp in string.characters{
+            guard temp.isNumber == true else {
+                return false
+            }
+        }
+        return true
+    }
     
 }
-
-
-
-
-
-
 
 
 

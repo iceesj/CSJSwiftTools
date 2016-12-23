@@ -55,4 +55,5 @@ pod 'pop'
 
 #pod 'RxDataSources', '~> 1.0.0-beta.3'
 
+pod 'CocoaLumberjack'
 end

@@ -108,6 +108,7 @@ class ViewController: UIViewController {
         label1.backgroundColor = UIColor.blue
         textfield1.textColor = UIColor.white
         label1.textColor = UIColor.black
+        
         textfield1.rx.text.bindTo(label1.rx.text).addDisposableTo(disposeBag)
         
         
