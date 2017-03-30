@@ -19,9 +19,12 @@ pod 'MJExtension'
 pod 'MJRefresh'
 
 # Network
-#pod 'Alamofire'
+pod 'Alamofire'
+pod 'AlamofireObjectMapper'
+pod 'ObjectMapper'
 pod 'SDWebImage'
 pod 'Reachability'
+
 
 # Utility
 #pod 'KeychainAccess'
@@ -29,6 +32,8 @@ pod 'Reachability'
 pod 'JLRoutes'
 #pod 'SnapKit', :git => 'https://github.com/SnapKit/SnapKit.git'
 pod 'pop'
+
+pod 'SnapKit'
 
 
 # Third-party integration
@@ -39,8 +44,10 @@ pod 'pop'
 #pod 'ReactiveViewModel'
 
 # Rx
-#pod 'RxSwift', '~> 3.0.0-beta.2'
-#pod 'RxCocoa', '~> 3.0.0-beta.2'
+pod 'RxSwift'
+pod 'RxCocoa'
+pod 'RxBlocking'
+pod 'RxDataSources'
 
 #pod 'RxDataSources'
 #pod 'RxViewModel'
