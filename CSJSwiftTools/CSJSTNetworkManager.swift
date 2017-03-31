@@ -8,7 +8,7 @@
 
 import UIKit
 //import Alamofire
-import SVProgressHUD
+//import SVProgressHUD
 import MBProgressHUD
 //import SnapKit
 //import MJExtension
@@ -98,7 +98,7 @@ class CSJSTNetworkManager : NSObject{
                     
                     callback(resultDic, true)
                 }else{
-                    SVProgressHUD.dismiss()
+//                    SVProgressHUD.dismiss()
                     debugPrint("创建session HTTP Request failed: \(String(describing: response.result.error))")
                     print("创建session \(String(describing: response.response?.statusCode))")
                     callback(response.response?.statusCode ?? "", false)
@@ -129,7 +129,7 @@ class CSJSTNetworkManager : NSObject{
                     }
                     callback(status, true)
                 }else{
-                    SVProgressHUD.dismiss()
+//                    SVProgressHUD.dismiss()
 //                    MBProgressHUD.showWithStatus(GlobalConstants.ajm_wangluowenti, onView:vc.view)
                     debugPrint("创建session HTTP Request failed: \(String(describing: response.result.error))")
                     print("创建session \(String(describing: response.response?.statusCode))")

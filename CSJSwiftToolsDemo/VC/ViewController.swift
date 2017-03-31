@@ -10,7 +10,7 @@
 //import UIKit
 import SwiftyJSON
 import MJExtension
-import SVProgressHUD
+//import SVProgressHUD
 
 import RxCocoa
 import RxSwift
@@ -204,12 +204,12 @@ class ViewController: UIViewController {
             print("error = \(String(describing: error))")
             //弹出错误
             guard error == nil else{
-                SVProgressHUD.showError(withStatus: "网络有点问题，请稍后再尝试")
+//                SVProgressHUD.showError(withStatus: "网络有点问题，请稍后再尝试")
                 return
             }
             guard status != "ERROR" else{
                 print("是错误")
-                SVProgressHUD.showError(withStatus: "\(swiftyJsonVar["message"].stringValue)")
+//                SVProgressHUD.showError(withStatus: "\(swiftyJsonVar["message"].stringValue)")
                 return
             }
             
@@ -240,7 +240,7 @@ class ViewController: UIViewController {
             //弹出错误
             guard status != "ERROR" else{
                 print("是错误")
-                SVProgressHUD.showError(withStatus: "\(swiftyJsonVar["message"].stringValue)")
+//                SVProgressHUD.showError(withStatus: "\(swiftyJsonVar["message"].stringValue)")
                 return
             }
             
@@ -263,7 +263,7 @@ class ViewController: UIViewController {
             let status = swiftyJsonVar["status"].stringValue
             guard status != "ERROR" else{
                 print("是错误")
-                SVProgressHUD.showError(withStatus: "\(swiftyJsonVar["message"].stringValue)")
+//                SVProgressHUD.showError(withStatus: "\(swiftyJsonVar["message"].stringValue)")
                 return
             }
             let resultDic = swiftyJsonVar["result"].stringValue
@@ -284,7 +284,7 @@ class ViewController: UIViewController {
             let status = swiftyJsonVar["status"].stringValue
             guard status != "ERROR" else{
                 print("是错误")
-                SVProgressHUD.showError(withStatus: "\(swiftyJsonVar["message"].stringValue)")
+//                SVProgressHUD.showError(withStatus: "\(swiftyJsonVar["message"].stringValue)")
                 return
             }
             let resultDic = swiftyJsonVar["result"].dictionaryValue

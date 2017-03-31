@@ -868,8 +868,6 @@
 					"-framework",
 					"\"SDWebImage\"",
 					"-framework",
-					"\"SVProgressHUD\"",
-					"-framework",
 					"\"SwiftyJSON\"",
 					"-framework",
 					"\"pop\"",
@@ -881,6 +879,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "CSJSwiftToolsDemo/ObjCCommon/CSJSwiftToolsDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				USE_HEADERMAP = YES;
 			};
 			name = Debug;
 		};
@@ -928,8 +927,6 @@
 					"-framework",
 					"\"SDWebImage\"",
 					"-framework",
-					"\"SVProgressHUD\"",
-					"-framework",
 					"\"SwiftyJSON\"",
 					"-framework",
 					"\"pop\"",
@@ -940,6 +937,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = CSJDevALL;
 				SWIFT_OBJC_BRIDGING_HEADER = "CSJSwiftToolsDemo/ObjCCommon/CSJSwiftToolsDemo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				USE_HEADERMAP = YES;
 			};
 			name = Release;
 		};
