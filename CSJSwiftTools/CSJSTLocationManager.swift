@@ -65,7 +65,7 @@ class CSJSTLocationManager: NSObject, CLLocationManagerDelegate {
                 
                 if let mark = marks?.first
                 {
-                    print(mark.locality)
+                    print(mark.locality ?? <#default value#>)
                     self.findCityHandler?(mark.locality)
                 }
                 

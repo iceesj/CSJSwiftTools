@@ -99,8 +99,8 @@ class CSJSTNetworkManager : NSObject{
                     callback(resultDic, true)
                 }else{
                     SVProgressHUD.dismiss()
-                    debugPrint("创建session HTTP Request failed: \(response.result.error)")
-                    print("创建session \(response.response?.statusCode)")
+                    debugPrint("创建session HTTP Request failed: \(String(describing: response.result.error))")
+                    print("创建session \(String(describing: response.response?.statusCode))")
                     callback(response.response?.statusCode ?? "", false)
                 }
         }
@@ -131,8 +131,8 @@ class CSJSTNetworkManager : NSObject{
                 }else{
                     SVProgressHUD.dismiss()
 //                    MBProgressHUD.showWithStatus(GlobalConstants.ajm_wangluowenti, onView:vc.view)
-                    debugPrint("创建session HTTP Request failed: \(response.result.error)")
-                    print("创建session \(response.response?.statusCode)")
+                    debugPrint("创建session HTTP Request failed: \(String(describing: response.result.error))")
+                    print("创建session \(String(describing: response.response?.statusCode))")
                     callback(response.response?.statusCode ?? "", false)
                 }
         }

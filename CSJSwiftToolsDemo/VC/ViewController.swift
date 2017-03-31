@@ -198,10 +198,10 @@ class ViewController: UIViewController {
      */
     func postJSON() {
         CSJSTNetworkManager.sharedInstance.getURLParams("/api-front/application/current-front-ios-version", [:]) { (swiftyJsonVar, error) in
-            print("string = \(error), 返回的json = \(swiftyJsonVar)")
+            print("string = \(String(describing: error)), 返回的json = \(swiftyJsonVar)")
             //返回的Dict
             let status = swiftyJsonVar["status"].stringValue
-            print("error = \(error)")
+            print("error = \(String(describing: error))")
             //弹出错误
             guard error == nil else{
                 SVProgressHUD.showError(withStatus: "网络有点问题，请稍后再尝试")
@@ -233,7 +233,7 @@ class ViewController: UIViewController {
         
         CSJSTNetworkManager.sharedInstance.getURLParams("/api-front/session/get-user-info", body)
         { (swiftyJsonVar, error) in
-            print("string = \(error), 返回的json = \(swiftyJsonVar)")
+            print("string = \(String(describing: error)), 返回的json = \(swiftyJsonVar)")
             //返回的Dict
             let status = swiftyJsonVar["status"].stringValue
             
