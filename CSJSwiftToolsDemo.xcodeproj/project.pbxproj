@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		69B100971E8F83AD009DEBAE /* CSJSTHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B100961E8F83AD009DEBAE /* CSJSTHUD.swift */; };
 		7B035DB51D6ADBA7003F88ED /* POPDetailTableviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B035DB01D6ADBA7003F88ED /* POPDetailTableviewViewController.swift */; };
 		7B035DB61D6ADBA7003F88ED /* POPTableviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B035DB11D6ADBA7003F88ED /* POPTableviewViewController.swift */; };
 		7B035DB71D6ADBA7003F88ED /* CSJSnapKitDemoSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B035DB31D6ADBA7003F88ED /* CSJSnapKitDemoSecondViewController.swift */; };
@@ -93,6 +94,7 @@
 
 /* Begin PBXFileReference section */
 		375F2ACE2794B81F5FFA8511 /* Pods-CSJSwiftToolsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSJSwiftToolsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CSJSwiftToolsDemo/Pods-CSJSwiftToolsDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		69B100961E8F83AD009DEBAE /* CSJSTHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSJSTHUD.swift; sourceTree = "<group>"; };
 		7B035DB01D6ADBA7003F88ED /* POPDetailTableviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POPDetailTableviewViewController.swift; sourceTree = "<group>"; };
 		7B035DB11D6ADBA7003F88ED /* POPTableviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POPTableviewViewController.swift; sourceTree = "<group>"; };
 		7B035DB31D6ADBA7003F88ED /* CSJSnapKitDemoSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSJSnapKitDemoSecondViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +199,14 @@
 				8487D0491093B0247CD801CF /* Pods_CSJSwiftToolsDemo.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		69B100951E8F8394009DEBAE /* CSJSwiftTools手动 */ = {
+			isa = PBXGroup;
+			children = (
+				69B100961E8F83AD009DEBAE /* CSJSTHUD.swift */,
+			);
+			path = "CSJSwiftTools手动";
 			sourceTree = "<group>";
 		};
 		7B035DAF1D6ADBA7003F88ED /* POP */ = {
@@ -395,6 +405,7 @@
 			children = (
 				316E222026819C7F540250D4 /* Frameworks */,
 				7BAB8F811D2F88EE00A767C8 /* CSJSwiftTools */,
+				69B100951E8F8394009DEBAE /* CSJSwiftTools手动 */,
 				7BAB8F511D2F840D00A767C8 /* CSJSwiftToolsDemo */,
 				7BAB8F661D2F840E00A767C8 /* CSJSwiftToolsDemoTests */,
 				7BAB8F711D2F840E00A767C8 /* CSJSwiftToolsDemoUITests */,
@@ -676,6 +687,7 @@
 				7B0A77F01D6D945500CAC198 /* MBProgressHUD.swift in Sources */,
 				7B03C82E1D3F6B9D0026EFCC /* Model.xcdatamodeld in Sources */,
 				7BAB8F8B1D2FA5FD00A767C8 /* CSJST+UIStoryboard.swift in Sources */,
+				69B100971E8F83AD009DEBAE /* CSJSTHUD.swift in Sources */,
 				7BD3F1B01D4A0E5D004BCA77 /* DDNNewsCell.swift in Sources */,
 				7B4F75E31D93728D003A7F81 /* IQNSArray+Sort.swift in Sources */,
 				7B4F75ED1D93728D003A7F81 /* IQTextView.swift in Sources */,
@@ -872,6 +884,7 @@
 					"-framework",
 					"\"pop\"",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -enable-bridging-pch";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iceesj.CSJSwiftToolsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "08b4b97b-73f1-4f7a-909a-b59386db6609";
@@ -931,6 +944,7 @@
 					"-framework",
 					"\"pop\"",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -enable-bridging-pch";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iceesj.CSJSwiftToolsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "08b4b97b-73f1-4f7a-909a-b59386db6609";

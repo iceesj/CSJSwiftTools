@@ -176,7 +176,7 @@ class BaomingViewController: UIViewController , UITableViewDataSource {
             if i == 3{
                 print("是性别")
                 guard AJM_Panduan_BaomingSEX != "Nomal" else{
-                    MBProgressHUD.showWithStatus("请选择性别", onView: self.view)
+                    CSJSTHUD.showWithStatus("请选择性别", onView: view)
                     return
                 }
             }
@@ -188,19 +188,19 @@ class BaomingViewController: UIViewController , UITableViewDataSource {
             else{
                 let (validator, prompt) = loginViewModel.validator(baomingStatus, i)
                 guard let textFieldText = (tableView.cellForRow(at: IndexPath(row: i, section: 0)) as? TextCell)?.textFieldText , validator(textFieldText)() else {
-                    //                    MBProgressHUD.showWithStatus(prompt, onView: self.view)
+                    
                     if prompt == "Error"{
                         if i==2 {
-                            MBProgressHUD.showWithStatus("请输入姓名", onView: self.view)
+                            CSJSTHUD.showWithStatus("请输入姓名", onView: view)
                         }
                         else if i==1 {
-                            MBProgressHUD.showWithStatus("请输入短信验证码", onView: self.view)
+                            CSJSTHUD.showWithStatus("请输入短信验证码", onView: view)
                         }
                         else{
-                            MBProgressHUD.showWithStatus("请完整输入", onView: self.view)
+                            CSJSTHUD.showWithStatus("请输入姓名", onView: view)
                         }
                     }else{
-                        MBProgressHUD.showWithStatus(prompt, onView: self.view)
+                        CSJSTHUD.showWithStatus(prompt, onView: view)
                     }
                     return
                 }
@@ -242,7 +242,6 @@ class BaomingViewController: UIViewController , UITableViewDataSource {
                 let statusCode = json["statusCode"].stringValue
                 if statusCode == "0" {
                     print("提交成功")
-//                    MBProgressHUD.showWithStatus("报名成功！", onView: self.view)
 //                    CSJHUD.csjtoastCenter("报名成功", time: 2.0)
                     self.overLayView.hidden = false
                     
@@ -254,14 +253,12 @@ class BaomingViewController: UIViewController , UITableViewDataSource {
 //                    }
                 }else{
                     print("提交失败")
-                    MBProgressHUD.showWithStatus("提交报名出错", onView: self.view)
 //                    CSJHUD.csjtoastCenter("提交报名出错", time: 2.0)
                 }
             }
             else{
                 print("error = \(error!)")
                 let errorString = "\(error!)"
-                MBProgressHUD.showWithStatus(errorString, onView: self.view)
 //                CSJHUD.csjtoastCenter(errorString, time: 2.0)
 
             }
@@ -497,7 +494,7 @@ class TextWithButtonCell: UITableViewCell, TextCell {
         
         parentView.endEditing(true)
         guard let text = textField.text , text.isValidPhoneNumber() else {
-            MBProgressHUD.showWithStatus("请输入正确的手机号", onView: parentView)
+            CSJSTHUD.showWithStatus("请输入正确的手机号", onView: parentView)
             return
         }
         

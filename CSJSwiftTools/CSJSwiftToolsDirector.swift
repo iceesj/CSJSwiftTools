@@ -257,7 +257,6 @@ class CSJSwiftToolsDirector: NSObject {
         load.mode = MBProgressHUDMode.indeterminate
         if(message.characters.count > 0)
         {
-            //            load.label.text = message
             load.labelText = message
         }
         //        UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -286,8 +285,10 @@ class CSJSwiftToolsDirector: NSObject {
         return dfmatter.string(from: date as Date)
     }
     
+    /*
     class func isToday(date: Date) -> Bool {
         let nowTimeHHmm = (Date() as NSDate).string(withFormat: "yyyy-MM-dd")
+        
         
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone.init(abbreviation: "UTC")
@@ -301,6 +302,7 @@ class CSJSwiftToolsDirector: NSObject {
             return false
         }
     }
+    */
     
     class func csj_isNull(any: String?) -> Bool{
         guard any?.isEmpty == false else {

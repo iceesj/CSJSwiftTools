@@ -10,7 +10,7 @@
 //import UIKit
 import SwiftyJSON
 import MJExtension
-//import SVProgressHUD
+import SVProgressHUD
 
 import RxCocoa
 import RxSwift
@@ -197,19 +197,19 @@ class ViewController: UIViewController {
      POST JSON，Back JS、ON
      */
     func postJSON() {
-        CSJSTNetworkManager.sharedInstance.getURLParams("/api-front/application/current-front-ios-version", [:]) { (swiftyJsonVar, error) in
+        CSJSTNetworkManager.shared.getURLParams("/api-front/application/current-front-ios-version", [:]) { (swiftyJsonVar, error) in
             print("string = \(String(describing: error)), 返回的json = \(swiftyJsonVar)")
             //返回的Dict
             let status = swiftyJsonVar["status"].stringValue
             print("error = \(String(describing: error))")
             //弹出错误
             guard error == nil else{
-//                SVProgressHUD.showError(withStatus: "网络有点问题，请稍后再尝试")
+                SVProgressHUD.showError(withStatus: "网络有点问题，请稍后再尝试")
                 return
             }
             guard status != "ERROR" else{
                 print("是错误")
-//                SVProgressHUD.showError(withStatus: "\(swiftyJsonVar["message"].stringValue)")
+                SVProgressHUD.showError(withStatus: "\(swiftyJsonVar["message"].stringValue)")
                 return
             }
             
@@ -231,7 +231,7 @@ class ViewController: UIViewController {
             "device": "pc",
             ]
         
-        CSJSTNetworkManager.sharedInstance.getURLParams("/api-front/session/get-user-info", body)
+        CSJSTNetworkManager.shared.getURLParams("/api-front/session/get-user-info", body)
         { (swiftyJsonVar, error) in
             print("string = \(String(describing: error)), 返回的json = \(swiftyJsonVar)")
             //返回的Dict
@@ -240,7 +240,7 @@ class ViewController: UIViewController {
             //弹出错误
             guard status != "ERROR" else{
                 print("是错误")
-//                SVProgressHUD.showError(withStatus: "\(swiftyJsonVar["message"].stringValue)")
+                SVProgressHUD.showError(withStatus: "\(swiftyJsonVar["message"].stringValue)")
                 return
             }
             
@@ -259,11 +259,11 @@ class ViewController: UIViewController {
     func postFromData() {
         //POST 无参数
         let body = ["123":123]
-        CSJSTNetworkManager.sharedInstance.postURLParamsOnly("/api-front/session/create", body) { (swiftyJsonVar, error) in
+        CSJSTNetworkManager.shared.postURLParamsOnly("/api-front/session/create", body) { (swiftyJsonVar, error) in
             let status = swiftyJsonVar["status"].stringValue
             guard status != "ERROR" else{
                 print("是错误")
-//                SVProgressHUD.showError(withStatus: "\(swiftyJsonVar["message"].stringValue)")
+                SVProgressHUD.showError(withStatus: "\(swiftyJsonVar["message"].stringValue)")
                 return
             }
             let resultDic = swiftyJsonVar["result"].stringValue
@@ -280,11 +280,11 @@ class ViewController: UIViewController {
             "version": "1.0.0",
             "device": "pc",
             ]
-        CSJSTNetworkManager.sharedInstance.postURLParams("/api-front/session/login-with-password", URLParams) { (swiftyJsonVar, error) in
+        CSJSTNetworkManager.shared.postURLParams("/api-front/session/login-with-password", URLParams) { (swiftyJsonVar, error) in
             let status = swiftyJsonVar["status"].stringValue
             guard status != "ERROR" else{
                 print("是错误")
-//                SVProgressHUD.showError(withStatus: "\(swiftyJsonVar["message"].stringValue)")
+                SVProgressHUD.showError(withStatus: "\(swiftyJsonVar["message"].stringValue)")
                 return
             }
             let resultDic = swiftyJsonVar["result"].dictionaryValue
@@ -301,7 +301,7 @@ class ViewController: UIViewController {
             "version":"1.0.0",
             ]
         
-        CSJSTNetworkManager.sharedInstance.sendRequest2(body) { (json, error) in
+        CSJSTNetworkManager.shared.sendRequest2(body) { (json, error) in
             DispatchQueue.main.async {
                 if error == nil, let json = json {
                     print("json = \(json)")
@@ -315,7 +315,7 @@ class ViewController: UIViewController {
         
         
         /*
-        CSJSTNetworkManager.sharedInstance.sendRequest(body) { (json, error) in
+        CSJSTNetworkManager.shared.sendRequest(body) { (json, error) in
             dispatch_async(dispatch_get_main_queue()) {
                 if error == nil, let json = json {
                     print("json = \(json)")

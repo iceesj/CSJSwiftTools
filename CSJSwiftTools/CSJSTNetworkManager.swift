@@ -8,7 +8,7 @@
 
 import UIKit
 //import Alamofire
-//import SVProgressHUD
+import SVProgressHUD
 import MBProgressHUD
 //import SnapKit
 //import MJExtension
@@ -68,7 +68,7 @@ enum NetworkErrorType: Error, CustomStringConvertible {
 
 //MARK: NSURLSession
 class CSJSTNetworkManager : NSObject{
-    static let sharedInstance = CSJSTNetworkManager()
+    static let shared = CSJSTNetworkManager()
     //正式
     static let baseURLString = ""
     //测试
@@ -81,7 +81,7 @@ class CSJSTNetworkManager : NSObject{
     func getSession(callback : @escaping ResponseBlock) {
         //iOS 8
         /*
-         CSJSTNetworkManager.sharedInstance.postURLParamsOnly("/api-store/session/create",[:]){
+         CSJSTNetworkManager.shared.postURLParamsOnly("/api-store/session/create",[:]){
          (swiftyJsonVar, error) in
          let resultDic = swiftyJsonVar["result"].stringValue
          print("resultDic = \(resultDic)")
@@ -98,7 +98,7 @@ class CSJSTNetworkManager : NSObject{
                     
                     callback(resultDic, true)
                 }else{
-//                    SVProgressHUD.dismiss()
+                    SVProgressHUD.dismiss()
                     debugPrint("创建session HTTP Request failed: \(String(describing: response.result.error))")
                     print("创建session \(String(describing: response.response?.statusCode))")
                     callback(response.response?.statusCode ?? "", false)
@@ -125,11 +125,11 @@ class CSJSTNetworkManager : NSObject{
 //                        ContentManager.sharedInstance.clearConfidential()
 //                        ContentManager.sharedInstance.clearStoreInfo()
                     }else{
-                        MBProgressHUD.showWithStatus("退出登录失败", onView:vc.view)
+//                        CSJSTHUD.showWithStatus("退出登录失败", onView: vc.view)
                     }
                     callback(status, true)
                 }else{
-//                    SVProgressHUD.dismiss()
+                    SVProgressHUD.dismiss()
 //                    MBProgressHUD.showWithStatus(GlobalConstants.ajm_wangluowenti, onView:vc.view)
                     debugPrint("创建session HTTP Request failed: \(String(describing: response.result.error))")
                     print("创建session \(String(describing: response.response?.statusCode))")
