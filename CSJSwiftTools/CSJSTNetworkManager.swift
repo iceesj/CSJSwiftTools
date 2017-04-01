@@ -9,7 +9,7 @@
 import UIKit
 //import Alamofire
 import SVProgressHUD
-import MBProgressHUD
+//import MBProgressHUD
 //import SnapKit
 //import MJExtension
 import ObjectMapper
