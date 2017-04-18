@@ -379,6 +379,7 @@ class CSJSwiftToolsDirector: NSObject {
         return dfmatter.string(from: date as Date)
     }
     
+    /*
     class func isToday(date: Date) -> Bool {
         let nowTimeHHmm = (Date() as NSDate).string(withFormat: "yyyy-MM-dd")
         
@@ -394,6 +395,7 @@ class CSJSwiftToolsDirector: NSObject {
             return false
         }
     }
+    */
     
     class func csj_isNull(any: String?) -> Bool{
         guard any?.isEmpty == false else {
