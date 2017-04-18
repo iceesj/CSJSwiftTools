@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
 
   s.name          = "CSJSwiftTools"
-  s.version       = "0.0.5"
+  s.version       = "0.0.7"
   s.license       = "MIT"
   s.summary       = "曹盛杰Swift工具包"
   s.homepage     = 'https://github.com/iceesj/CSJSwiftTools'
   s.author        = { "iceesj" => "iceesj@gmail.com" }
-  s.source       = { :git => 'https://github.com/iceesj/CSJSwiftTools.git', :tag => '0.0.5' }
+  s.source       = { :git => 'https://github.com/iceesj/CSJSwiftTools.git', :tag => '0.0.7' }
   s.source_files  = "CSJSwiftTools/*.{swift}"
   s.platform = :ios
   s.ios.deployment_target = '8.0'

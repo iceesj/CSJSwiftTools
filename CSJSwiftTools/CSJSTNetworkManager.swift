@@ -16,6 +16,7 @@ import ObjectMapper
 import Alamofire
 import SwiftyJSON
 
+
 let ajmapp_downloadurl = "https://itunes.apple.com/cn/app/id"
 
 
