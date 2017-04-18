@@ -22,4 +22,12 @@ public extension Date{
             return false
         }
     }
+    
+    public func csjst_toString(dateFormat: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone.init(abbreviation: "UTC")
+        dateFormatter.dateFormat = dateFormat
+        return dateFormatter.string(from: self)
+    }
+    
 }

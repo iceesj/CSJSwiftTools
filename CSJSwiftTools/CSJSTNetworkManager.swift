@@ -16,7 +16,7 @@ import ObjectMapper
 import Alamofire
 import SwiftyJSON
 
-let ajmapp_downloadurl = "https://itunes.apple.com/us/app/"
+let ajmapp_downloadurl = "https://itunes.apple.com/cn/app/id"
 
 
 typealias NetworkCallbackBlock = (JSON?, NetworkErrorType?) -> Void
@@ -95,7 +95,6 @@ class CSJSTNetworkManager : NSObject{
                     let swiftyJsonVar = JSON(value)
                     let resultDic = swiftyJsonVar["result"].stringValue
                     //                    print("创建session resultDic = \(resultDic)")
-                    
                     callback(resultDic, true)
                 }else{
                     SVProgressHUD.dismiss()
@@ -121,7 +120,7 @@ class CSJSTNetworkManager : NSObject{
                     let status = swiftyJsonVar["status"].stringValue
                     print("status = \(status)")
                     if status == "OK"{
-                        vc.promptLoginViewController()
+                        vc.promptLoginViewController_csjst(String: "")
 //                        ContentManager.sharedInstance.clearConfidential()
 //                        ContentManager.sharedInstance.clearStoreInfo()
                     }else{

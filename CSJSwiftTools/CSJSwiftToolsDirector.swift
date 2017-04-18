@@ -13,6 +13,11 @@ import MBProgressHUD
 let SCREEN_WIDTH_CSJST = UIScreen.main.bounds.size.width
 let SCREEN_HEIGHT_CSJST = UIScreen.main.bounds.size.height
 
+let DEVICE_IS_IPHONE4_SCREEN_CSJ = (UI_USER_INTERFACE_IDIOM() == .phone && UIScreen.main.bounds.size.height<548.0)
+let DEVICE_IS_IPHONE5_SCREEN_CSJ = (UI_USER_INTERFACE_IDIOM() == .phone && UIScreen.main.bounds.size.height >= 548.0 && UIScreen.main.bounds.size.height<647.0)
+let DEVICE_IS_IPHONE6_SCREEN_CSJ = (UI_USER_INTERFACE_IDIOM() == .phone && UIScreen.main.bounds.size.height >= 647.0 && UIScreen.main.bounds.size.height<716)
+let DEVICE_IS_IPHONE6PLUS_SCREEN_CSJ = (UI_USER_INTERFACE_IDIOM() == .phone && UIScreen.main.bounds.size.height >= 716 )
+
 //单例导演类 提供各种方法
 class CSJSwiftToolsDirector: NSObject {
     static let sharedInstance = CSJSwiftToolsDirector()
@@ -23,6 +28,32 @@ class CSJSwiftToolsDirector: NSObject {
     func changeHight(_ height :CGFloat) -> CGFloat? {
         let newHeight : CGFloat = SCREEN_WIDTH_CSJST * height / CGFloat(640)
         return CGFloat(newHeight) 
+    }
+    
+    //根据iPhone6来
+    class func width(_ value: CGFloat) -> CGFloat {
+        //转化成 代码长度
+        if DEVICE_IS_IPHONE6_SCREEN_CSJ{
+            return value/2
+        }else if DEVICE_IS_IPHONE6PLUS_SCREEN_CSJ{
+            return value*1242/750/2
+        }else if DEVICE_IS_IPHONE5_SCREEN_CSJ{
+            return value*640/750/2
+        }else{
+            return value*640/750/2
+        }
+    }
+    
+    class func height(_ value: CGFloat) -> CGFloat {
+        if DEVICE_IS_IPHONE6_SCREEN_CSJ{
+            return value/2
+        }else if DEVICE_IS_IPHONE6PLUS_SCREEN_CSJ{
+            return (value/2)*716/647
+        }else if DEVICE_IS_IPHONE5_SCREEN_CSJ{
+            return (value/2)*548/647
+        }else{
+            return (value/2)*460/647
+        }
     }
     
     /*
@@ -47,8 +78,8 @@ class CSJSwiftToolsDirector: NSObject {
         let ssLength = ss.length
         let ss1range = ss.range(of: ":").location
         let ss2range = ss.range(of: ":").location+1
-        let ss1 : NSString = ss.substring(with: NSMakeRange(0, ss1range)) as NSString
-        let ss2 : NSString = ss.substring(with: NSMakeRange(ss2range, ssLength-ss2range)) as NSString
+        let ss1 : String = ss.substring(with: NSMakeRange(0, ss1range))
+        let ss2 : String = ss.substring(with: NSMakeRange(ss2range, ssLength-ss2range))
         print("ss1 = \(ss1),ss2 = \(ss2)")
         let ssNew = "\(ss1)\(ss2)"
         //        print("ssNew = \(ssNew)")
@@ -172,7 +203,7 @@ class CSJSwiftToolsDirector: NSObject {
         vc.present(alertController, animated: true, completion: nil)
     }
     
-    /**自定义Alert*/
+    /**自定义Alert1*/
     func ui_showAlertVC(_ vc: UIViewController, title : String, message : String,block:((_ quedingString: String?) -> Void)? , block2:((_ quxiaoString: String?) -> Void)? ) {
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -183,6 +214,38 @@ class CSJSwiftToolsDirector: NSObject {
         alertController.addAction(UIAlertAction(title: "取消",style: .cancel, handler: { action in
             print("你猜 取消")
             block2?("取消")
+        }))
+        vc.present(alertController, animated: true, completion: nil)
+    }
+    
+    func ui_showAlertWindows(_ vc: UIViewController, title : String, message : String,block:((_ quedingString: String?) -> Void)? , block2:((_ quxiaoString: String?) -> Void)? ) {
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "确定",style: .default, handler: { action in
+            print("AlertWindows 确定")
+            block?("确定")
+        }))
+        alertController.addAction(UIAlertAction(title: "取消",style: .cancel, handler: { action in
+            print("AlertWindows 取消")
+            block2?("取消")
+        }))
+        //        vc.present(alertController, animated: true, completion: nil)
+        let alertWindow = UIWindow(frame: UIScreen.main.bounds)
+        alertWindow.rootViewController = UIViewController()
+        alertWindow.windowLevel = UIWindowLevelAlert + 1;
+        alertWindow.makeKeyAndVisible()
+        alertWindow.rootViewController?.present(alertController, animated: true, completion: nil)
+    }
+    
+    /**自定义Alert2*/
+    func ui_showAlertVC2(_ vc: UIViewController, title : String, message : String,block:((_ quedingString: String?) -> Void)? , block2:((_ quxiaoString: String?) -> Void)? ) {
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "去更新",style: .default, handler: { action in
+            block?("去更新")
+        }))
+        alertController.addAction(UIAlertAction(title: "退出",style: .cancel, handler: { action in
+            block2?("退出")
         }))
         vc.present(alertController, animated: true, completion: nil)
     }
@@ -203,24 +266,55 @@ class CSJSwiftToolsDirector: NSObject {
     }
     
     //错误 删除
-    class func shijianChuo_13Num() -> NSString {
+//    class func shijianChuo_13Num() -> NSString {
+//        let dat : Date = Date.init(timeIntervalSinceNow: 0)
+//        print("dat = \(dat)")
+//        let a : TimeInterval = dat.timeIntervalSince1970 * 1000
+//        let timeString = NSString (format: "%.f", a)
+//        print("timeString = \(timeString)")
+//        return timeString
+//    }
+    //13位
+    class func shijianChuo_13Num() -> String {
         let dat : Date = Date.init(timeIntervalSinceNow: 0)
-        print("dat = \(dat)")
-        let a : TimeInterval = dat.timeIntervalSince1970 * 1000
+        //        print("dat = \(dat)")
+        let a : TimeInterval = dat.timeIntervalSince1970
         let timeString = NSString (format: "%.f", a)
         print("timeString = \(timeString)")
-        return timeString
+        return "\(timeString)000"
+    }
+    
+    class func shijianChuo_13Num_Double() -> Double {
+        let dat : Date = Date.init(timeIntervalSinceNow: 0)
+        //        print("dat = \(dat)")
+        let a : TimeInterval = dat.timeIntervalSince1970
+        let timeString = NSString (format: "%.f", a)
+        print("timeString = \(timeString)")
+        return ("\(timeString)000" as NSString).doubleValue
+        
     }
     
     class func shijianChuo_10Num() -> NSString {
         let dat : Date = Date.init(timeIntervalSinceNow: 0)
-        print("dat = \(dat)")
+        print("shijianChuo_10Num dat = \(dat)")
         let a : TimeInterval = dat.timeIntervalSince1970
         let timeString = NSString (format: "%.f", a)
         print("timeString = \(timeString)")
         return timeString
     }
     
+    class func shijianChuo_into(date : Date, hour: Int, minute: Int, second: Int) -> String {
+        //        let dat : Date = Date.init(timeIntervalSinceNow: 0)
+        print("shijianChuo_into dat = \(date)")
+        //        let date: Date = Date()
+        let cal: Calendar = Calendar(identifier: .gregorian)
+        let newDate: Date = cal.date(bySettingHour: hour, minute: minute, second: second, of: date)!
+        let a : TimeInterval = newDate.timeIntervalSince1970
+        let timeString = NSString (format: "%.f", a)
+        let newTimeString = "\(timeString)000"
+        //        print("timeString = \(timeString)")
+        return newTimeString
+    }
     
     //替换 ？替换成 /
     func stringTihuan(_ fullString : String, _ firstString : String, _ secondString : String) -> String {
@@ -285,10 +379,8 @@ class CSJSwiftToolsDirector: NSObject {
         return dfmatter.string(from: date as Date)
     }
     
-    /*
     class func isToday(date: Date) -> Bool {
         let nowTimeHHmm = (Date() as NSDate).string(withFormat: "yyyy-MM-dd")
-        
         
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone.init(abbreviation: "UTC")
@@ -302,7 +394,6 @@ class CSJSwiftToolsDirector: NSObject {
             return false
         }
     }
-    */
     
     class func csj_isNull(any: String?) -> Bool{
         guard any?.isEmpty == false else {

@@ -98,12 +98,12 @@ public extension UIViewController {
     /*
      之前包含的页面
      */
-    func contentViewController(_ index: Int = 0) -> UIViewController {
+    func contentViewController_csjst(_ index: Int = 0) -> UIViewController {
         if let navigationController = self as? UINavigationController {
             return navigationController.visibleViewController!
         } else if let tabbarController = self as? UITabBarController {
             guard let viewControllers = tabbarController.viewControllers else {return self}
-            return viewControllers[index].contentViewController(index)
+            return viewControllers[index].contentViewController_csjst(index)
         }
         return self
     }
@@ -111,8 +111,8 @@ public extension UIViewController {
     /*
      弹出登录页
      */
-    func promptLoginViewController() {
-        let loginNavigationController = UIStoryboard.CSJST_initViewControllerWithIdentifier("")!
+    func promptLoginViewController_csjst(String vcName : String) {
+        let loginNavigationController = UIStoryboard.CSJST_initViewControllerWithIdentifier(vcName)!
         present(loginNavigationController, animated: true, completion: nil)
     }
     

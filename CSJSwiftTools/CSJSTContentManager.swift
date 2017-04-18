@@ -27,6 +27,7 @@ class CSJSTContentManager: NSObject {
         UserDefaults().removeObject(forKey: key)
         if let string = item {
             UserDefaults().setValue(string, forKeyPath: key)
+//            UserDefaults.standard.synchronize()
         }
     }
     
